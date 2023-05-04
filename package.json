@@ -1,4 +1,21 @@
 {
+  "name": "atelier",
+  "description": "## Inital Set up",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FEC-Pina-Fraise-Frivolities/Atelier.git"
+  },
+  "author": "Pina Fraise Frivolities",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FEC-Pina-Fraise-Frivolities/Atelier/issues"
+  },
+  "homepage": "https://github.com/FEC-Pina-Fraise-Frivolities/Atelier#readme",
   "dependencies": {
     "axios": "^1.4.0",
     "babel": "^6.23.0",
