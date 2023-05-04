@@ -21,7 +21,15 @@
 ### _Push your change into our repo_ ###
 - **git push [remote-name] [remote-branch]**: You may wish to update the contents of a remote repo by adding some commits that you made locally.
 
-### _Merging and resolving conflicts (WIP)_ ###
-- **git checkout master**: Switch back to master
+### _Merging and resolving conflicts_ ###
+Switch back to the master branch and pull the latest master branch from github
+- **git checkout [base-branch-name]**: Switch back to the master branch
+- **git pull origin**: Pull the latest master branch
 
-- **git merge [remote-branch]**: merge mast with the branch
+Rebase your branch (option 1)
+- **git checkout [branch-name]**: Switch back to the working branch
+- **git rebase [base-branch-name]**: Rebase your working branch with the latest master branch
+
+Merge your branch (option 2)
+- **git checkout [branch-name]**: Switch back to the working branch
+- **git merge [base-branch-name]**: Merge your working branch with the latest master branch
