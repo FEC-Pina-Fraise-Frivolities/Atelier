@@ -6,7 +6,8 @@ module.exports = {
   },
   extends: [
     'plugin:react/recommended',
-    ['airbnb', 'airbnb/hooks'],
+    'airbnb',
+    'airbnb/hooks',
   ],
   overrides: [
   ],
@@ -18,5 +19,6 @@ module.exports = {
     'react',
   ],
   rules: {
+    'import/extensions': [2, { jsx: 'always' }],
   },
 };

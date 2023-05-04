@@ -1,16 +1,13 @@
-import { React, useState, useEffect } from 'react';
+import { React, useEffect, useState } from 'react';
 import { ReactDom, render } from 'react-dom';
 
+function App() {
+  const { productId, setProductId } = useState('');
+  const { outfitArr, setOutfitArr } = useState([]);
 
-
-const App = () => {
-    const { productId, setProductId } = useState('');
-    const { outfitArr, setOutfitArr } = useState([]);
-
-    return(
-        <div>Pinapple</div>
-    )
-
-};
+  return (
+    <div>Pinapple</div>
+  );
+}
 
 export default App;
