@@ -82,9 +82,9 @@ __webpack_require__.r(__webpack_exports__);
 var AddToOutfitCard = function AddToOutfitCard() {};
 var OutfitList = function OutfitList(props) {
   var ifRelated = false;
-  var ifOutfit = window.localStorage.getItem('outfitArr') !== '' ? true : false;
+  var ifOutfit = window.localStorage.getItem('outfitArr') !== null ? true : false;
   var handleAdd = function handleAdd() {
-    if (window.localStorage.getItem('outfitArr') !== '') {
+    if (window.localStorage.getItem('outfitArr') !== null) {
       var arr = JSON.parse(window.localStorage.getItem('outfitArr'));
       // refactor idea: use set
       if (arr.indexOf(props.productId) < 0) {

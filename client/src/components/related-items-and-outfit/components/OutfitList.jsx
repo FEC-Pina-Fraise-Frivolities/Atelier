@@ -8,10 +8,10 @@ const AddToOutfitCard = () => {
 
 const OutfitList = (props) => {
   let ifRelated = false;
-  let ifOutfit = window.localStorage.getItem('outfitArr') !== '' ? true : false;
+  let ifOutfit = window.localStorage.getItem('outfitArr') !== null ? true : false;
 
   const handleAdd = () => {
-    if (window.localStorage.getItem('outfitArr') !== '') {
+    if (window.localStorage.getItem('outfitArr') !== null) {
       let arr = JSON.parse(window.localStorage.getItem('outfitArr'));
       // refactor idea: use set
       if (arr.indexOf(props.productId) < 0) { arr.push(props.productId); }

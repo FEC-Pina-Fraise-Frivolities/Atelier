@@ -21,6 +21,9 @@ app.get('/cart', controller.cart.get);
 app.post('/cart', controller.cart.post);
 //reviews
 /**********/
+app.get('./reviews', controller.reviews.getReviews);
+app.get('./reviews/meta', controller.reviews.getReviewsMeta);
+
 //questions
 /***********/
 
