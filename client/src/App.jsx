@@ -1,5 +1,6 @@
 import { React, useEffect, useState } from 'react';
 import { ReactDom, render } from 'react-dom';
+import Overview from './components/overview/Overview';
 import RelatedAndOutfit from './components/related-items-and-outfit/index.jsx';
 
 const App = ()=> {
@@ -9,6 +10,7 @@ const App = ()=> {
 
   return (
     <div>
+        <Overview />
       <div>Item-detail  {productId}</div>
       <p>...</p>
       <p>...</p>
@@ -23,3 +25,5 @@ const App = ()=> {
 
 export default App;
 
+import { React, useEffect, useState } from 'react';
+import { ReactDom, render } from 'react-dom';
