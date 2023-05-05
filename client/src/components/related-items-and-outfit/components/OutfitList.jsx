@@ -42,8 +42,6 @@ const OutfitList = (props) => {
       {ifOutfit && <OutfitAlready />}
     </div>
   );
-
-
 };
 
 export default OutfitList;
