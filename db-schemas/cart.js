@@ -9,7 +9,7 @@ GET /cart
       "count": Number
   },
   {
-      "skuid": Number,
+      "sku_id": Number,
       "count": Number
   },
   //...
