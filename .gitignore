@@ -134,3 +134,6 @@ dist
 
 # bundle files
 bundle.js*
+
+# config files
+config.js
