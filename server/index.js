@@ -1,12 +1,13 @@
-require("dotenv").config();
-const express = require("express");
-const path = require("path");
+/* eslint-disable no-console */
+require('dotenv').config();
+const express = require('express');
+const path = require('path');
 
 const app = express();
 let controller = require('./controller');
 
 // Serves up all static and generated assets in ../client/dist.
-app.use(express.static(path.join(__dirname, "../client/dist")));
+app.use(express.static(path.join(__dirname, '../client/dist')));
 app.use(express.json());
 
 
@@ -33,4 +34,4 @@ app.get('./reviews/meta', controller.reviews.getReviewsMeta);
 /* ---------------- Server listens ---------------- */
 
 app.listen(3000);
-console.log(`Listening at http://localhost:3000`);
+console.log('Listening at http://localhost:3000');

@@ -1,4 +1,4 @@
-import { React, useState, useEffect } from 'react';
+import { React, useEffect, useState } from 'react';
 import { ReactDom, render } from 'react-dom';
 import RelatedAndOutfit from './components/related-items-and-outfit/index.jsx';
 
@@ -22,3 +22,4 @@ const App = ()=> {
 };
 
 export default App;
+
