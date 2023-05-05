@@ -131,3 +131,9 @@ dist
 
 # .DS_Store
 .DS_Store
+<<<<<<< HEAD
+=======
+
+# bundle files
+bundle.js*
+>>>>>>> 6f9feae9214e24f705b9e79719e32b7a309d579f
