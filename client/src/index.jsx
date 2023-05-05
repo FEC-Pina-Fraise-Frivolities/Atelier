@@ -1,16 +1,6 @@
-import React from 'react';
-import { createRoot } from 'react-dom/client';
+import { React } from 'react';
+// import { ReactDOM, render } from 'react-dom';
+import { render } from 'react-dom';
+import App from './App';
 
-document.body.innerHTML = '<div id="app"></div>';
-
-const root = createRoot(document.getElementById('app'));
-
-root.render(<h1>Hello, world</h1>);
-
-const stuff = () => {
-  const thisVar = 'A variable';
-  const otherVar = 'Some other variable';
-  return (thisVar + otherVar);
-};
-
-stuff();
+render(<App />, document.getElementById('root'));
