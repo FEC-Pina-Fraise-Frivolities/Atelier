@@ -1,7 +1,10 @@
+import Star from './Star.jsx';
+
 const IndividualTile = function ({review}) {
 
   return (
     <div className="review container">
+      <Star />
       <div>{review.reviewer_name}, {review.date}</div>
       <h3>{review.summary}</h3>
       <div>{review.body}</div>

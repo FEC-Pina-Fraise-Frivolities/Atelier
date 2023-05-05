@@ -1,5 +1,6 @@
 import { React, useState, useEffect } from 'react';
 import ReviewList from './ReviewList.jsx';
+import Star from './Star.jsx';
 
 const output = {
   "product": "40348",
