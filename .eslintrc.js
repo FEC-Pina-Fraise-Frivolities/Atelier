@@ -19,6 +19,5 @@ module.exports = {
     'react',
   ],
   rules: {
-    'import/extensions': [2, { jsx: 'always' }],
   },
 };
