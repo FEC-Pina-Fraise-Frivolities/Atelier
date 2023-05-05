@@ -1,15 +1,19 @@
 import { React, useState, useEffect } from 'react';
-import { ReactDom, render } from 'react-dom';
+import RatingAndReview from './components/ratings-and-reviews/index.jsx';
 
 
 
 const App = () => {
-    const { productId, setProductId } = useState('');
-    const { outfitArr, setOutfitArr } = useState([]);
+    const [productId, setProductId] = useState('');
 
-    return(
-        <div>Pinapple</div>
-    )
+    return  (
+
+      <>
+        <div className="rating-and-review">
+          <RatingAndReview />
+        </div>
+      </>
+    );
 
 };
 

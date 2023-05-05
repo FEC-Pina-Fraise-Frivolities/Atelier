@@ -58,3 +58,12 @@
    padding: 16px;
    margin: auto;
  }
+
+ /* ----------------------------------------------------
+ ---------------Rating and Review Section---------------
+ -----------------------------------------------------*/
+
+ .rating-and-review .container {
+  border: 1px solid black;
+  margin: 5px;
+ }
