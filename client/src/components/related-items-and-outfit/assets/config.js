@@ -1,3 +1,3 @@
-let TOKEN = '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';
+let TOKEN = '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';
 
 export {TOKEN};

@@ -1,35 +1,30 @@
 import { React, useState, useEffect } from 'react';
-import { TOKEN } from '../assets/config.js';
 import ProductCard from './ProductCard.jsx';
-const RelatedList = ({productId, setProductId}) => {
+
+const RelatedList = ({ productId, setProductId }) => {
   console.log('current id in list', productId);
   const [relateArr, setRelatedArr] = useState([]);
   console.log('storage', window.localStorage);
   useEffect(() => {
-    fetch(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products/${productId}/related`,
-      {
-        headers: {
-          'Authorization': TOKEN
-        }
-      })
-      // res.json(): promise type
-      // get the array as result
-      .then(res => { return res.json(); })
+    fetch(`http://localhost:3000/products/${productId}/related`)
+      .then((res) => res.json())
       .then((result) => {
-        console.log(result);
+        console.log('array', result);
         setRelatedArr(result);
-
       })
-      .catch(err => console.log('get related list failed', err));
+      .catch((err) => console.log('get related list failed', err));
   }, [productId]);
-  let ifRelated = true;
+  const ifRelated = true;
   return (
-    relateArr.map((id, index) => {
-      return <ProductCard id = {id} key = {index} setProductId = {setProductId} ifRelated = {ifRelated}/>;
-    })
+    relateArr.map((id, index) => (
+      <ProductCard
+        id={id}
+        key={index}
+        setProductId={setProductId}
+        ifRelated={ifRelated}
+      />
+    ))
   );
-
-
 };
 
 export default RelatedList;

@@ -61,21 +61,6 @@ var App = function App() {
 
 /***/ }),
 
-/***/ "./client/src/components/related-items-and-outfit/assets/config.js":
-/*!*************************************************************************!*\
-  !*** ./client/src/components/related-items-and-outfit/assets/config.js ***!
-  \*************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "TOKEN": () => (/* binding */ TOKEN)
-/* harmony export */ });
-var TOKEN = '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';
-
-
-/***/ }),
-
 /***/ "./client/src/components/related-items-and-outfit/components/OutfitList.jsx":
 /*!**********************************************************************************!*\
   !*** ./client/src/components/related-items-and-outfit/components/OutfitList.jsx ***!
@@ -95,9 +80,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var AddToOutfitCard = function AddToOutfitCard() {};
-function OutfitList(props) {
+var OutfitList = function OutfitList(props) {
   var ifRelated = false;
-  var ifOutfit = window.localStorage.getItem('outfitArr') !== '';
+  var ifOutfit = window.localStorage.getItem('outfitArr') !== '' ? true : false;
   var handleAdd = function handleAdd() {
     if (window.localStorage.getItem('outfitArr') !== '') {
       var arr = JSON.parse(window.localStorage.getItem('outfitArr'));
@@ -131,7 +116,7 @@ function OutfitList(props) {
       children: " add "
     }), ifOutfit && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(OutfitAlready, {})]
   });
-}
+};
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (OutfitList);
 
 /***/ }),
@@ -178,16 +163,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _assets_config_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../assets/config.js */ "./client/src/components/related-items-and-outfit/assets/config.js");
-/* harmony import */ var _ProductCard_jsx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ProductCard.jsx */ "./client/src/components/related-items-and-outfit/components/ProductCard.jsx");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _ProductCard_jsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ProductCard.jsx */ "./client/src/components/related-items-and-outfit/components/ProductCard.jsx");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
 function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
 function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
 function _iterableToArrayLimit(arr, i) { var _i = null == arr ? null : "undefined" != typeof Symbol && arr[Symbol.iterator] || arr["@@iterator"]; if (null != _i) { var _s, _e, _x, _r, _arr = [], _n = !0, _d = !1; try { if (_x = (_i = _i.call(arr)).next, 0 === i) { if (Object(_i) !== _i) return; _n = !1; } else for (; !(_n = (_s = _x.call(_i)).done) && (_arr.push(_s.value), _arr.length !== i); _n = !0); } catch (err) { _d = !0, _e = err; } finally { try { if (!_n && null != _i["return"] && (_r = _i["return"](), Object(_r) !== _r)) return; } finally { if (_d) throw _e; } } return _arr; } }
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
-
 
 
 
@@ -201,17 +184,10 @@ var RelatedList = function RelatedList(_ref) {
     setRelatedArr = _useState2[1];
   console.log('storage', window.localStorage);
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
-    fetch("https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products/".concat(productId, "/related"), {
-      headers: {
-        'Authorization': _assets_config_js__WEBPACK_IMPORTED_MODULE_1__.TOKEN
-      }
-    })
-    // res.json(): promise type
-    // get the array as result
-    .then(function (res) {
+    fetch("http://localhost:3000/products/".concat(productId, "/related")).then(function (res) {
       return res.json();
     }).then(function (result) {
-      console.log(result);
+      console.log('array', result);
       setRelatedArr(result);
     })["catch"](function (err) {
       return console.log('get related list failed', err);
@@ -219,7 +195,7 @@ var RelatedList = function RelatedList(_ref) {
   }, [productId]);
   var ifRelated = true;
   return relateArr.map(function (id, index) {
-    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_ProductCard_jsx__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_ProductCard_jsx__WEBPACK_IMPORTED_MODULE_1__["default"], {
       id: id,
       setProductId: setProductId,
       ifRelated: ifRelated
