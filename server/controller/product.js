@@ -7,7 +7,7 @@ module.exports = {
       method: 'GET',
       url: endpoint,
       headers: {
-        Authorization: config.TOKEN
+        Authorization: process.env.AUTH,
       },
     };
     axios(option)
@@ -24,7 +24,7 @@ module.exports = {
       method: 'GET',
       url: endpoint,
       headers: {
-        Authorization: config.TOKEN
+        Authorization: process.env.AUTH,
       },
     };
     axios(option)
@@ -38,14 +38,10 @@ module.exports = {
     const productId = req.params.product_id;
     const endpoint = `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products/${productId}/styles`;
     const option = {
-  getProductStyle(req, res) {
-    const productId = req.params.product_id;
-    const endpoint = `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products/${productId}/styles`;
-    const option = {
       method: 'GET',
       url: endpoint,
       headers: {
-        Authorization: config.TOKEN
+        Authorization: process.env.AUTH,
       },
     };
     axios(option)
@@ -62,7 +58,7 @@ module.exports = {
       method: 'GET',
       url: endpoint,
       headers: {
-        Authorization: config.TOKEN
+        Authorization: process.env.AUTH,
       },
     };
     axios(option)
