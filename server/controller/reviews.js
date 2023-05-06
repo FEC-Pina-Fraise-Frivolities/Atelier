@@ -1,5 +1,4 @@
 const axios = require('axios');
-const config = require('../../config.js');
 
 module.exports = {
   getReviews: function(req, res) {
@@ -8,7 +7,7 @@ module.exports = {
       method: 'GET',
       url: endpoint,
       headers: {
-        Authorization: config.TOKEN
+        Authorization: process.env.AUTH
       },
     };
     axios(option)
@@ -24,7 +23,7 @@ module.exports = {
       method: 'GET',
       url: endpoint,
       headers: {
-        Authorization: config.TOKEN
+        Authorization: process.env.AUTH
       },
     };
     axios(option)

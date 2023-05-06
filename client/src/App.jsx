@@ -24,6 +24,3 @@ const App = ()=> {
 };
 
 export default App;
-
-import { React, useEffect, useState } from 'react';
-import { ReactDom, render } from 'react-dom';

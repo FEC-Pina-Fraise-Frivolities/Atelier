@@ -1,5 +1,4 @@
 const axios = require('axios');
-const config = require('../../config.js');
 module.exports = {
   getProducts: function (req, res) {
     let endpoint = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products/';

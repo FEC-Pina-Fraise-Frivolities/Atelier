@@ -42,7 +42,7 @@
   "devDependencies": {
     "babel-plugin-add-import-extension": "^1.6.0",
     "babel-preset-airbnb": "^5.0.0",
-    "eslint": "^8.39.0",
+    "eslint": "^8.40.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-plugin-import": "^2.27.5",
     "eslint-plugin-jsx-a11y": "^6.7.1",
