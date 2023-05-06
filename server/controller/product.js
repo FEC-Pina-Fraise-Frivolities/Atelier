@@ -1,5 +1,6 @@
 const axios = require('axios');
-const config = require('../../config.js');
+require('dotenv').config();
+
 module.exports = {
   getProducts: function (req, res) {
     let endpoint = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products/';
@@ -7,7 +8,7 @@ module.exports = {
       method: 'GET',
       url: endpoint,
       headers: {
-        Authorization: config.TOKEN
+        Authorization: process.env.KEY
       },
     };
     axios(option)
@@ -25,7 +26,7 @@ module.exports = {
       method: 'GET',
       url: endpoint,
       headers: {
-        Authorization: config.TOKEN
+        Authorization: process.env.KEY
       },
     };
     axios(option)
@@ -43,7 +44,7 @@ module.exports = {
       method: 'GET',
       url: endpoint,
       headers: {
-        Authorization: config.TOKEN
+        Authorization: process.env.KEY
       },
     };
     axios(option)
@@ -60,7 +61,7 @@ module.exports = {
       method: 'GET',
       url: endpoint,
       headers: {
-        Authorization: config.TOKEN
+        Authorization: process.env.KEY
       },
     };
     axios(option)

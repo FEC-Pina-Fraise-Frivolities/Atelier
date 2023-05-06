@@ -1,5 +1,5 @@
 const axios = require('axios');
-const config = require('../../config.js');
+require('dotenv').config();
 
 module.exports = {
   getReviews: function(req, res) {
@@ -8,7 +8,7 @@ module.exports = {
       method: 'GET',
       url: endpoint,
       headers: {
-        Authorization: config.TOKEN
+        Authorization: process.env.KEY
       },
     };
     axios(option)
@@ -24,7 +24,7 @@ module.exports = {
       method: 'GET',
       url: endpoint,
       headers: {
-        Authorization: config.TOKEN
+        Authorization: process.env.KEY
       },
     };
     axios(option)
@@ -32,7 +32,6 @@ module.exports = {
         res.send(result.data);
       })
       .catch((err) => console.log('server: get products failed', err));
-
 
   }
 

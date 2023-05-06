@@ -67,3 +67,23 @@
   border: 1px solid black;
   margin: 5px;
  }
+
+ .rating-and-review .star {
+  width: 79.69px;
+  position: relative;
+}
+
+ .rating-and-review .empty-star {
+  color: #ccc;
+  display: inline-block;
+  max-width: 100%;
+}
+
+.rating-and-review .filled-star {
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  left: 0;
+
+}
+
