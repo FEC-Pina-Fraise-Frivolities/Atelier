@@ -31,5 +31,5 @@ app.get('./reviews/meta', controller.reviews.getReviewsMeta);
 
 /* ---------------- Server listens ---------------- */
 
-app.listen(3000);
-console.log('Listening at http://localhost:3000');
+app.listen(process.env.PORT);
+console.log(`Listening at http://localhost:${process.env.PORT}`);
