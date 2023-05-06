@@ -1,39 +1,37 @@
 const axios = require('axios');
-const config = require('../../config.js');
+require('dotenv').config();
 
 module.exports = {
-  getReviews: function(req, res) {
-    let endpoint = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/reviews/';
-    let option = {
+  getReviews(req, res) {
+    const endpoint = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/reviews/';
+    const option = {
       method: 'GET',
       url: endpoint,
       headers: {
-        Authorization: config.TOKEN
+        Authorization: process.env.TOKEN,
       },
     };
     axios(option)
-      .then(result => {
+      .then((result) => {
         res.send(result.data);
       })
       .catch((err) => console.log('server: get products failed', err));
   },
 
-  getReviewsMeta: function(req, res) {
-    let endpoint = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/reviews/meta';
-    let option = {
+  getReviewsMeta(req, res) {
+    const endpoint = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/reviews/meta';
+    const option = {
       method: 'GET',
       url: endpoint,
       headers: {
-        Authorization: config.TOKEN
+        Authorization: process.env.TOKEN,
       },
     };
     axios(option)
-      .then(result => {
+      .then((result) => {
         res.send(result.data);
       })
       .catch((err) => console.log('server: get products failed', err));
-
-
-  }
+  },
 
 };
