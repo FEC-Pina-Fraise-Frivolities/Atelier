@@ -13,7 +13,7 @@ app.use(express.json());
 // Set up our routes
 // product
 app.get('/products', controller.product.getProducts);
-app.get('/products/:productId', controller.product.getProduct);
+app.get('/products/:product_id', controller.product.getProduct);
 app.get('/products/:product_id/styles', controller.product.getProductStyle);
 app.get('/products/:product_id/related', controller.product.getRelated);
 // cart
