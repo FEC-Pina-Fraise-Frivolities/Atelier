@@ -1,4 +1,4 @@
-exports.product = require('./product.js');
-exports.cart = require('./cart.js');
-exports.reviews = require('./reviews.js');
-exports.questions = require('./questions.js');
+exports.product = require('./product');
+exports.cart = require('./cart');
+exports.reviews = require('./reviews');
+exports.questions = require('./questions');

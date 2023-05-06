@@ -1,5 +1,5 @@
-import { React, useState, useEffect } from 'react';
-import ProductCard from './ProductCard.jsx';
+import { React, useEffect, useState } from 'react';
+import ProductCard from './ProductCard';
 
 const RelatedList = ({ productId, setProductId }) => {
   console.log('current id in list', productId);

@@ -1,6 +1,6 @@
 import { React, useState } from 'react';
 
-const ProductCard = (props)=>{
+function ProductCard(props) {
   const handleClick = () => {
     props.setProductId(props.id);
   };
@@ -10,6 +10,6 @@ const ProductCard = (props)=>{
       <div onClick={handleClick}>{props.id}</div>
     </div>
   );
-};
+}
 
 export default ProductCard;

@@ -1,28 +1,26 @@
-import { React, useState } from 'react';
-import OutfitList from './components/OutfitList.jsx';
-import RelatedList from './components/RelatedList.jsx';
+import React from 'react';
+import OutfitList from './components/OutfitList';
+import RelatedList from './components/RelatedList';
 
-const RelatedAndOutfit = (props) => {
-  //let productId = 40346;
-  //const [productId, setProductId] = useState(40346);
-
-  somefunc = () => {
-    blah
-  }
-  afasf
-
+function RelatedAndOutfit(productId, setProductId) {
+  // let productId = 40346;
+  // const [productId, setProductId] = useState(40346);
 
   return (
     <div>
-      <p>related list of {props.productId}</p>
-      <RelatedList productId = {props.productId} setProductId = {props.setProductId}/>
+      <p>
+        related list of
+        {productId}
+      </p>
+      <RelatedList productId={productId} setProductId={setProductId} />
       <p> ++++++++</p>
       <p>outfit list</p>
-      <OutfitList productId = {props.productId}
-        setProductId = {props.setProductId}/>
+      <OutfitList
+        productId={productId}
+        setProductId={setProductId}
+      />
 
-
-
-    </div>);
-};
+    </div>
+  );
+}
 export default RelatedAndOutfit;
