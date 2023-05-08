@@ -15,6 +15,7 @@ function Overview({ productId, setProductId }) {
   const [productData, setProductData] = useState({});
   const [productEntries, setProductEntries] = useState([]);
   const [productStyles, setProductStyles] = useState([]);
+  const [selectedStyle, setSelectedStyle] = useState({});
 
   useEffect(() => {
     const productEndpoint = `http://localhost:3000/products/${productId}`;
@@ -32,6 +33,7 @@ function Overview({ productId, setProductId }) {
       .then((res) => res.json())
       .then((result) => {
         setProductStyles(result.results);
+        setSelectedStyle(result.results[0]);
       })
       .catch((err) => {
         console.log('get product data failed', err);
@@ -41,8 +43,8 @@ function Overview({ productId, setProductId }) {
   return (
     <div>
       <div />
-      <ProductData productData={productData} />
-      <ProductStyles productStyles={productStyles} />
+      <ProductData productData={productData} selectedStyle={selectedStyle} />
+      <ProductStyles productStyles={productStyles} selectedStyle={selectedStyle} setSelectedStyle={setSelectedStyle} />
     </div>
   );
 }

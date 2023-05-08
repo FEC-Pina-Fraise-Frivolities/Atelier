@@ -1,16 +1,24 @@
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 import React, { useEffect, useState } from 'react';
 
-function ProductStyles({ productStyles }) {
+function ProductStyles({ productStyles, selectedStyle, setSelectedStyle }) {
   return (
     <div className="productStyles">
       {/* productStyles: */}
       {productStyles.map((style) => (
-        <div key={style.style_id}>
-          {/* <div className="styleName">
-            Name:
-            {' '}
+        <div
+          className="style"
+          key={style.style_id}
+          onClick={() => {
+            console.log('selected style is: ', selectedStyle);
+            console.log('clicked: ', style.name);
+            setSelectedStyle(style);
+          }}
+        >
+          <div className="styleName">
             {style.name}
-          </div> */}
+          </div>
           <div className="stylePhotoFrame">
             <img className="stylePhoto" src={style.photos[0].thumbnail_url} alt={style.name} />
           </div>

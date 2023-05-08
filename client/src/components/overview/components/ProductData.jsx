@@ -1,6 +1,21 @@
 import React, { useEffect, useState } from 'react';
 
-function ProductData({ productData }) {
+function ProductData({ productData, selectedStyle }) {
+  const [salePrice, setSalePrice] = useState('');
+  const [listPrice, setListPrice] = useState('');
+  const [listPriceStyle, setListPriceStyle] = useState({});
+
+  useEffect(() => {
+    setListPrice(productData.default_price);
+    if (typeof selectedStyle.sale_price !== 'string') {
+      setSalePrice('');
+      setListPriceStyle({});
+    } else {
+      setSalePrice(`$${selectedStyle.sale_price}`);
+      setListPriceStyle({ textDecoration: 'line-through' });
+    }
+  }, [selectedStyle]);
+
   return (
     <div className="productData">
       <div className="productName">
@@ -15,9 +30,12 @@ function ProductData({ productData }) {
         {' '}
         {productData.category}
       </div>
-      <div className="productPrice">
+      <div className="productPrice" style={listPriceStyle}>
         {' $'}
-        {productData.default_price}
+        {listPrice}
+      </div>
+      <div className="salePrice">
+        {salePrice}
       </div>
 
       {/* {productEntries.map((entry) => (
