@@ -36,7 +36,7 @@ module.exports = {
   },
 
   getProductStyle(req, res) {
-    const productId = req.params.product_id;
+    const { productId } = req.params;
     const endpoint = `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products/${productId}/styles`;
     const option = {
       method: 'GET',

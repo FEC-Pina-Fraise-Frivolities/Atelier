@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react';
+import ProductData from './components/ProductData';
+import ProductStyles from './components/ProductStyles';
 
 // AR = 1*a+2*b+3*c+4*d+5*e/(R)
 // Average rating formula where
@@ -12,11 +14,11 @@ import React, { useEffect, useState } from 'react';
 function Overview({ productId, setProductId }) {
   const [productData, setProductData] = useState({});
   const [productEntries, setProductEntries] = useState([]);
+  const [productStyles, setProductStyles] = useState([]);
 
   useEffect(() => {
-    const url = `http://localhost:3000/products/${productId}`;
-    console.log('url:', url);
-    fetch(url)
+    const productEndpoint = `http://localhost:3000/products/${productId}`;
+    fetch(productEndpoint)
       .then((res) => res.json())
       .then((result) => {
         setProductData(result);
@@ -25,21 +27,22 @@ function Overview({ productId, setProductId }) {
       .catch((err) => {
         console.log('get product data failed', err);
       });
+
+    fetch(`${productEndpoint}/styles`)
+      .then((res) => res.json())
+      .then((result) => {
+        setProductStyles(result.results);
+      })
+      .catch((err) => {
+        console.log('get product data failed', err);
+      });
   }, []);
 
   return (
     <div>
-      Product Data:
       <div />
-      <div className="productData">
-        {productEntries.map((entry) => (
-          <div className="entry" key={entry}>
-            {' '}
-            {`${entry[0]}: ${entry[1]}`}
-            {' '}
-          </div>
-        ))}
-      </div>
+      <ProductData productData={productData} />
+      <ProductStyles productStyles={productStyles} />
     </div>
   );
 }
