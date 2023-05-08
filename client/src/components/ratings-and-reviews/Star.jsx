@@ -1,8 +1,7 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-function Star({rating}) {
-
-
+function Star({ rating }) {
   return (
     <div className="star">
       <div className="filled-star" style={{ width: `${(rating / 5) * 100}%`, overflow: 'hidden' }}>
@@ -16,5 +15,9 @@ function Star({rating}) {
     </div>
   );
 }
+
+Star.propTypes = {
+  rating: PropTypes.number.isRequired,
+};
 
 export default Star;

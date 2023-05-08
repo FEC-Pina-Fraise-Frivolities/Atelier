@@ -1,6 +1,6 @@
 import { React, useState, useEffect } from 'react';
 import ReviewList from './ReviewList';
-import Star from './Star';
+import RatingBD from './RatingBD';
 
 
 const output = {
@@ -60,7 +60,7 @@ const output = {
           "review_id": 1279303,
           "rating": 4,
           "summary": "lame.",
-          "recommend": true,
+          "recommend": false,
           "response": null,
           "body": "don't like it",
           "date": "2023-03-26T00:00:00.000Z",
@@ -78,6 +78,7 @@ const RatingAndReview = function () {
 
   return (
     <>
+      <RatingBD reviews={reviews}/>
       <ReviewList reviews={reviews} />
     </>
   )
