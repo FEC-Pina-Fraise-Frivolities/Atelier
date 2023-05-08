@@ -4,9 +4,6 @@ module.exports = {
   getReviews(req, res) {
     const endpoint = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/reviews/';
     const option = {
-  getReviews(req, res) {
-    const endpoint = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/reviews/';
-    const option = {
       method: 'GET',
       url: endpoint,
       headers: {
@@ -14,7 +11,6 @@ module.exports = {
       },
     };
     axios(option)
-      .then((result) => {
       .then((result) => {
         res.send(result.data);
       })
@@ -24,9 +20,6 @@ module.exports = {
   getReviewsMeta(req, res) {
     const endpoint = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/reviews/meta';
     const option = {
-  getReviewsMeta(req, res) {
-    const endpoint = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/reviews/meta';
-    const option = {
       method: 'GET',
       url: endpoint,
       headers: {
@@ -34,7 +27,6 @@ module.exports = {
       },
     };
     axios(option)
-      .then((result) => {
       .then((result) => {
         res.send(result.data);
       })
