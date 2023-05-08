@@ -41,7 +41,7 @@ function Overview({ productId, setProductId }) {
   }, []);
 
   return (
-    <div>
+    <div className="productData">
       <div />
       <ProductData productData={productData} selectedStyle={selectedStyle} />
       <ProductStyles productStyles={productStyles} selectedStyle={selectedStyle} setSelectedStyle={setSelectedStyle} />

@@ -108,7 +108,15 @@
   font-weight: bold;
  }
 
- .productStyles {
+ .styleSelector .selectedStyleName {
+  position:absolute;
+  right:450px;
+  top: 250px;
+  font-size: larger;
+  font-weight: bold;
+ }
+
+ .styleSelector .productStyles{
   width: 100%;
   display: flex;
   flex-direction: row;

@@ -4,28 +4,29 @@ import React, { useEffect, useState } from 'react';
 
 function ProductStyles({ productStyles, selectedStyle, setSelectedStyle }) {
   return (
-    <div className="productStyles">
-      {/* productStyles: */}
-      {productStyles.map((style) => (
-        <div
-          className="style"
-          key={style.style_id}
-          onClick={() => {
-            console.log('selected style is: ', selectedStyle);
-            console.log('clicked: ', style.name);
-            setSelectedStyle(style);
-          }}
-        >
-          <div className="styleName">
-            {style.name}
+    <div className="styleSelector">
+      <div className="selectedStyleName">{selectedStyle.name}</div>
+      <div className="productStyles">
+        {productStyles.map((style) => (
+          <div
+            className="style"
+            key={style.style_id}
+            onClick={() => {
+              console.log('selected style is: ', selectedStyle);
+              console.log('clicked: ', style.name);
+              setSelectedStyle(style);
+            }}
+          >
+            <div className="styleName">
+              {style.name}
+            </div>
+            <div className="stylePhotoFrame">
+              <img className="stylePhoto" src={style.photos[0].thumbnail_url} alt={style.name} />
+            </div>
           </div>
-          <div className="stylePhotoFrame">
-            <img className="stylePhoto" src={style.photos[0].thumbnail_url} alt={style.name} />
-          </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
-
   );
 }
 
