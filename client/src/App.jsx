@@ -11,6 +11,6 @@ function App() {
       <RatingAndReview />
     </>
   );
-};
+}
 
 export default App;
