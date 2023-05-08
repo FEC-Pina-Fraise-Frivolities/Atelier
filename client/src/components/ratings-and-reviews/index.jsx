@@ -1,6 +1,7 @@
 import { React, useState, useEffect } from 'react';
 import ReviewList from './ReviewList';
 import RatingBD from './RatingBD';
+import ProductBD from './ProductBD';
 
 
 const output = {
@@ -71,6 +72,25 @@ const output = {
   ]
 };
 
+const characteristics = {
+  "Size": {
+      "id": 135232,
+      "value": "2.8709677419354839"
+  },
+  "Width": {
+      "id": 135233,
+      "value": "2.8500000000000000"
+  },
+  "Comfort": {
+      "id": 135234,
+      "value": "3.2558139534883721"
+  },
+  "Quality": {
+      "id": 135235,
+      "value": "3.3488372093023256"
+  }
+}
+
 
 const RatingAndReview = function () {
 
@@ -78,7 +98,8 @@ const RatingAndReview = function () {
 
   return (
     <>
-      <RatingBD reviews={reviews}/>
+      <RatingBD reviews={reviews} />
+      <ProductBD />
       <ReviewList reviews={reviews} />
     </>
   )

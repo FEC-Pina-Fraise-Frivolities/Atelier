@@ -11,7 +11,7 @@ function ReviewList({ reviews }) {
         <IndividualTile review={review} key={review.review_id}/>
       ))}
     </div>
-  )
+  );
 }
 
 export default ReviewList;
