@@ -22,7 +22,7 @@ app.post('/cart', controller.cart.post);
 // reviews
 /** ******* */
 app.get('./reviews', controller.reviews.getReviews);
-app.get('./reviews/meta', controller.reviews.getReviewsMeta);
+app.get('./reviews/meta/:productid', controller.reviews.getReviewsMeta);
 
 // questions
 /** ******** */

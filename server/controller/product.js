@@ -18,7 +18,7 @@ module.exports = {
   },
 
   getProduct(req, res) {
-    const productId = req.params.product_id;
+    const { productId } = req.params;
     const endpoint = ` https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products/${productId}`;
     const option = {
       method: 'GET',
@@ -31,7 +31,8 @@ module.exports = {
       .then((result) => {
         res.send(result.data);
       })
-      .catch((err) => console.log('server: get product detail failed', err));
+      .catch((err) => console.log('server: get product detail failed', err))
+      .finally(console.log('req params: ', req.params));
   },
 
   getProductStyle(req, res) {

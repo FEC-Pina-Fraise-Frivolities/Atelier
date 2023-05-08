@@ -1,6 +1,5 @@
 import { React, useState } from 'react';
 import Overview from './components/overview/Overview';
-import RelatedAndOutfit from './components/related-items-and-outfit/index';
 
 function App() {
   const [productId, setProductId] = useState(40346);
@@ -9,24 +8,7 @@ function App() {
 
   return (
     <div>
-      <Overview />
-      <div>
-        Item-detail
-        {productId}
-      </div>
-      <p>...</p>
-      <p>...</p>
-      <div><RelatedAndOutfit productId={productId} setProductId={setProductId} /></div>
-      <p>...</p>
-      <p>...</p>
-      <div>
-        q and a
-        {productId}
-      </div>
-      <div>
-        review
-        {productId}
-      </div>
+      <Overview productId={productId} setProductId={setProductId} />
     </div>
   );
 }
