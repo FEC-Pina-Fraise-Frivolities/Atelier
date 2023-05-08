@@ -8,9 +8,7 @@ function App() {
 
   return (
     <>
-      <div className="rating-and-review">
-        <RatingAndReview />
-      </div>
+      <RatingAndReview />
     </>
   );
 };

@@ -93,16 +93,17 @@ const characteristics = {
 
 
 const RatingAndReview = function () {
-
   const [reviews, setReviews] = useState(output.results);
 
   return (
-    <>
-      <RatingBD reviews={reviews} />
-      <ProductBD characteristics={characteristics} />
+    <div className="rating-and-review">
+      <div className="summary container">
+        <RatingBD reviews={reviews} />
+        <ProductBD characteristics={characteristics} />
+      </div>
       <ReviewList reviews={reviews} />
-    </>
-  )
-}
+    </div>
+  );
+};
 
 export default RatingAndReview;
