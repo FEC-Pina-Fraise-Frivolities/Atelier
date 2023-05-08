@@ -99,7 +99,7 @@ const RatingAndReview = function () {
   return (
     <>
       <RatingBD reviews={reviews} />
-      <ProductBD />
+      <ProductBD characteristics={characteristics} />
       <ReviewList reviews={reviews} />
     </>
   )

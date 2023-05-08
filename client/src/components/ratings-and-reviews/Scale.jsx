@@ -1,9 +1,18 @@
 import React from 'react';
 
-function Scale() {
-  return (
-    <div className="scale container">
-      <span>&#8227;</span>
+function Scale({ characteristic, category }) {
+  return characteristic === undefined ? '' : (
+    <div className="character container">
+      <p>{category}</p>
+      <div className="scale container">
+        {/* eslint "react/self-closing-comp":0 */}
+        <div className="triangle-down" style={{ left: `${(characteristic.value / 5) * 100}%` }}></div>
+        <div className="scale-bars">
+          <div className="scale-bar"></div>
+          <div className="scale-bar"></div>
+          <div className="scale-bar"></div>
+        </div>
+      </div>
     </div>
   );
 }

@@ -1,10 +1,12 @@
 import React from 'react';
 import Scale from './Scale';
 
-function ProductBD() {
+function ProductBD({ characteristics }) {
   return (
     <div className="product container">
-      <Scale />
+      {Object.keys(characteristics).map((key) => (
+        <Scale characteristic={characteristics[key]} category={key} key={key} />
+      ))}
     </div>
   );
 }

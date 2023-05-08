@@ -71,15 +71,16 @@
   margin: 5px;
  }
 
+ /* ------------------ Star ---------------------- */
+
  .rating-and-review .star {
-  width: 79.69px;
   position: relative;
+  display: inline-block;
 }
 
  .rating-and-review .empty-star {
   color: #ccc;
   display: inline-block;
-  max-width: 100%;
 }
 
 .rating-and-review .filled-star {
@@ -87,8 +88,12 @@
   position: absolute;
   top: 0;
   left: 0;
-
 }
+
+.rating-and-review .star span {
+  font-size: 16px;
+}
+
 
 /* ------------------ Bar ---------------------- */
 
@@ -124,8 +129,32 @@
 
 /* ------------------ Scale ---------------------- */
 
-.rating-and-review .scale span {
-  rotate: 90deg;
+.rating-and-review .scale.container {
+  position: relative;
+  height: 8px;
+  border: 0px;
+  width: 226px;
+}
+
+.rating-and-review .scale .triangle-down {
+  width: 0;
+  height: 0;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 8px solid black;
+  position: absolute;
+  top: 0px;
+}
+
+.rating-and-review .scale .scale-bars {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.rating-and-review .scale .scale-bar {
+  background-color: #ffd6ff;
   display: inline-block;
-  font-size: 20px;
+  height: 8px;
+  width: 31%;
 }

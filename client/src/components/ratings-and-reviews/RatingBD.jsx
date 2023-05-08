@@ -1,5 +1,4 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
 import Star from './Star';
 import Bar from './Bar';
 
@@ -7,8 +6,8 @@ function RatingBD({ reviews }) {
   const sumRating = reviews.reduce((accumulator, current) => (accumulator + current.rating), 0);
   const averageRating = Math.round((sumRating / reviews.length) * 10) / 10;
 
-  const recommendNumber = reviews.reduce((accumulator, current) =>
-    (accumulator + Number(current.recommend)), 0);
+  const recommendNumber = reviews.reduce((accumulator, current) => (
+    accumulator + Number(current.recommend)), 0);
   const percentRecommend = Math.round((recommendNumber / reviews.length) * 10) / 10;
 
   function percentRate(rate) {
