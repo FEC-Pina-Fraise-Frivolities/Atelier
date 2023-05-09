@@ -1,11 +1,11 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useEffect, useState } from 'react';
 
 function QuantitySelector({
-  selectedStyle, selectedSize, skusNull, setSkusNull,
+  selectedStyle, selectedSize, skusNull, selectedQuantity, setSelectedQuantity,
 }) {
   const [productQuantity, setProductQuantity] = useState(0);
   const [allQuantities, setAllQuantites] = useState([]);
-  const [selectedQuantity, setSelectedQuantity] = useState(0);
 
   useEffect(() => {
     if (Object.keys(selectedStyle).length > 0) {
@@ -25,23 +25,26 @@ function QuantitySelector({
     }
   }, [productQuantity]);
 
-  if (skusNull) {
+  if (skusNull || !selectedSize) {
     return '';
   }
 
   return (
     <div className="quantitySelector">
-      <select
-        value={selectedQuantity}
-        onChange={(e) => setSelectedQuantity(e.target.value)}
-      >
-        <option value="value">0</option>
-        {allQuantities.map((quantity) => (
-          <option value={quantity} key={quantity}>
-            {quantity}
-          </option>
-        ))}
-      </select>
+      <label>
+        Quantity
+        {' '}
+        <select
+          value={selectedQuantity}
+          onChange={(e) => setSelectedQuantity(e.target.value)}
+        >
+          {allQuantities.map((quantity) => (
+            <option value={quantity} key={quantity}>
+              {quantity}
+            </option>
+          ))}
+        </select>
+      </label>
     </div>
   );
 }

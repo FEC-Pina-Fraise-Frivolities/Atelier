@@ -12,8 +12,6 @@ function ProductStyles({ productStyles, selectedStyle, setSelectedStyle }) {
             className="style"
             key={style.style_id}
             onClick={() => {
-              console.log('selected style is: ', selectedStyle);
-              console.log('clicked: ', style.name);
               setSelectedStyle(style);
             }}
           >

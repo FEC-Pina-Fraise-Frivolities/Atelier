@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import AddToCart from './components/AddToCart';
 import ProductData from './components/ProductData';
 import ProductSizes from './components/ProductSizes';
 import ProductStyles from './components/ProductStyles';
@@ -19,6 +20,7 @@ function Overview({ productId, setProductId }) {
   const [selectedStyle, setSelectedStyle] = useState({});
   const [selectedSize, setSelectedSize] = useState('');
   const [skusNull, setSkusNull] = useState(false);
+  const [selectedQuantity, setSelectedQuantity] = useState(1);
 
   useEffect(() => {
     const productEndpoint = `http://localhost:3000/products/${productId}`;
@@ -65,7 +67,15 @@ function Overview({ productId, setProductId }) {
         selectedStyle={selectedStyle}
         selectedSize={selectedSize}
         skusNull={skusNull}
-        setSkusNull={setSkusNull}
+        selectedQuantity={selectedQuantity}
+        setSelectedQuantity={setSelectedQuantity}
+      />
+      <AddToCart
+        productData={productData}
+        selectedStyle={selectedStyle}
+        selectedSize={selectedSize}
+        selectedQuantity={selectedQuantity}
+        skusNull={skusNull}
       />
     </div>
   );

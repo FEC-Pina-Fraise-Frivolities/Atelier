@@ -18,7 +18,6 @@ function ProductSizes({
         setProductAllSizes((currentSizes) => [...currentSizes, skus[i][1].size]);
       }
     }
-    console.log('selectedStyle: ', selectedStyle);
   }, [selectedStyle]);
 
   if (skusNull) {
@@ -31,7 +30,7 @@ function ProductSizes({
         value={selectedSize}
         onChange={(e) => setSelectedSize(e.target.value)}
       >
-        <option value="value">Please select a size</option>
+        <option value="">Please select a size</option>
         {productAllSizes.map((size) => <option value={size} key={size}>{size}</option>)}
       </select>
     </div>
