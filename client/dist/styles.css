@@ -54,7 +54,7 @@
  }
 
  main {
-   max-width: 840px;
+   max-width: 80%;
    padding: 16px;
    margin: auto;
  }
@@ -68,6 +68,11 @@
  .rating-and-review {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
+ }
+
+ .rating-and-review #subtitle {
+  flex-basis: 100%;
  }
 
  /* ------------------ Review List ---------------------- */

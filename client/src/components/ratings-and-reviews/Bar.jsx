@@ -5,7 +5,8 @@ function Bar({ percentage, starName }) {
     <div className="bar container">
       <span>{starName}</span>
       <div className="double-bar container">
-        <div className="filled" style={{width: percentage, overflow: 'hidden'}}></div>
+        {/* eslint "react/self-closing-comp":0 */}
+        <div className="filled" style={{ width: percentage, overflow: 'hidden' }}></div>
         <div className="empty"></div>
       </div>
     </div>
