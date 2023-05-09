@@ -4,6 +4,7 @@ function ProductSizes({ selectedStyle, selectedSize, setSelectedSize }) {
   const [productAllSizes, setProductAllSizes] = useState([]);
 
   useEffect(() => {
+    setProductAllSizes([]);
     if (Object.keys(selectedStyle).length > 0) {
       const skus = Object.entries(selectedStyle.skus);
       for (let i = 0; i < skus.length; i += 1) {
@@ -19,7 +20,7 @@ function ProductSizes({ selectedStyle, selectedSize, setSelectedSize }) {
         value={selectedSize}
         onChange={(e) => setSelectedSize(e.target.value)}
       >
-        <option value="value" selected>Please select a size</option>
+        <option value="value">Please select a size</option>
         {productAllSizes.map((size) => <option value={size} key={size}>{size}</option>)}
       </select>
     </div>

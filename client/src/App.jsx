@@ -4,15 +4,14 @@ import RatingAndReview from './components/ratings-and-reviews/index';
 import RelatedAndOutfit from './components/related-items-and-outfit/index';
 
 function App() {
-  const [productId, setProductId] = useState('40306');
+  const [productId, setProductId] = useState('40346');
 
   return (
     <div>
       <Overview productId={productId} setProductId={setProductId} />
+
+      {/* <RatingAndReview /> */}
     </div>
-    <>
-      <RatingAndReview />
-    </>
   );
 }
 

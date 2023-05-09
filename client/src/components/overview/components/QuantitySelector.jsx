@@ -3,35 +3,38 @@ import React, { useEffect, useState } from 'react';
 function QuantitySelector({ selectedStyle, selectedSize }) {
   const [productQuantity, setProductQuantity] = useState(0);
   const [allQuantities, setAllQuantites] = useState([]);
+  const [selectedQuantity, setSelectedQuantity] = useState(0);
 
   useEffect(() => {
     if (Object.keys(selectedStyle).length > 0) {
-      const skus = Object.entries(selectedStyle);
+      const skus = Object.entries(selectedStyle.skus);
       for (let i = 0; i < skus.length; i += 1) {
-        if (skus[i].size === selectedSize) {
-          setProductQuantity(skus(i).quantity);
+        if (skus[i][1].size === selectedSize) {
+          setProductQuantity(() => skus[i][1].quantity);
         }
-      }
-      for (let i = 0; i <= productQuantity; i += 1) {
-        setAllQuantites((currentQuantites) => [...currentQuantites, i]);
       }
     }
   }, [selectedSize]);
 
+  useEffect(() => {
+    setAllQuantites([]);
+    for (let i = 1; i <= productQuantity; i += 1) {
+      setAllQuantites((currentQuantites) => [...currentQuantites, i]);
+    }
+  }, [productQuantity]);
+
   return (
     <div className="quantitySelector">
       <select
-        value={productQuantity}
-        onChange={(e) => setProductQuantity(e.target.value)}
+        value={selectedQuantity}
+        onChange={(e) => setSelectedQuantity(e.target.value)}
       >
+        <option value="value">0</option>
         {allQuantities.map((quantity) => (
           <option value={quantity} key={quantity}>
             {quantity}
           </option>
         ))}
-        {/* <option value="general">general</option>
-          <option value="travel">travel</option>
-          <option value="music">music</option> */}
       </select>
     </div>
   );
