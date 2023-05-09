@@ -6,6 +6,7 @@ function AddToCart({
   const handleClick = (e) => {
     if (!selectedSize) {
       window.alert('Please select a size!');
+      return;
     }
     console.log(`You have added ${selectedQuantity} size ${selectedSize} ${selectedStyle.name} ${productData.name} to your cart`);
   };

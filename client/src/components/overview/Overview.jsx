@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import AddToCart from './components/AddToCart';
+import GalleryView from './components/GalleryView';
 import ProductData from './components/ProductData';
 import ProductSizes from './components/ProductSizes';
 import ProductStyles from './components/ProductStyles';
@@ -76,6 +77,10 @@ function Overview({ productId, setProductId }) {
         selectedSize={selectedSize}
         selectedQuantity={selectedQuantity}
         skusNull={skusNull}
+      />
+      <GalleryView
+        selectedStyle={selectedStyle}
+        setSelectedStyle={setSelectedStyle}
       />
     </div>
   );

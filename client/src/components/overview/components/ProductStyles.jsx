@@ -13,6 +13,7 @@ function ProductStyles({ productStyles, selectedStyle, setSelectedStyle }) {
             key={style.style_id}
             onClick={() => {
               setSelectedStyle(style);
+              console.log('selectedStyle:', style);
             }}
           >
             <div className="styleName">
