@@ -1,37 +1,26 @@
 import React, { useEffect, useState } from 'react';
 
-function ProductSizes({ selectedStyle }) {
-  const [productSize, setProductSize] = useState('');
+function ProductSizes({ selectedStyle, selectedSize, setSelectedSize }) {
   const [productAllSizes, setProductAllSizes] = useState([]);
-
-  let sizeArr = [];
 
   useEffect(() => {
     if (Object.keys(selectedStyle).length > 0) {
-      console.log('stuff in here');
       const skus = Object.entries(selectedStyle.skus);
-      console.log('skus: ', skus);
       for (let i = 0; i < skus.length; i += 1) {
-        sizeArr = [...sizeArr, skus[i][1].size];
-        setProductAllSizes(sizeArr);
-        // console.log('productAllSizes: ', productAllSizes);
-        console.log('current size: ', skus[i][1].size, 'sizeArr: ', sizeArr);
+        setProductAllSizes((currentSizes) => [...currentSizes, skus[i][1].size]);
       }
     }
-    console.log(selectedStyle);
+    console.log('selectedStyle: ', selectedStyle);
   }, [selectedStyle]);
 
   return (
     <div className="productSizes">
       <select
-        value={productSize}
-        onChange={(e) => setProductSize(e.target.value)}
+        value={selectedSize}
+        onChange={(e) => setSelectedSize(e.target.value)}
       >
         <option value="value" selected>Please select a size</option>
         {productAllSizes.map((size) => <option value={size} key={size}>{size}</option>)}
-        {/* <option value="general">general</option>
-          <option value="travel">travel</option>
-          <option value="music">music</option> */}
       </select>
     </div>
 

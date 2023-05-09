@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import ProductData from './components/ProductData';
 import ProductSizes from './components/ProductSizes';
 import ProductStyles from './components/ProductStyles';
+import QuantitySelector from './components/QuantitySelector';
 
 // AR = 1*a+2*b+3*c+4*d+5*e/(R)
 // Average rating formula where
@@ -17,6 +18,7 @@ function Overview({ productId, setProductId }) {
   const [productEntries, setProductEntries] = useState([]);
   const [productStyles, setProductStyles] = useState([]);
   const [selectedStyle, setSelectedStyle] = useState({});
+  const [selectedSize, setSelectedSize] = useState('');
 
   useEffect(() => {
     const productEndpoint = `http://localhost:3000/products/${productId}`;
@@ -44,9 +46,24 @@ function Overview({ productId, setProductId }) {
   return (
     <div className="productData">
       <div />
-      <ProductData productData={productData} selectedStyle={selectedStyle} />
-      <ProductStyles productStyles={productStyles} selectedStyle={selectedStyle} setSelectedStyle={setSelectedStyle} />
-      <ProductSizes selectedStyle={selectedStyle} />
+      <ProductData
+        productData={productData}
+        selectedStyle={selectedStyle}
+      />
+      <ProductStyles
+        productStyles={productStyles}
+        selectedStyle={selectedStyle}
+        setSelectedStyle={setSelectedStyle}
+      />
+      <ProductSizes
+        selectedStyle={selectedStyle}
+        selectedSize={selectedSize}
+        setSelectedSize={setSelectedSize}
+      />
+      <QuantitySelector
+        selectedStyle={selectedStyle}
+        selectedSize={selectedSize}
+      />
     </div>
   );
 }
