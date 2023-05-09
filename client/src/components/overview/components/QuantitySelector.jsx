@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 
-function QuantitySelector({ selectedStyle, selectedSize }) {
+function QuantitySelector({
+  selectedStyle, selectedSize, skusNull, setSkusNull,
+}) {
   const [productQuantity, setProductQuantity] = useState(0);
   const [allQuantities, setAllQuantites] = useState([]);
   const [selectedQuantity, setSelectedQuantity] = useState(0);
@@ -22,6 +24,10 @@ function QuantitySelector({ selectedStyle, selectedSize }) {
       setAllQuantites((currentQuantites) => [...currentQuantites, i]);
     }
   }, [productQuantity]);
+
+  if (skusNull) {
+    return '';
+  }
 
   return (
     <div className="quantitySelector">

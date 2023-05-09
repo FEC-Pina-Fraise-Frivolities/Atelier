@@ -6,7 +6,7 @@ function ProductData({ productData, selectedStyle }) {
   const [listPriceStyle, setListPriceStyle] = useState({});
 
   useEffect(() => {
-    setListPrice(productData.default_price);
+    setListPrice(selectedStyle.original_price);
     if (typeof selectedStyle.sale_price !== 'string') {
       setSalePrice('');
       setListPriceStyle({});
