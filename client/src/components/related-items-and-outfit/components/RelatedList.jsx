@@ -1,30 +1,35 @@
 import { React, useState, useEffect } from 'react';
 import ProductCard from './ProductCard';
 
-const RelatedList = ({ productId, setProductId }) => {
-  console.log('current id in list', productId);
+function RelatedList({ productId, setProductId }) {
+  const ifRelated = true;
   const [relateArr, setRelatedArr] = useState([]);
-  console.log('storage', window.localStorage);
   useEffect(() => {
     fetch(`http://localhost:3000/products/${productId}/related`)
       .then((res) => res.json())
       .then((result) => {
-        console.log('array', result);
-        setRelatedArr(result);
+        const arr = [];
+        result.forEach((id) => {
+          if (arr.indexOf(id) < 0 && id !== productId) {
+            arr.push(id);
+          }
+        });
+        setRelatedArr(arr);
       })
-      .catch((err) => console.log('get related list failed', err));
+      .catch((err) => console.error('get related list failed', err));
   }, [productId]);
-  const ifRelated = true;
+
   return (
-    relateArr.map((id, index) => (
-      <ProductCard
-        id={id}
-        key={index}
-        setProductId={setProductId}
-        ifRelated={ifRelated}
-      />
-    ))
-  );
-};
+    relateArr.map((id) => (
+      <li className="card" key={id}>
+        <ProductCard
+          id={id}
+          productId={productId}
+          setProductId={setProductId}
+          ifRelated={ifRelated}
+        />
+      </li>
+    )));
+}
 
 export default RelatedList;
