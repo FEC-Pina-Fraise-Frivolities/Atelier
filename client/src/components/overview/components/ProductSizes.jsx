@@ -23,19 +23,16 @@ function ProductSizes({ selectedStyle }) {
 
   return (
     <div className="productSizes">
-      <label htmlFor={productSize}>
-        Select a size:
-        {' '}
-        <select
-          value={productSize}
-          onChange={(e) => setProductSize(e.target.value)}
-        >
-          {productAllSizes.map((size) => <option value={size} key={size}>{size}</option>)}
-          {/* <option value="general">general</option>
+      <select
+        value={productSize}
+        onChange={(e) => setProductSize(e.target.value)}
+      >
+        <option value="value" selected>Please select a size</option>
+        {productAllSizes.map((size) => <option value={size} key={size}>{size}</option>)}
+        {/* <option value="general">general</option>
           <option value="travel">travel</option>
           <option value="music">music</option> */}
-        </select>
-      </label>
+      </select>
     </div>
 
   );

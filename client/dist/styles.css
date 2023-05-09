@@ -162,3 +162,18 @@
   height:100%;
   object-fit: cover;
  }
+
+ .productSizes {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  position:absolute;
+  right: 200px;
+  top: 600px;
+  max-width: 500px;
+ }
+
+ .productSizes select{
+    width: 35%;
+ }
