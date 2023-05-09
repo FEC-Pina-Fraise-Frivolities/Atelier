@@ -22,6 +22,7 @@ function Overview({ productId, setProductId }) {
   const [selectedSize, setSelectedSize] = useState('');
   const [skusNull, setSkusNull] = useState(false);
   const [selectedQuantity, setSelectedQuantity] = useState(1);
+  const [selectedPhoto, setSelectedPhoto] = useState('');
 
   useEffect(() => {
     const productEndpoint = `http://localhost:3000/products/${productId}`;
@@ -39,6 +40,7 @@ function Overview({ productId, setProductId }) {
       .then((result) => {
         setProductStyles(result.results);
         setSelectedStyle(result.results[0]);
+        setSelectedPhoto(result.results[0].photos[0].url);
       })
       .catch((err) => {
         console.log('get product data failed', err);
@@ -56,6 +58,7 @@ function Overview({ productId, setProductId }) {
         productStyles={productStyles}
         selectedStyle={selectedStyle}
         setSelectedStyle={setSelectedStyle}
+        setSelectedPhoto={setSelectedPhoto}
       />
       <ProductSizes
         selectedStyle={selectedStyle}
@@ -81,6 +84,8 @@ function Overview({ productId, setProductId }) {
       <GalleryView
         selectedStyle={selectedStyle}
         setSelectedStyle={setSelectedStyle}
+        selectedPhoto={selectedPhoto}
+        setSelectedPhoto={setSelectedPhoto}
       />
     </div>
   );

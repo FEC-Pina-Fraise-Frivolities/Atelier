@@ -1,8 +1,13 @@
+/* eslint-disable consistent-return */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import React, { useEffect, useState } from 'react';
 
-function ProductStyles({ productStyles, selectedStyle, setSelectedStyle }) {
+function ProductStyles(
+  {
+    productStyles, selectedStyle, setSelectedStyle, setSelectedPhoto,
+  },
+) {
   return (
     <div className="styleSelector">
       <div className="selectedStyleName">{selectedStyle.name}</div>
@@ -13,6 +18,7 @@ function ProductStyles({ productStyles, selectedStyle, setSelectedStyle }) {
             key={style.style_id}
             onClick={() => {
               setSelectedStyle(style);
+              setSelectedPhoto(style.photos[0].url);
               console.log('selectedStyle:', style);
             }}
           >
