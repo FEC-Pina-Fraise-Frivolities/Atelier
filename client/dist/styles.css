@@ -107,6 +107,11 @@
  .rating-and-review {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
+ }
+
+ .rating-and-review #subtitle {
+  flex-basis: 100%;
  }
 
  /* ------------------ Review List ---------------------- */

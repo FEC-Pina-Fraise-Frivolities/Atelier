@@ -10,10 +10,7 @@ function App() {
 
   return (
     <>
-      <RelatedAndOutfit productId={productId} setProductId={setProductId} />
-      <p>------------------------------------------------------------------</p>
-      {/* <RatingAndReview /> */}
-
+      <RatingAndReview productId={productId}/>
     </>
   );
 }
