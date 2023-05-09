@@ -188,3 +188,109 @@
   top: 600px;
   max-width: 500px;
  }
+
+ /* --------------------------------------------------------------------------------------------------------
+ ----------------------------------Rating and Review Section------------------------------------------------
+ ---------------------------------------------------------------------------------------------------------*/
+
+
+ /* ------------------ Overall layout ---------------------- */
+ .rating-and-review {
+  display: flex;
+  flex-direction: row;
+ }
+
+ /* ------------------ Review List ---------------------- */
+
+ .rating-and-review .container {
+  border: 1px solid black;
+  margin: 5px;
+ }
+
+ /* ------------------ Star ---------------------- */
+
+ .rating-and-review .star {
+  position: relative;
+  display: inline-block;
+}
+
+ .rating-and-review .empty-star {
+  color: #ccc;
+  display: inline-block;
+}
+
+.rating-and-review .filled-star {
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.rating-and-review .star span {
+  font-size: 16px;
+}
+
+
+/* ------------------ Bar ---------------------- */
+
+.rating-and-review .bar.container {
+  border: 0px;
+}
+
+.rating-and-review .double-bar.container {
+  position: relative;
+  height: 8px;
+  width: 150px;
+  display: inline-block;
+  margin: 0px 0px 0px 5px;
+}
+
+.rating-and-review .double-bar .filled {
+  height: 100%;
+  background-color: black;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  z-index: 1;
+}
+
+.rating-and-review .double-bar .empty {
+  height: 100%;
+  width: 100%;
+  background-color: #E2FEF2;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+
+/* ------------------ Scale ---------------------- */
+
+.rating-and-review .scale.container {
+  position: relative;
+  height: 8px;
+  border: 0px;
+  width: 226px;
+}
+
+.rating-and-review .scale .triangle-down {
+  width: 0;
+  height: 0;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 8px solid black;
+  position: absolute;
+  top: 0px;
+}
+
+.rating-and-review .scale .scale-bars {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.rating-and-review .scale .scale-bar {
+  background-color: #ffd6ff;
+  display: inline-block;
+  height: 8px;
+  width: 31%;
+}
