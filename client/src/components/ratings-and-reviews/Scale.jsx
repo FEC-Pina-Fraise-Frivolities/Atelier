@@ -6,7 +6,7 @@ function Scale({ characteristic, category }) {
       <p>{category}</p>
       <div className="scale container">
         {/* eslint "react/self-closing-comp":0 */}
-        <div className="triangle-down" style={{ left: `${(characteristic.value / 5) * 100}%` }}></div>
+        <div className="triangle-down" style={{ left: `${(Number(characteristic.value) / 5) * 100}%` }}></div>
         <div className="scale-bars">
           <div className="scale-bar"></div>
           <div className="scale-bar"></div>

@@ -4,11 +4,11 @@ import Overview from './components/overview/Overview';
 import RelatedAndOutfit from './components/related-items-and-outfit/index';
 
 function App() {
-  const [productId, setProductId] = useState('40306');
+  const [productId, setProductId] = useState(40348);
 
   return (
     <>
-      <RatingAndReview />
+      <RatingAndReview productId={productId}/>
     </>
   );
 }
