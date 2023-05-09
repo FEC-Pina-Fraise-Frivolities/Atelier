@@ -93,18 +93,19 @@
   top: 200px;
   left: 1100px;
   width: 100px;
-  border: 3px solid #73AD21;
   padding: 10px;
+  font-size: larger;
+  font-weight: bold;
  }
 
  .salePrice {
   position: absolute;
   top: 200px;
-  left: 900px;
-  width: 100px;
+  left: 910px;
+  width: 250px;
   padding: 10px;
   color: red;
-  font-size: large;
+  font-size: larger;
   font-weight: bold;
  }
 

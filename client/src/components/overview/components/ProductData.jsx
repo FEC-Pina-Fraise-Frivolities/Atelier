@@ -11,7 +11,7 @@ function ProductData({ productData, selectedStyle }) {
       setSalePrice('');
       setListPriceStyle({});
     } else {
-      setSalePrice(`$${selectedStyle.sale_price}`);
+      setSalePrice(`ON SALE $${selectedStyle.sale_price}`);
       setListPriceStyle({ textDecoration: 'line-through' });
     }
   }, [selectedStyle]);
