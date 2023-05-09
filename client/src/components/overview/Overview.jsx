@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import ProductData from './components/ProductData';
+import ProductSizes from './components/ProductSizes';
 import ProductStyles from './components/ProductStyles';
 
 // AR = 1*a+2*b+3*c+4*d+5*e/(R)
@@ -45,6 +46,7 @@ function Overview({ productId, setProductId }) {
       <div />
       <ProductData productData={productData} selectedStyle={selectedStyle} />
       <ProductStyles productStyles={productStyles} selectedStyle={selectedStyle} setSelectedStyle={setSelectedStyle} />
+      <ProductSizes selectedStyle={selectedStyle} />
     </div>
   );
 }

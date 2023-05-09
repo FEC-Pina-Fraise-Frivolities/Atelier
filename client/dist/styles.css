@@ -71,8 +71,12 @@
 
  .productDescription {
   position: absolute;
+  display: flex;
+  align-items: flex-end;
+  flex-direction:column-reverse;
+  align-content:flex-end;
   left: 50px;
-  bottom: 50px;
+  bottom: 10px;
   width: 400px;
   height: 150px;
   border: 3px solid #73AD21;
@@ -127,6 +131,7 @@
   top: 300px;
   max-width: 500px;
   flex-wrap: wrap;
+  cursor:pointer
  }
 
  .styleName {
