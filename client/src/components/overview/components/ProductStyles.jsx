@@ -20,6 +20,7 @@ function ProductStyles({ productStyles, selectedStyle, setSelectedStyle }) {
             <div className="styleName">
               {style.name}
             </div>
+            <div className="checkmark">{style === selectedStyle && '✔'}</div>
             <div className="stylePhotoFrame">
               <img className="stylePhoto" src={style.photos[0].thumbnail_url} alt={style.name} />
             </div>

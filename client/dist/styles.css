@@ -128,8 +128,17 @@
   flex-wrap: wrap;
  }
 
- .style {
+ .styleName {
   text-align: center;
+ }
+
+ .checkmark {
+  text-align: right;
+  position:relative;
+  right:20px;
+  top: 10px;
+  color: green
+
  }
 
 .stylePhotoFrame {
@@ -138,7 +147,8 @@
   position: relative;
   overflow: hidden;
   border-radius: 50%;
-  margin: 10px;
+  margin-right: 10px;
+  margin-bottom: 10px;
 }
 
  .stylePhotoFrame .stylePhoto {
