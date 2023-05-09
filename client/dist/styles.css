@@ -206,8 +206,27 @@
  }
 
  .galleryView {
-  max-width: 350px;
-  max-height: 350px;
+  position: absolute;
+  left: 10px;
+  top: 10px
+ }
+
+ .galleryView img.mainPhoto {
+  max-height: 400px;
+  max-width: 400px;
+  position: absolute;
+  left: 150px;
+  top: 50px
+ }
+
+ .galleryView img.thumbnail {
+  max-height: 100px;
+  max-width: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content:left;
+  position:relative;
+  padding: 10px;
  }
 
  /* --------------------------------------------------------------------------------------------------------

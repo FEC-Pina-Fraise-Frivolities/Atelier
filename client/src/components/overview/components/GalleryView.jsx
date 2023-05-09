@@ -10,7 +10,12 @@ function GalleryView({ selectedStyle, setSelectedStyle }) {
 
   return (
     <div className="galleryView">
-      <img src={photoUrls[0]} alt={selectedStyle.name} />
+      <img className="mainPhoto" src={photoUrls[0]} alt={selectedStyle.name} />
+      <div className="thumbnails">
+
+        {thumbnailUrls.map((thumbnail) => <img className="thumbnail" src={thumbnail} alt={selectedStyle.name} />)}
+
+      </div>
     </div>
 
   );
