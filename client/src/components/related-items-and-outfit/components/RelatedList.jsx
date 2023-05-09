@@ -1,12 +1,13 @@
 import { React, useState, useEffect } from 'react';
+import axios from 'axios';
 import ProductCard from './ProductCard';
 
 function RelatedList({ productId, setProductId }) {
   const ifRelated = true;
   const [relateArr, setRelatedArr] = useState([]);
   useEffect(() => {
-    fetch(`http://localhost:3000/products/${productId}/related`)
-      .then((res) => res.json())
+    axios(`http://localhost:3000/products/${productId}/related`)
+      .then((res) => res.data)
       .then((result) => {
         const arr = [];
         result.forEach((id) => {
