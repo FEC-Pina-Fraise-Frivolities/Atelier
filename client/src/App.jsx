@@ -10,7 +10,7 @@ function App() {
     <div>
       <Overview productId={productId} setProductId={setProductId} />
 
-      {/* <RatingAndReview /> */}
+      {/* <RatingAndReview productId={productId}/> */}
     </div>
   );
 }

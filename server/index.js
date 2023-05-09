@@ -11,6 +11,7 @@ app.use(express.static(path.join(__dirname, '../client/dist')));
 app.use(express.json());
 
 // Set up our routes
+
 // product
 app.get('/products', controller.product.getProducts);
 app.get('/products/:productId', controller.product.getProduct);
@@ -21,8 +22,8 @@ app.get('/cart', controller.cart.get);
 app.post('/cart', controller.cart.post);
 // reviews
 /** ******* */
-app.get('./reviews', controller.reviews.getReviews);
-app.get('./reviews/meta/:productid', controller.reviews.getReviewsMeta);
+app.get('/reviews', controller.reviews.getReviews);
+app.get('/reviews/meta', controller.reviews.getReviewsMeta);
 
 // questions
 /** ******** */
