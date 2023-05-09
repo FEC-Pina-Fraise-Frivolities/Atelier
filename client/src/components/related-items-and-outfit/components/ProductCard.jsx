@@ -1,5 +1,5 @@
 import { React, useState, useEffect } from 'react';
-
+import Star from '../../ratings-and-reviews/Star';
 import StarButton from './StarButton';
 import DeleteButton from './DeleteButton';
 
@@ -33,6 +33,7 @@ function CardDetail({
   const handleClick = () => {
     setProductId(id);
   };
+  const rating = Math.round((ratings) * 10) / 10;
   const ifSale = salePrice !== null;
   return (
     <div>
@@ -52,7 +53,8 @@ function CardDetail({
       <p>
         ratings:
         {' '}
-        {ratings}
+        {rating}
+        <Star rating={rating} />
       </p>
 
       <p>

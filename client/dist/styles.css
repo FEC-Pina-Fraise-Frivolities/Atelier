@@ -54,7 +54,7 @@
  }
 
  main {
-   max-width: 840px;
+   max-width: 80%;
    padding: 16px;
    margin: auto;
  }
@@ -117,25 +117,23 @@
  }
 
  /* ------------------ Star ---------------------- */
-
- .rating-and-review .star {
+    .star {
   position: relative;
   display: inline-block;
 }
-
- .rating-and-review .empty-star {
+.empty-star {
   color: #ccc;
   display: inline-block;
 }
 
-.rating-and-review .filled-star {
+ .filled-star {
   display: inline-block;
   position: absolute;
   top: 0;
   left: 0;
 }
 
-.rating-and-review .star span {
+ .star span {
   font-size: 16px;
 }
 

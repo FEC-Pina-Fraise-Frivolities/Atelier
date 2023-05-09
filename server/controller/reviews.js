@@ -28,11 +28,14 @@ module.exports = {
         Authorization: process.env.TOKEN,
       },
     };
-    axios(option)
+    return axios(option)
       .then((result) => {
-        res.send(result.data);
+        res.status(200).send(result.data);
       })
-      .catch((err) => console.log('server: get products failed', err));
+      .catch((err) => {
+        console.log(err);
+        res.status(400).send();
+      });
   },
 
 };
