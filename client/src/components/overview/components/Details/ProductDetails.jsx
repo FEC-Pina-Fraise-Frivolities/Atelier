@@ -19,20 +19,22 @@ function ProductDetails({
         setSelectedStyle={setSelectedStyle}
         setSelectedPhoto={setSelectedPhoto}
       />
-      <SizeSelector
-        selectedStyle={selectedStyle}
-        selectedSize={selectedSize}
-        setSelectedSize={setSelectedSize}
-        skusNull={skusNull}
-        setSkusNull={setSkusNull}
-      />
-      <QuantitySelector
-        selectedStyle={selectedStyle}
-        selectedSize={selectedSize}
-        skusNull={skusNull}
-        selectedQuantity={selectedQuantity}
-        setSelectedQuantity={setSelectedQuantity}
-      />
+      <div className="sizeAndQuantitySelector">
+        <SizeSelector
+          selectedStyle={selectedStyle}
+          selectedSize={selectedSize}
+          setSelectedSize={setSelectedSize}
+          skusNull={skusNull}
+          setSkusNull={setSkusNull}
+        />
+        <QuantitySelector
+          selectedStyle={selectedStyle}
+          selectedSize={selectedSize}
+          skusNull={skusNull}
+          selectedQuantity={selectedQuantity}
+          setSelectedQuantity={setSelectedQuantity}
+        />
+      </div>
       <AddToCart
         productData={productData}
         selectedStyle={selectedStyle}

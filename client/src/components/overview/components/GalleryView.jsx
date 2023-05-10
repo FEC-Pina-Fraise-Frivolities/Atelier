@@ -5,7 +5,6 @@ import React, { useEffect, useId, useState } from 'react';
 
 function GalleryView({ selectedStyle, selectedPhoto, setSelectedPhoto }) {
   const handleClick = (e) => {
-    console.log('e.target.value: ', e.target.src);
     setSelectedPhoto(e.target.src);
   };
 
