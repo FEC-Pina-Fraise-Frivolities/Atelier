@@ -6,8 +6,8 @@ module.exports = {
   },
   extends: [
     'plugin:react/recommended',
-    'airbnb',
-    'airbnb/hooks',
+    // 'airbnb',
+    // 'airbnb/hooks',
   ],
   overrides: [
   ],
@@ -19,5 +19,6 @@ module.exports = {
     'react',
   ],
   rules: {
+    'react/prop-types': 0,
   },
 };
