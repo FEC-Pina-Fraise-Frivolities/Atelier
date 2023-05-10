@@ -1,9 +1,9 @@
 import { render, screen } from '@testing-library/react';
 import React from 'react';
-import ProductData from '../ProductData';
+import Basics from '../Basics/Basics';
 
 /* eslint "no-undef": 0 */
-describe('ProductData component testing', () => {
+describe('Basics component testing', () => {
   const productData = {
     id: 40346,
     campus: 'hr-rfp',
@@ -42,7 +42,7 @@ describe('ProductData component testing', () => {
 
   it('Should render a ProductData component', () => {
     render(
-      <ProductData productData={productData} selectedStyle={selectedStyle} />,
+      <Basics productData={productData} selectedStyle={selectedStyle} />,
     );
     expect(screen.getAllByRole('generic')).toBeTruthy();
   });
