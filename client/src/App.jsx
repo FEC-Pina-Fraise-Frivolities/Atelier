@@ -2,6 +2,7 @@ import { React, useEffect, useState } from 'react';
 import { ReactDom, render } from 'react-dom';
 import Overview from './components/overview/Overview';
 import RelatedAndOutfit from './components/related-items-and-outfit/index.jsx';
+import QAIndex from './components/qs-and-as/index.jsx'
 
 const App = ()=> {
   const [ productId, setProductId ] = useState(40346);
@@ -17,13 +18,10 @@ const App = ()=> {
       <div><RelatedAndOutfit productId ={productId} setProductId = {setProductId}/></div>
       <p>...</p>
       <p>...</p>
-      <div>q and a  {productId}</div>
+      <div><QAIndex /></div>
       <div>review  {productId}</div>
     </div>
   );
 };
 
 export default App;
-
-import { React, useEffect, useState } from 'react';
-import { ReactDom, render } from 'react-dom';

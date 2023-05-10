@@ -1,5 +1,5 @@
 const axios = require('axios');
-const config = require('../../config.js');
+
 
 module.exports = {
   getReviews: function(req, res) {
