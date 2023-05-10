@@ -1,5 +1,6 @@
 import React from 'react';
 import CharacteristicSelection from './CharacteristicSelection';
+import PhotoUpload from './PhotoUpload';
 
 function AddReviewForm({ characteristics }) {
   return (
@@ -40,17 +41,18 @@ function AddReviewForm({ characteristics }) {
       <div className="summary input">
         <p>
           Review Summary
-          <small>(60 characters max)</small>
+          <small> (60 characters max)</small>
         </p>
         <textarea id="summary" maxLength={60} placeholder="Best purchase ever!" rows={3}></textarea>
       </div>
       <div className="details input">
         <p>
           Review Details
-          <small>(1000 characters max)</small>
+          <small> (1000 characters max)</small>
         </p>
         <textarea id="summary" maxLength={1000} minLength={50} placeholder="Why did you like the product or not?" rows={20} cols={50}></textarea>
       </div>
+      <PhotoUpload />
     </form>
   );
 }
