@@ -1,39 +1,44 @@
 const axios = require('axios');
 
-
 module.exports = {
-  getReviews: function(req, res) {
-    let endpoint = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/reviews/';
-    let option = {
+  getReviews(req, res) {
+    const endpoint = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/reviews/';
+    const option = {
       method: 'GET',
       url: endpoint,
       headers: {
-        Authorization: config.TOKEN
+        Authorization: process.env.TOKEN,
       },
+      params: req.query,
     };
-    axios(option)
-      .then(result => {
-        res.send(result.data);
+    return axios(option)
+      .then((result) => {
+        res.status(200).send(result.data);
       })
-      .catch((err) => console.log('server: get products failed', err));
+      .catch((err) => {
+        console.log(err);
+        res.status(400).send();
+      });
   },
 
-  getReviewsMeta: function(req, res) {
-    let endpoint = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/reviews/meta';
-    let option = {
+  getReviewsMeta(req, res) {
+    const endpoint = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/reviews/meta';
+    const option = {
       method: 'GET',
       url: endpoint,
+      params: { product_id: req.query.product_id },
       headers: {
-        Authorization: config.TOKEN
+        Authorization: process.env.TOKEN,
       },
     };
-    axios(option)
-      .then(result => {
-        res.send(result.data);
+    return axios(option)
+      .then((result) => {
+        res.status(200).send(result.data);
       })
-      .catch((err) => console.log('server: get products failed', err));
-
-
-  }
+      .catch((err) => {
+        console.log(err);
+        res.status(400).send();
+      });
+  },
 
 };
