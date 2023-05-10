@@ -1,22 +1,34 @@
-import { React, useState} from 'react';
-import RelatedList from './components/RelatedList.jsx';
-import OutfitList from './components/OutfitList.jsx';
+import { React } from 'react';
+import RelatedList from './components/RelatedList';
+import OutfitList from './components/OutfitList';
 
-const RelatedAndOutfit = (props) => {
-  //let productId = 40346;
-  //const [productId, setProductId] = useState(40346);
-
+function RelatedAndOutfit({ productId, setProductId }) {
+  const leftArrow = '<';
+  const rightArrow = '>';
   return (
     <div>
-      <p>related list of {props.productId}</p>
-      <RelatedList productId = {props.productId} setProductId = {props.setProductId}/>
+      <p className="sub-title" id="relatedTitle">
+        related list of
+        {productId}
+      </p>
+      <span className="listAndArrow">
+        <button>{leftArrow}</button>
+        <ul className="list" id="related"><RelatedList productId={productId} setProductId={setProductId} /></ul>
+        <button>{rightArrow}</button>
+      </span>
+
       <p> ++++++++</p>
-      <p>outfit list</p>
-      <OutfitList productId = {props.productId}
-        setProductId = {props.setProductId}/>
 
-
-
-    </div>);
-};
+      <p className="sub-title" id="outfitTitle">outfit list</p>
+      <span className="listAndArrow">
+        <button>{leftArrow}</button>
+        <OutfitList
+          productId={productId}
+          setProductId={setProductId}
+        />
+        <button>{rightArrow}</button>
+      </span>
+    </div>
+  );
+}
 export default RelatedAndOutfit;
