@@ -159,6 +159,7 @@
  }
 
  .selector {
+  position:absolute;
   height: 0%;
   width: 0%;
  }
@@ -231,15 +232,22 @@
 
  .galleryView {
   position: absolute;
-  left: 10px;
-  top: 10px;
+  left: 12pt;
+  top: 12pt;
+  width: 500px;
+  height: 500px;
+  display: flex;
+  flex-direction: row-reverse;
+  align-items:center;
+  justify-content: center;
+  border: 2px solid green;
  }
 
  .galleryView img.mainPhoto {
-  max-height: 500px;
-  max-width: 500px;
+  max-height: 450px;
+  max-width: 450px;
   position: absolute;
-  margin:12pt
+  margin:12pt;
  }
 
  .thumbPhotoFrame {
@@ -252,6 +260,14 @@
   margin-bottom: 12px;
   border:2px solid cornflowerblue;
 }
+
+.galleryView .thumbnails {
+  width: 100%;
+  position:absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content:space-evenly;
+ }
 
 .galleryView .thumb {
   cursor:pointer;
@@ -269,13 +285,12 @@
  }
 
  .galleryView .checkmark {
-  display: inline-block;
-  align-content: center;
-  left: 50px;
-  top: 20px;
-  width:25px;
-  height:25px;
-  font-size: medium;
+  position:relative;
+  left: 45px;
+  top: -8px;
+  width:20px;
+  height:20px;
+  font-size: small;
   font-weight:lighter;
   border: 2px skyblue solid;
  }
