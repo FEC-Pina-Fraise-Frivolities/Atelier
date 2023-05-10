@@ -154,6 +154,11 @@
   flex-wrap: wrap;
  }
 
+ .styleSelector .productStyles .style img {
+    color: green;
+    font: 10px Arial;
+ }
+
  .styleSelector .productStyles .style img:hover {
   opacity: 50%;
  }

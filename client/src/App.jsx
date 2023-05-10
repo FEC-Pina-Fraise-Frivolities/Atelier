@@ -4,7 +4,7 @@ import RatingAndReview from './components/ratings-and-reviews/index';
 import RelatedAndOutfit from './components/related-items-and-outfit/index';
 
 function App() {
-  const [productId, setProductId] = useState('40344');
+  const [productId, setProductId] = useState('40345');
 
   return (
     <div>
