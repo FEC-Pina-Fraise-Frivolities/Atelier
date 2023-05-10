@@ -2,6 +2,8 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import React, { useEffect, useState } from 'react';
+import Checkbox from './Checkbox';
+import StylePhoto from './StylePhoto';
 
 function StyleSelector(
   {
@@ -13,20 +15,13 @@ function StyleSelector(
       <div className="selectedStyleName">{selectedStyle.name}</div>
       <div className="productStyles">
         {productStyles.map((style) => (
-          <div
-            className="style"
+          <StylePhoto
             key={style.style_id}
-            onClick={() => {
-              setSelectedStyle(style);
-              setSelectedPhoto(style.photos[0].url);
-              console.log('selectedStyle:', style);
-            }}
-          >
-            <div className="checkmark">{style === selectedStyle && '✔'}</div>
-            <div className="stylePhotoFrame">
-              <img className="stylePhoto" src={style.photos[0].thumbnail_url} alt={style.name} />
-            </div>
-          </div>
+            style={style}
+            selectedStyle={selectedStyle}
+            setSelectedStyle={setSelectedStyle}
+            setSelectedPhoto={setSelectedPhoto}
+          />
         ))}
       </div>
     </div>

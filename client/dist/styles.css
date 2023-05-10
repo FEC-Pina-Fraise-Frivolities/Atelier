@@ -146,21 +146,38 @@
  }
 
  .styleSelector .productStyles .style {
-  cursor:pointer
+  width:25%;
+  cursor:pointer;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  flex-wrap: wrap;
  }
 
  .styleSelector .productStyles .style img:hover {
   opacity: 50%;
  }
 
+ .selector {
+  height: 0%;
+  width: 0%;
+ }
 
- .checkmark {
-  text-align: right;
+.checkmark {
+  display: inline-block;
   position:relative;
-  right:20px;
-  top: 10px;
-  color: green
-
+  font-size: larger;
+  font-weight: bolder;
+  left: 70px;
+  top: 0px;
+  z-index: 1;
+  order:-1;
+  color: rgb(233, 10, 51);
+  background-color: #ffc400;
+  text-align: center;
+  width:25px;
+  height:25px;
+  border-radius: 50%;
  }
 
 .stylePhotoFrame {
