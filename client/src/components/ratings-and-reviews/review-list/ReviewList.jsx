@@ -11,6 +11,7 @@ function ReviewList({ reviews, numReviews }) {
       {reviews.map((review) => (
         <IndividualTile review={review} key={review.review_id} />
       ))}
+      <button type="button">Add a review</button>
     </div>
   );
 }

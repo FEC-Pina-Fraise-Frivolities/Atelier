@@ -1,8 +1,9 @@
 import { React, useState, useEffect } from 'react';
 import axios from 'axios';
-import ReviewList from './ReviewList';
-import RatingBD from './RatingBD';
-import ProductBD from './ProductBD';
+import ReviewList from './review-list/ReviewList';
+import RatingBD from './rating-summary/RatingBD';
+import ProductBD from './rating-summary/ProductBD';
+import AddReviewForm from './add-review-form/AddReviewForm';
 
 function RatingAndReview({ productId }) {
   const [reviews, setReviews] = useState([]);
@@ -42,6 +43,9 @@ function RatingAndReview({ productId }) {
         )}
       </div>
       <ReviewList reviews={reviews} numReviews={numReviews} />
+      {Object.keys(reviewMeta).length === 0 ? '' : (
+        <AddReviewForm characteristics={reviewMeta.characteristics} />
+      )}
     </div>
   );
 }

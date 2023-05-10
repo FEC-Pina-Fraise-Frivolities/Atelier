@@ -169,3 +169,20 @@
   height: 8px;
   width: 31%;
 }
+
+/* ------------------ Review Form ---------------------- */
+
+.rating-and-review .dynamic-star {
+  direction: rtl;
+  text-align: left;
+}
+
+.rating-and-review .dynamic-star span:hover::before, .rating-and-review .dynamic-star span:hover ~ span::before{
+  content: "\2605";
+  position: absolute;
+}
+
+#review-form fieldset div {
+  display: inline-block;
+  margin: 6px;
+}
