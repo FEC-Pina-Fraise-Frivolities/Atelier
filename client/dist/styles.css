@@ -59,19 +59,42 @@
    margin: auto;
  }
 
+ div {
+  display: block;
+ }
+
  /* --------------------------------------------------------------------------------------------------------
  --------------------------------------Product Overview Section---------------------------------------------
  ---------------------------------------------------------------------------------------------------------*/
 
 
- .productName {
+ .basics {
   position: absolute;
+  display:flex;
+  right: 1in;
+  top: 1in;
   font-weight: bolder;
-  top: 125px;
-  left: 900px;
+  font-size: larger;
   width: 300px;
-  border: 3px solid #73AD21;
-  padding: 10px;
+  flex-direction: column;
+  padding: 12pt;
+  margin: 12pt;
+  border:#73AD21 3px solid;
+ }
+
+ .basics .productCategory {
+  font-weight: normal;
+  font-style:italic;
+  font-size:medium;
+  align-self: flex-end;
+ }
+
+ .basics .price {
+  border: none;
+ }
+
+ .salePrice {
+  color: red;
  }
 
  .productDescription {
@@ -86,36 +109,6 @@
   height: 150px;
   border: 3px solid #73AD21;
   padding: 10px;
- }
-
- .productCategory {
-  position: absolute;
-  font-style: italic;
-  left: 900px;
-  width: 300px;
-  border: 3px solid #73AD21;
-  padding: 10px;
- }
-
- .productPrice {
-  position: absolute;
-  top: 200px;
-  left: 1100px;
-  width: 100px;
-  padding: 10px;
-  font-size: larger;
-  font-weight: bold;
- }
-
- .salePrice {
-  position: absolute;
-  top: 200px;
-  left: 910px;
-  width: 250px;
-  padding: 10px;
-  color: red;
-  font-size: larger;
-  font-weight: bold;
  }
 
  .productDetails {

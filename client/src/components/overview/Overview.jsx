@@ -1,15 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import {
-  AddToCart, Basics, Description, GalleryView, Price, QuantitySelector, SizeSelector, StyleSelector,
+  Basics, Description, GalleryView, ProductDetails,
 } from './index';
 
 function Overview({ productId }) {
   const [productData, setProductData] = useState({});
   const [productStyles, setProductStyles] = useState([]);
   const [selectedStyle, setSelectedStyle] = useState({});
-  const [selectedSize, setSelectedSize] = useState('');
-  const [skusNull, setSkusNull] = useState(false);
-  const [selectedQuantity, setSelectedQuantity] = useState(1);
+
   const [selectedPhoto, setSelectedPhoto] = useState('');
 
   useEffect(() => {
@@ -40,39 +38,16 @@ function Overview({ productId }) {
       <div />
       <Basics
         productData={productData}
+        selectedStyle={selectedStyle}
       />
       <Description productData={productData} />
-      <Price selectedStyle={selectedStyle} />
-      <div className="productDetails">
-        <StyleSelector
-          productStyles={productStyles}
-          selectedStyle={selectedStyle}
-          setSelectedStyle={setSelectedStyle}
-          setSelectedPhoto={setSelectedPhoto}
-        />
-        <SizeSelector
-          selectedStyle={selectedStyle}
-          selectedSize={selectedSize}
-          setSelectedSize={setSelectedSize}
-          skusNull={skusNull}
-          setSkusNull={setSkusNull}
-        />
-        <QuantitySelector
-          selectedStyle={selectedStyle}
-          selectedSize={selectedSize}
-          skusNull={skusNull}
-          selectedQuantity={selectedQuantity}
-          setSelectedQuantity={setSelectedQuantity}
-        />
-        <AddToCart
-          productData={productData}
-          selectedStyle={selectedStyle}
-          selectedSize={selectedSize}
-          selectedQuantity={selectedQuantity}
-          skusNull={skusNull}
-        />
-      </div>
-
+      <ProductDetails
+        productData={productData}
+        productStyles={productStyles}
+        selectedStyle={selectedStyle}
+        setSelectedStyle={setSelectedStyle}
+        setSelectedPhoto={setSelectedPhoto}
+      />
       <GalleryView
         selectedStyle={selectedStyle}
         selectedPhoto={selectedPhoto}
