@@ -1,21 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import AddToCart from './components/AddToCart';
-import GalleryView from './components/GalleryView';
-import ProductData from './components/ProductData';
-import ProductSizes from './components/ProductSizes';
-import ProductStyles from './components/ProductStyles';
-import QuantitySelector from './components/QuantitySelector';
+import {
+  AddToCart, Basics, Description, GalleryView, Price, QuantitySelector, SizeSelector, StyleSelector,
+} from './index';
 
-// AR = 1*a+2*b+3*c+4*d+5*e/(R)
-// Average rating formula where
-// a = # of 1 star ratings
-// b = # of 2 star ratings
-// c = # of 3 star ratings
-// d = # of 4 star ratings
-// e = # of 5 star ratings
-// and R = total number of ratings
-
-function Overview({ productId, setProductId }) {
+function Overview({ productId }) {
   const [productData, setProductData] = useState({});
   const [productStyles, setProductStyles] = useState([]);
   const [selectedStyle, setSelectedStyle] = useState({});
@@ -50,40 +38,43 @@ function Overview({ productId, setProductId }) {
   return (
     <div className="productData">
       <div />
-      <ProductData
+      <Basics
         productData={productData}
-        selectedStyle={selectedStyle}
       />
-      <ProductStyles
-        productStyles={productStyles}
-        selectedStyle={selectedStyle}
-        setSelectedStyle={setSelectedStyle}
-        setSelectedPhoto={setSelectedPhoto}
-      />
-      <ProductSizes
-        selectedStyle={selectedStyle}
-        selectedSize={selectedSize}
-        setSelectedSize={setSelectedSize}
-        skusNull={skusNull}
-        setSkusNull={setSkusNull}
-      />
-      <QuantitySelector
-        selectedStyle={selectedStyle}
-        selectedSize={selectedSize}
-        skusNull={skusNull}
-        selectedQuantity={selectedQuantity}
-        setSelectedQuantity={setSelectedQuantity}
-      />
-      <AddToCart
-        productData={productData}
-        selectedStyle={selectedStyle}
-        selectedSize={selectedSize}
-        selectedQuantity={selectedQuantity}
-        skusNull={skusNull}
-      />
+      <Description productData={productData} />
+      <Price selectedStyle={selectedStyle} />
+      <div className="productDetails">
+        <StyleSelector
+          productStyles={productStyles}
+          selectedStyle={selectedStyle}
+          setSelectedStyle={setSelectedStyle}
+          setSelectedPhoto={setSelectedPhoto}
+        />
+        <SizeSelector
+          selectedStyle={selectedStyle}
+          selectedSize={selectedSize}
+          setSelectedSize={setSelectedSize}
+          skusNull={skusNull}
+          setSkusNull={setSkusNull}
+        />
+        <QuantitySelector
+          selectedStyle={selectedStyle}
+          selectedSize={selectedSize}
+          skusNull={skusNull}
+          selectedQuantity={selectedQuantity}
+          setSelectedQuantity={setSelectedQuantity}
+        />
+        <AddToCart
+          productData={productData}
+          selectedStyle={selectedStyle}
+          selectedSize={selectedSize}
+          selectedQuantity={selectedQuantity}
+          skusNull={skusNull}
+        />
+      </div>
+
       <GalleryView
         selectedStyle={selectedStyle}
-        setSelectedStyle={setSelectedStyle}
         selectedPhoto={selectedPhoto}
         setSelectedPhoto={setSelectedPhoto}
       />

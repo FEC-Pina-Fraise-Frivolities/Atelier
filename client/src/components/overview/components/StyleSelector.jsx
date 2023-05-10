@@ -3,7 +3,7 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import React, { useEffect, useState } from 'react';
 
-function ProductStyles(
+function StyleSelector(
   {
     productStyles, selectedStyle, setSelectedStyle, setSelectedPhoto,
   },
@@ -22,9 +22,6 @@ function ProductStyles(
               console.log('selectedStyle:', style);
             }}
           >
-            <div className="styleName">
-              {style.name}
-            </div>
             <div className="checkmark">{style === selectedStyle && '✔'}</div>
             <div className="stylePhotoFrame">
               <img className="stylePhoto" src={style.photos[0].thumbnail_url} alt={style.name} />
@@ -36,4 +33,4 @@ function ProductStyles(
   );
 }
 
-export default ProductStyles;
+export default StyleSelector;

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-function ProductSizes({
+function SizeSelector({
   selectedStyle, selectedSize, setSelectedSize, skusNull, setSkusNull,
 }) {
   const [productAllSizes, setProductAllSizes] = useState([]);
@@ -25,7 +25,7 @@ function ProductSizes({
   }
 
   return (
-    <div className="productSizes">
+    <div className="sizeSelector">
       <select
         value={selectedSize}
         onChange={(e) => setSelectedSize(e.target.value)}
@@ -38,4 +38,4 @@ function ProductSizes({
   );
 }
 
-export default ProductSizes;
+export default SizeSelector;

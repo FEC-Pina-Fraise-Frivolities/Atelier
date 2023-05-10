@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-function ProductData({ productData, selectedStyle }) {
+function Price({ selectedStyle }) {
   const [salePrice, setSalePrice] = useState('');
   const [listPrice, setListPrice] = useState('');
   const [listPriceStyle, setListPriceStyle] = useState({});
@@ -17,20 +17,8 @@ function ProductData({ productData, selectedStyle }) {
   }, [selectedStyle]);
 
   return (
-    <div className="productData">
-      <div className="productName">
-        {' '}
-        {productData.name}
-      </div>
-      <div className="productDescription">
-        {' '}
-        {productData.description}
-      </div>
-      <div className="productCategory">
-        {' '}
-        {productData.category}
-      </div>
-      <div className="productPrice" style={listPriceStyle}>
+    <div className="price">
+      <div className="listPrice" style={listPriceStyle}>
         {' $'}
         {listPrice}
       </div>
@@ -38,16 +26,9 @@ function ProductData({ productData, selectedStyle }) {
         {salePrice}
       </div>
 
-      {/* {productEntries.map((entry) => (
-        <div className="entry" key={entry}>
-          {' '}
-          {`${entry[0]}: ${entry[1]}`}
-          {' '}
-        </div>
-      ))} */}
     </div>
 
   );
 }
 
-export default ProductData;
+export default Price;
