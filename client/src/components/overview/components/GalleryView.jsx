@@ -1,31 +1,43 @@
+/* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable consistent-return */
 import React, { useEffect, useId, useState } from 'react';
+import Checkbox from './Details/Checkbox';
 
-function GalleryView({ selectedStyle, selectedPhoto, setSelectedPhoto }) {
+function GalleryView({
+  selectedStyle, selectedPhoto, setSelectedPhoto, selectedThumb, setSelectedThumb,
+}) {
   const handleClick = (e) => {
-    setSelectedPhoto(e.target.src);
+    setSelectedThumb(e.target.src);
+    setSelectedPhoto(e.target.srcset);
   };
 
   if (!selectedStyle.photos) {
     return;
   }
-  const thumbnails = selectedStyle.photos.map((photo) => photo.thumbnail_url);
 
   return (
     <div className="galleryView">
       <img className="mainPhoto" src={selectedPhoto} alt={selectedStyle.name} />
       <div className="thumbnails">
 
-        {thumbnails.map((thumbnail) => (
-          <img
+        {selectedStyle.photos.map((img) => (
+          <div
             className="thumbnail"
-            src={thumbnail}
-            alt={selectedStyle.name}
-            key={useId()}
-            onClick={handleClick}
-          />
+            key={img.url}
+          >
+            <Checkbox selectedThumb={selectedThumb} thumb={img.thumbnail_url} />
+            <div className="thumbPhotoFrame">
+              <img
+                className="thumb"
+                src={img.thumbnail_url}
+                alt={selectedStyle.name}
+                srcSet={img.url}
+                onClick={handleClick}
+              />
+            </div>
+          </div>
         ))}
 
       </div>

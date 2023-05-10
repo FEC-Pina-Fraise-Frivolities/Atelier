@@ -7,7 +7,7 @@ function Overview({ productId }) {
   const [productData, setProductData] = useState({});
   const [productStyles, setProductStyles] = useState([]);
   const [selectedStyle, setSelectedStyle] = useState({});
-
+  const [selectedThumb, setSelectedThumb] = useState('');
   const [selectedPhoto, setSelectedPhoto] = useState('');
 
   useEffect(() => {
@@ -26,6 +26,7 @@ function Overview({ productId }) {
       .then((result) => {
         setProductStyles(result.results);
         setSelectedStyle(result.results[0]);
+        setSelectedThumb(result.results[0].photos[0].thumbnail_url);
         setSelectedPhoto(result.results[0].photos[0].url);
       })
       .catch((err) => {
@@ -47,11 +48,14 @@ function Overview({ productId }) {
         selectedStyle={selectedStyle}
         setSelectedStyle={setSelectedStyle}
         setSelectedPhoto={setSelectedPhoto}
+        setSelectedThumb={setSelectedThumb}
       />
       <GalleryView
         selectedStyle={selectedStyle}
         selectedPhoto={selectedPhoto}
         setSelectedPhoto={setSelectedPhoto}
+        selectedThumb={selectedThumb}
+        setSelectedThumb={setSelectedThumb}
       />
     </div>
   );

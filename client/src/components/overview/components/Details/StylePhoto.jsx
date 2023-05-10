@@ -4,7 +4,7 @@ import React from 'react';
 import Checkbox from './Checkbox';
 
 function StylePhoto({
-  style, selectedStyle, setSelectedStyle, setSelectedPhoto,
+  style, selectedStyle, setSelectedStyle, setSelectedPhoto, setSelectedThumb,
 }) {
   return (
     <div
@@ -12,10 +12,11 @@ function StylePhoto({
       onClick={() => {
         setSelectedStyle(style);
         setSelectedPhoto(style.photos[0].url);
+        setSelectedThumb(style.photos[0].thumbnail_url);
         console.log('selectedStyle:', style);
       }}
     >
-      <div className="selector">{style === selectedStyle && <div className="checkmark">✔</div>}</div>
+      <Checkbox selectedStyle={selectedStyle} style={style} />
       <div className="stylePhotoFrame">
         <img className="stylePhoto" src={style.photos[0].thumbnail_url} alt={style.name} />
       </div>

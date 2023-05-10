@@ -5,7 +5,7 @@ import SizeSelector from './SizeSelector';
 import StyleSelector from './StyleSelector';
 
 function ProductDetails({
-  productData, productStyles, selectedStyle, setSelectedStyle, setSelectedPhoto,
+  productData, productStyles, selectedStyle, setSelectedStyle, setSelectedPhoto, setSelectedThumb,
 }) {
   const [selectedSize, setSelectedSize] = useState('');
   const [skusNull, setSkusNull] = useState(false);
@@ -18,6 +18,7 @@ function ProductDetails({
         selectedStyle={selectedStyle}
         setSelectedStyle={setSelectedStyle}
         setSelectedPhoto={setSelectedPhoto}
+        setSelectedThumb={setSelectedThumb}
       />
       <div className="sizeAndQuantitySelector">
         <SizeSelector
