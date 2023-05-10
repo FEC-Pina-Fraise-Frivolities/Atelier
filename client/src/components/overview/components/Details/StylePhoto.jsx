@@ -7,7 +7,8 @@ import Checkbox from './Checkbox';
 function StylePhoto({
   style, selectedStyle, setSelectedStyle, setSelectedPhoto, setSelectedThumb,
 }) {
-  const imgSrc = style.photos[0].thumbnail_url;
+  const photoSrc = style.photos[0].url;
+  const thumbSrc = style.photos[0].thumbnail_url;
   const placeholderImage = 'https://i.ibb.co/HB10cH4/not-found.jpg';
 
   const onImageError = (e) => {
@@ -19,8 +20,8 @@ function StylePhoto({
       className="style"
       onClick={() => {
         setSelectedStyle(style);
-        setSelectedPhoto(style.photos[0].url);
-        setSelectedThumb(style.photos[0].thumbnail_url);
+        setSelectedPhoto(photoSrc || placeholderImage);
+        setSelectedThumb(thumbSrc || placeholderImage);
         console.log('selectedStyle:', style);
       }}
     >
@@ -28,7 +29,7 @@ function StylePhoto({
       <div className="stylePhotoFrame">
         <img
           className="stylePhoto"
-          src={imgSrc || placeholderImage}
+          src={thumbSrc || placeholderImage}
           alt={style.name}
           onError={onImageError}
           onClick={() => console.log('src: ', style.photos[0].thumbnail_url)}

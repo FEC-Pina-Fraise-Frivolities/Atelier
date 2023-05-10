@@ -10,6 +10,8 @@ function Overview({ productId }) {
   const [selectedThumb, setSelectedThumb] = useState('');
   const [selectedPhoto, setSelectedPhoto] = useState('');
 
+  const placeholderImage = 'https://i.ibb.co/HB10cH4/not-found.jpg';
+
   useEffect(() => {
     const productEndpoint = `http://localhost:3000/products/${productId}`;
     fetch(productEndpoint)
@@ -26,8 +28,8 @@ function Overview({ productId }) {
       .then((result) => {
         setProductStyles(result.results);
         setSelectedStyle(result.results[0]);
-        setSelectedThumb(result.results[0].photos[0].thumbnail_url);
-        setSelectedPhoto(result.results[0].photos[0].url);
+        setSelectedThumb(result.results[0].photos[0].thumbnail_url || placeholderImage);
+        setSelectedPhoto(result.results[0].photos[0].url || placeholderImage);
       })
       .catch((err) => {
         console.log('get product data failed', err);

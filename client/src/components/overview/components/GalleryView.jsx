@@ -8,6 +8,8 @@ import Checkbox from './Details/Checkbox';
 function GalleryView({
   selectedStyle, selectedPhoto, setSelectedPhoto, selectedThumb, setSelectedThumb,
 }) {
+  const placeholderImage = 'https://i.ibb.co/HB10cH4/not-found.jpg';
+
   const handleClick = (e) => {
     setSelectedThumb(e.target.src);
     setSelectedPhoto(e.target.srcset);
@@ -31,9 +33,9 @@ function GalleryView({
             <div className="thumbPhotoFrame">
               <img
                 className="thumb"
-                src={img.thumbnail_url}
+                src={img.thumbnail_url || placeholderImage}
                 alt={selectedStyle.name}
-                srcSet={img.url}
+                srcSet={img.url || placeholderImage}
                 onClick={handleClick}
               />
             </div>
