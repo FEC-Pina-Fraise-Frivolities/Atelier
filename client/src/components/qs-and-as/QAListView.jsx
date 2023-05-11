@@ -5,7 +5,7 @@ import axios from 'axios';
 const QAListView = () => {
 
   const [questions, setQuestions ] = React.useState([]);
-  const [ qSlice, setQSlice ] = React.useState(2);
+  const [ qSlice, setQSlice ] = React.useState(4);
 
   const getAllQuestions = () => {
     const params = {
@@ -22,17 +22,11 @@ const QAListView = () => {
     getAllQuestions()
   }, [])
 
-
-//state array of all questions
-//state n number for slice that setN increases with button push
-//slice map provided to QEntry
-//each QEntry is called with product question ID
-
 return (
 <div>
 <div> QA LIST GOES HERE</div>
-<div> {questions.slice(0,qSlice).map((q) => {return <QEntry question={q}/>})}</div>
-<button onClick={() => {setQSlice(qSlice+2)}}>MORE ANSWERED QUESTIONS</button>
+<div> {questions.slice(0,qSlice).map((q, i) => {return <QEntry key={i} question={q}/>})}</div>
+{qSlice < questions.length ? <button onClick={() => {setQSlice(qSlice+2)}}>MORE ANSWERED QUESTIONS</button> : null}
 <button>ADD A QUESTION</button>
 </div>
 

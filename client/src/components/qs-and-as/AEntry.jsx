@@ -1,10 +1,6 @@
 import { React, useEffect, useState } from 'react';
 
 const AEntry = (props) => {
-  const [ answer, setQuestion] = useState('It is totally safe');
-  const [ user, setUser] = useState('Karen');
-  const [ answerDate, setAnswerDate] = useState('')
-
   const dateParse = (date) => {
     let d = new Date (date)
     const options = { year: 'numeric', month: 'short', day: 'numeric' };

@@ -21,4 +21,7 @@ module.exports = {
       });
   },
 
+  markHelpfulQuestion(req, res) {
+
+  }
 }
