@@ -33,4 +33,4 @@ app.get('/qa/questions', controller.questions.getQuestions);
 /* ---------------- Server listens ---------------- */
 
 app.listen(process.env.PORT || 3000);
-console.log('Listening at http://localhost:3000');
+console.log('Listening at http://localhost:', process.env.PORT || 3000);
