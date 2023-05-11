@@ -1,17 +1,17 @@
 import { React, useEffect, useState } from 'react';
-import RatingAndReview from './components/ratings-and-reviews/index';
 import Overview from './components/overview/Overview';
+import RatingAndReview from './components/ratings-and-reviews/index';
 import RelatedAndOutfit from './components/related-items-and-outfit/index';
 
 function App() {
-  const [productId, setProductId] = useState(40436);
-
-  console.log('current id in app', productId);
+  const [productId, setProductId] = useState(40348);
 
   return (
-    <>
-      <RatingAndReview productId={productId}/>
-    </>
+    <div>
+      <Overview productId={productId} setProductId={setProductId} />
+
+      {/* <RatingAndReview productId={productId}/> */}
+    </div>
   );
 }
 
