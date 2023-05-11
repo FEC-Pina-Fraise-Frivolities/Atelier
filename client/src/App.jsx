@@ -15,7 +15,7 @@ function App() {
       <div>Item-detail  {productId}</div>
       <p>...</p>
       <p>...</p>
-      {/* <div><RelatedAndOutfit productId ={productId} setProductId = {setProductId}/></div> */}
+      <div><RelatedAndOutfit productId ={productId} setProductId = {setProductId}/></div>
       <p>...</p>
       <p>...</p>
       <div><QAIndex /></div>

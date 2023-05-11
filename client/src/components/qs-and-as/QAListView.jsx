@@ -12,10 +12,7 @@ const QAListView = () => {
       product_id: 40489,  //change out of hardcode for integration
     };
     axios.get('/qa/questions', { params })
-    .then((result) => {
-    console.log('getting is back:', result.data.results);
-    var sortedQ = result.data.results.sort((a,b) => {a.question_helpfulness - b.question_helpfulness})
-    setQuestions(sortedQ)});
+    .then((result) => {setQuestions(result.data.results)});
   }
 
   React.useEffect(() => {
