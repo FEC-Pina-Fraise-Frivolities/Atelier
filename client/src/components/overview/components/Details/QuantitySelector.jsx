@@ -1,5 +1,3 @@
-/* eslint-disable jsx-a11y/label-has-associated-control */
-
 // TODO: FIX QUANTITY RERENDERING WHEN CHANGING STYLES
 import React, { useEffect, useState } from 'react';
 
