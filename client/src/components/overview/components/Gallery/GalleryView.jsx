@@ -1,4 +1,7 @@
-import React, { useState } from 'react';
+/* eslint-disable react-hooks/exhaustive-deps */
+import React, { useEffect, useState } from 'react';
+import LoadNext from './LoadNext';
+import LoadPrev from './LoadPrev';
 import Thumbnail from './Thumbnail';
 
 function GalleryView({
@@ -9,15 +12,19 @@ function GalleryView({
   }
 
   const [displayedThumbs, setDisplayedThumbs] = useState(selectedStyle.photos.slice(0, 7));
-  let factor = 0;
+  const [factor, setFactor] = useState(0);
 
-  const loadThumbs = () => {
-    factor += 1;
-    setDisplayedThumbs(selectedStyle.photos.slice((7 * factor), (7 * (factor + 1))));
-  };
+  useEffect(() => {
+    const start = factor * 7;
+    const end = (factor + 1) * 7;
+    if (start < selectedStyle.photos.length) {
+      setDisplayedThumbs(selectedStyle.photos.slice(start, end));
+    }
+  }, [factor]);
 
   return (
     <div className="galleryView">
+      <LoadPrev factor={factor} setFactor={setFactor} />
       <img className="mainPhoto" src={selectedPhoto} alt={selectedStyle.name} />
       <div className="thumbnails">
 
@@ -33,7 +40,7 @@ function GalleryView({
         ))}
 
       </div>
-      <div className="loadMoreThumbs" onClick={loadThumbs} />
+      <LoadNext factor={factor} setFactor={setFactor} selectedStyle={selectedStyle} />
     </div>
 
   );
