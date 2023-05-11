@@ -177,12 +177,38 @@
   text-align: left;
 }
 
-.rating-and-review .dynamic-star span:hover::before, .rating-and-review .dynamic-star span:hover ~ span::before{
-  content: "\2605";
-  position: absolute;
+.rating-and-review .dynamic-star span {
+  color: #ccc;
+}
+
+.rating-and-review .dynamic-star span:hover, .rating-and-review .dynamic-star span:hover ~ span{
+  color: black;
+  cursor: pointer;
 }
 
 #review-form fieldset div {
   display: inline-block;
   margin: 6px;
+}
+
+.rating-and-review .modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+  z-index: 3;
+}
+
+.rating-and-review #review-form {
+  background-color: #fff;
+  overflow-y: auto;
+  width: 65%;
+  height: 90%;
+  padding: 10px;
 }

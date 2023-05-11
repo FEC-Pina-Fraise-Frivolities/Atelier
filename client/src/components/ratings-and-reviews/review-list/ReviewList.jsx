@@ -1,7 +1,7 @@
 import React from 'react';
 import IndividualTile from './IndividualTile';
 
-function ReviewList({ reviews, numReviews }) {
+function ReviewList({ reviews, numReviews, modalHandler }) {
   return reviews.length === 0 ? '' : (
     <div className="list container">
       <h3>
@@ -11,7 +11,7 @@ function ReviewList({ reviews, numReviews }) {
       {reviews.map((review) => (
         <IndividualTile review={review} key={review.review_id} />
       ))}
-      <button type="button">Add a review</button>
+      <button type="button" onClick={modalHandler}>Add a review</button>
     </div>
   );
 }

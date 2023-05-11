@@ -5,10 +5,14 @@ const path = require('path');
 
 const app = express();
 const controller = require('./controller');
+const logger = require('./middleware/logger');
 
 // Serves up all static and generated assets in ../client/dist.
 app.use(express.static(path.join(__dirname, '../client/dist')));
 app.use(express.json());
+
+// Add a middleware to log HTTP requests
+app.use(logger);
 
 // Set up our routes
 
@@ -24,6 +28,7 @@ app.post('/cart', controller.cart.post);
 /** ******* */
 app.get('/reviews', controller.reviews.getReviews);
 app.get('/reviews/meta', controller.reviews.getReviewsMeta);
+app.post('/reviews', controller.reviews.addReview);
 
 // questions
 /** ******** */

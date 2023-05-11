@@ -9,6 +9,7 @@ function RatingAndReview({ productId }) {
   const [reviews, setReviews] = useState([]);
   const [reviewMeta, setReviewMeta] = useState({});
   const [numReviews, setNumReviews] = useState(0);
+  const [showForm, setShowForm] = useState(false);
 
   useEffect(() => {
     const params = {
@@ -26,6 +27,10 @@ function RatingAndReview({ productId }) {
       });
   }, [productId]);
 
+  function modalHandler() {
+    setShowForm(!showForm);
+  }
+
   return (
     <div className="rating-and-review">
       <h2 id="subtitle">Ratings and Reviews</h2>
@@ -42,9 +47,14 @@ function RatingAndReview({ productId }) {
           <ProductBD characteristics={reviewMeta.characteristics} />
         )}
       </div>
-      <ReviewList reviews={reviews} numReviews={numReviews} />
+      <ReviewList reviews={reviews} numReviews={numReviews} modalHandler={modalHandler}/>
       {Object.keys(reviewMeta).length === 0 ? '' : (
-        <AddReviewForm characteristics={reviewMeta.characteristics} />
+        <AddReviewForm
+          characteristics={reviewMeta.characteristics}
+          showForm={showForm}
+          modalHandler={modalHandler}
+          productId={productId}
+        />
       )}
     </div>
   );

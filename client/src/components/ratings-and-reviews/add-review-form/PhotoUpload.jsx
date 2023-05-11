@@ -1,8 +1,8 @@
 import React from 'react';
 import $ from 'jquery';
 
-function PhotoUpload() {
-  function previewFiles() {
+function PhotoUpload({ inputHandler }) {
+  function previewFiles(e) {
     const $preview = $('#preview');
     const $files = $('input[type=file]').prop('files');
 
@@ -14,6 +14,7 @@ function PhotoUpload() {
         const $item = $('<li></li>');
         $item.append(image, `<span>${file.name}</span>`);
         $preview.append($item);
+        inputHandler(e, reader.result);
 
         if ($preview.find('li').length === 5) {
           $('input[type=file]').toggle();
@@ -33,7 +34,7 @@ function PhotoUpload() {
         <small> (5 max)</small>
       </p>
       {/* eslint "react/self-closing-comp":0 */}
-      <input type="file" accept=".png, .jpg, .jpeg" multiple onChange={previewFiles}></input>
+      <input name="photos" type="file" accept=".png, .jpg, .jpeg" multiple onChange={previewFiles}></input>
       <ul id="preview"></ul>
     </div>
   );
