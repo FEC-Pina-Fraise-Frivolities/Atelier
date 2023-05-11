@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Thumbnail from './Thumbnail';
 
 function GalleryView({
@@ -8,12 +8,20 @@ function GalleryView({
     return;
   }
 
+  const [displayedThumbs, setDisplayedThumbs] = useState(selectedStyle.photos.slice(0, 7));
+  let factor = 0;
+
+  const loadThumbs = () => {
+    factor += 1;
+    setDisplayedThumbs(selectedStyle.photos.slice((7 * factor), (7 * (factor + 1))));
+  };
+
   return (
     <div className="galleryView">
       <img className="mainPhoto" src={selectedPhoto} alt={selectedStyle.name} />
       <div className="thumbnails">
 
-        {selectedStyle.photos.map((img) => (
+        {displayedThumbs.map((img) => (
           <Thumbnail
             img={img}
             key={img.url}
@@ -25,6 +33,7 @@ function GalleryView({
         ))}
 
       </div>
+      <div className="loadMoreThumbs" onClick={loadThumbs} />
     </div>
 
   );
