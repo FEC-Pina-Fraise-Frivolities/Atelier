@@ -7,9 +7,9 @@ const QAIndex = () => {
 
 return (
 <div>
-<div> QUESTIONS & ANSWERS</div>
+<div className="qaTitle"> QUESTIONS & ANSWERS</div>
 <div> <QASearch /></div>
-<div><QAListView /></div>
+<div className="qaListView"><QAListView /></div>
 
 </div>
 

@@ -7,13 +7,33 @@ module.exports = {
       method: 'GET',
       url: endpoint,
       headers: {
-        Authorization: process.env.TOLKEN,
+        Authorization: process.env.AUTH,
       },
       params: req.query,
     };
     return axios(option)
       .then((result) => {
         res.status(200).send(result.data);
+      })
+      .catch((err) => {
+        console.log(err);
+        res.status(400).send();
+      });
+  },
+
+  addQuestion(req, res) {
+    const endpoint = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/qa/questions';
+    const option = {
+      method: 'POST',
+      url: endpoint,
+      headers: {
+        Authorization: process.env.AUTH,
+      },
+      data: req.body,
+    };
+    return axios(option)
+      .then((result) => {
+        res.status(200).end('Question Added');
       })
       .catch((err) => {
         console.log(err);

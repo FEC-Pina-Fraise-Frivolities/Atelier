@@ -7,13 +7,15 @@ const AEntry = (props) => {
     return d.toLocaleDateString('en-us', options)
   }
 
-
+// console.log(props.answer)
 return (
-<div>
+<div className="answer">
 <div> A: {props.answer.body}.</div>
-<div> user: {props.answer.answerer_name}, {dateParse(props.answer.date)}</div>
-<div> Helpful? &#40;{props.answer.helpfulness}&#41; </div>
-<div> report</div>
+<div className="aFoot">
+<div> by {props.answer.answerer_name === "Seller" ? <b>props.answer.answerer_name</b> : props.answer.answerer_name}, {dateParse(props.answer.date)} | </div>
+<div> Helpful? <u>Yes</u> &#40;{props.answer.helpfulness}&#41; | </div>
+<div> Report</div>
+</div>
 </div>
 
 )
