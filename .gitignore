@@ -137,3 +137,6 @@ bundle.js*
 
 # config files
 config.js
+
+#random
+random.json
