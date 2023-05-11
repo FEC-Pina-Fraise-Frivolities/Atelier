@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import placeholderImage from '../../index';
+import placeholderImage from '../../../../assets/index';
 import Checkbox from '../utils/Checkbox';
 
 function StylePhoto({

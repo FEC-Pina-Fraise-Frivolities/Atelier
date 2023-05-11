@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import placeholderImage from '../../assets/index';
 import {
   Basics, Description, GalleryView, ProductDetails,
 } from './index';
@@ -9,8 +10,6 @@ function Overview({ productId }) {
   const [selectedStyle, setSelectedStyle] = useState({});
   const [selectedThumb, setSelectedThumb] = useState('');
   const [selectedPhoto, setSelectedPhoto] = useState('');
-
-  const placeholderImage = 'https://i.ibb.co/HB10cH4/not-found.jpg';
 
   useEffect(() => {
     const productEndpoint = `http://localhost:3000/products/${productId}`;

@@ -1,5 +1,5 @@
 import React from 'react';
-import placeholderImage from '../../index';
+import placeholderImage from '../../../../assets/index';
 import Checkbox from '../utils/Checkbox';
 
 function Thumbnail({
@@ -11,9 +11,7 @@ function Thumbnail({
   };
 
   return (
-    <div
-      className="thumbnail"
-    >
+    <div className="thumbnail">
       <Checkbox selectedThumb={selectedThumb} thumb={img.thumbnail_url || placeholderImage} />
       <div className="thumbPhotoFrame" key={img.thumbnail_url}>
         <img
