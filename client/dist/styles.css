@@ -59,6 +59,45 @@
    margin: auto;
  }
 
+ /*
+ related api
+ */
+
+ .card {
+  border: 1px solid;
+  width:200px;
+  height: 350px;
+  margin: 10px;
+}
+
+ .list {
+  display: flex;
+  list-style: none;
+
+ }
+
+ .mainImg{
+  max-width: 200px;
+  max-height: 150px;
+}
+
+ .compareTable {
+  background-color: rgb(6, 5, 5);
+  color: rgb(99, 158, 230);
+  width: 500px;
+}
+.listAndArrow {
+  display: flex;
+}
+
+.list-gallery {
+  display: flex;
+  list-style: none;
+}
+.thumphoto{
+  display: flex;
+}
+
  /* --------------------------------------------------------------------------------------------------------
  ----------------------------------Rating and Review Section------------------------------------------------
  ---------------------------------------------------------------------------------------------------------*/
@@ -83,25 +122,23 @@
  }
 
  /* ------------------ Star ---------------------- */
-
- .rating-and-review .star {
+    .star {
   position: relative;
   display: inline-block;
 }
-
- .rating-and-review .empty-star {
+.empty-star {
   color: #ccc;
   display: inline-block;
 }
 
-.rating-and-review .filled-star {
+ .filled-star {
   display: inline-block;
   position: absolute;
   top: 0;
   left: 0;
 }
 
-.rating-and-review .star span {
+ .star span {
   font-size: 16px;
 }
 
