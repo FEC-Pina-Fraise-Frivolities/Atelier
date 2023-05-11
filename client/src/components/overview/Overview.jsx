@@ -48,7 +48,6 @@ function Overview({ productId }) {
         productStyles={productStyles}
         selectedStyle={selectedStyle}
         selectedPhoto={selectedPhoto}
-        selectedThumb={selectedStyle}
         setSelectedStyle={setSelectedStyle}
         setSelectedPhoto={setSelectedPhoto}
         setSelectedThumb={setSelectedThumb}

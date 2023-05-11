@@ -9,11 +9,9 @@ function Thumbnail(
     selectedThumb,
     setSelectedThumb,
     setSelectedPhoto,
-    indexOfThumb,
   },
 ) {
   const handleClick = (e) => {
-    console.log('indexOf thumb: ', indexOfThumb);
     setSelectedThumb(e.target.src);
     setSelectedPhoto(e.target.srcset);
   };

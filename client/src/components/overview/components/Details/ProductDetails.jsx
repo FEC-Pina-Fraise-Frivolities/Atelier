@@ -4,9 +4,17 @@ import QuantitySelector from './QuantitySelector';
 import SizeSelector from './SizeSelector';
 import StyleSelector from './StyleSelector';
 
-function ProductDetails({
-  productData, productStyles, selectedStyle, selectedPhoto, setSelectedStyle, setSelectedPhoto, setSelectedThumb,
-}) {
+function ProductDetails(
+  {
+    productData,
+    productStyles,
+    selectedStyle,
+    selectedPhoto,
+    setSelectedStyle,
+    setSelectedPhoto,
+    setSelectedThumb,
+  },
+) {
   const [selectedSize, setSelectedSize] = useState('');
   const [skusNull, setSkusNull] = useState(false);
   const [selectedQuantity, setSelectedQuantity] = useState(1);

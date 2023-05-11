@@ -16,7 +16,7 @@ function QuantitySelector({
         }
       }
     }
-  }, [selectedSize]);
+  }, [selectedSize, selectedStyle]);
 
   useEffect(() => {
     setAllQuantites([]);

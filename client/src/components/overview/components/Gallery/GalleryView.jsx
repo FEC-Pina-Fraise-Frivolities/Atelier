@@ -43,7 +43,6 @@ function GalleryView(
             selectedThumb={selectedThumb}
             setSelectedThumb={setSelectedThumb}
             setSelectedPhoto={setSelectedPhoto}
-            indexOfThumb={selectedStyle.photos.indexOf(img)}
           />
         ))}
 
