@@ -2,10 +2,18 @@ import React from 'react';
 import placeholderImage from '../../../../assets/index';
 import Checkbox from '../utils/Checkbox';
 
-function Thumbnail({
-  img, selectedStyle, selectedThumb, setSelectedThumb, setSelectedPhoto,
-}) {
+function Thumbnail(
+  {
+    img,
+    selectedStyle,
+    selectedThumb,
+    setSelectedThumb,
+    setSelectedPhoto,
+    indexOfThumb,
+  },
+) {
   const handleClick = (e) => {
+    console.log('indexOf thumb: ', indexOfThumb);
     setSelectedThumb(e.target.src);
     setSelectedPhoto(e.target.srcset);
   };

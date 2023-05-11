@@ -1,9 +1,15 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import StylePhoto from './StylePhoto';
 
 function StyleSelector(
   {
-    productStyles, selectedStyle, setSelectedStyle, setSelectedPhoto, setSelectedThumb,
+    productStyles,
+    selectedStyle,
+    selectedPhoto,
+    setSelectedStyle,
+    setSelectedPhoto,
+    setSelectedThumb,
+
   },
 ) {
   return (
@@ -14,6 +20,7 @@ function StyleSelector(
           <StylePhoto
             key={style.style_id}
             style={style}
+            selectedPhoto={selectedPhoto}
             selectedStyle={selectedStyle}
             setSelectedStyle={setSelectedStyle}
             setSelectedPhoto={setSelectedPhoto}

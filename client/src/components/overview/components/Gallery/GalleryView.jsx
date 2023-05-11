@@ -4,9 +4,16 @@ import LoadNext from './LoadNext';
 import LoadPrev from './LoadPrev';
 import Thumbnail from './Thumbnail';
 
-function GalleryView({
-  selectedStyle, selectedPhoto, setSelectedPhoto, selectedThumb, setSelectedThumb,
-}) {
+function GalleryView(
+  {
+    selectedStyle,
+    selectedPhoto,
+    setSelectedPhoto,
+    selectedThumb,
+    setSelectedThumb,
+
+  },
+) {
   if (!selectedStyle.photos) {
     return;
   }
@@ -20,7 +27,7 @@ function GalleryView({
     if (start < selectedStyle.photos.length) {
       setDisplayedThumbs(selectedStyle.photos.slice(start, end));
     }
-  }, [factor]);
+  }, [factor, selectedStyle]);
 
   return (
     <div className="galleryView">
@@ -36,6 +43,7 @@ function GalleryView({
             selectedThumb={selectedThumb}
             setSelectedThumb={setSelectedThumb}
             setSelectedPhoto={setSelectedPhoto}
+            indexOfThumb={selectedStyle.photos.indexOf(img)}
           />
         ))}
 

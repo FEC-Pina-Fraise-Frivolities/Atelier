@@ -5,7 +5,7 @@ import SizeSelector from './SizeSelector';
 import StyleSelector from './StyleSelector';
 
 function ProductDetails({
-  productData, productStyles, selectedStyle, setSelectedStyle, setSelectedPhoto, setSelectedThumb,
+  productData, productStyles, selectedStyle, selectedPhoto, setSelectedStyle, setSelectedPhoto, setSelectedThumb,
 }) {
   const [selectedSize, setSelectedSize] = useState('');
   const [skusNull, setSkusNull] = useState(false);
@@ -16,6 +16,7 @@ function ProductDetails({
       <StyleSelector
         productStyles={productStyles}
         selectedStyle={selectedStyle}
+        selectedPhoto={selectedPhoto}
         setSelectedStyle={setSelectedStyle}
         setSelectedPhoto={setSelectedPhoto}
         setSelectedThumb={setSelectedThumb}
