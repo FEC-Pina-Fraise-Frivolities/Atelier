@@ -13,10 +13,9 @@ function Thumbnail({
   return (
     <div
       className="thumbnail"
-      key={img.url}
     >
       <Checkbox selectedThumb={selectedThumb} thumb={img.thumbnail_url || placeholderImage} />
-      <div className="thumbPhotoFrame">
+      <div className="thumbPhotoFrame" key={img.thumbnail_url}>
         <img
           className="thumb"
           src={img.thumbnail_url || placeholderImage}

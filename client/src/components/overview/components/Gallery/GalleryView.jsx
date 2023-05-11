@@ -16,6 +16,7 @@ function GalleryView({
         {selectedStyle.photos.map((img) => (
           <Thumbnail
             img={img}
+            key={img.url}
             selectedStyle={selectedStyle}
             selectedThumb={selectedThumb}
             setSelectedThumb={setSelectedThumb}
