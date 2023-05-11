@@ -1,9 +1,9 @@
 import { React, useEffect, useState } from 'react';
 
-const AEntry = () => {
+const AEntry = (props) => {
   const [ answer, setQuestion] = useState('It is totally safe');
   const [ user, setUser] = useState('Karen');
-  const [ answerDate, setAnswerDate] = useSate('')
+  const [ answerDate, setAnswerDate] = useState('')
 
   const dateParse = (date) => {
     let d = new Date (date)
@@ -14,9 +14,9 @@ const AEntry = () => {
 
 return (
 <div>
-<div> A: {answer}.</div>
-<div> user: {user}, date: {dateParse(answerDate)}</div>
-<div> helpful? </div>
+<div> A: {props.answer.body}.</div>
+<div> user: {props.answer.answerer_name}, date: {dateParse(props.answer.date)}</div>
+<div> helpful? ({props.answer.helpfulness}) </div>
 <div> report</div>
 </div>
 

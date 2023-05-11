@@ -18,10 +18,8 @@ module.exports = {
   },
 
   getProduct(req, res) {
-    console.log('line 21', req.params);
     const productId = req.params.product_id;
     const endpoint = ` https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products/${productId}`;
-    console.log('endpoint', endpoint);
     const option = {
       method: 'GET',
       url: endpoint,
@@ -65,7 +63,6 @@ module.exports = {
     };
     axios(option)
       .then((result) => {
-        console.log(result.data);
         res.send(result.data);
       })
       .catch((err) => console.log('server: get related list failed', err));

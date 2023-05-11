@@ -27,7 +27,7 @@ app.get('/reviews/meta', controller.reviews.getReviewsMeta);
 
 // questions
 /** ******** */
-
+app.get('/qa/questions', controller.questions.getQuestions);
 //
 
 /* ---------------- Server listens ---------------- */
