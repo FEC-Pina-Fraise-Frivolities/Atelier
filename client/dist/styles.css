@@ -262,20 +262,28 @@
   overflow: hidden;
   border-radius: 25%;
   margin-right: 12px;
-  margin-bottom: 12px;
+  margin-bottom: 8pt;
   border:2px solid cornflowerblue;
 }
 
 .galleryView .thumbnails {
   width: 100%;
   position:absolute;
+  left: 5px;
   display: flex;
   flex-direction: column;
-  justify-content:space-evenly;
+  width: 100px;
+  height: 490px;
+  overflow:hidden;
+  overflow-y:auto;
  }
 
-.galleryView .thumb {
-  cursor:pointer;
+ .galleryView .thumbnails::-webkit-scrollbar {
+  display: none;
+ }
+
+ .galleryView img.thumb {
+  cursor: pointer;
 }
 
 .galleryView img.thumb:hover {
@@ -292,7 +300,7 @@
  .galleryView .checkmark {
   position:relative;
   left: 45px;
-  top: -8px;
+  top: 0px;
   width:20px;
   height:20px;
   font-size: small;

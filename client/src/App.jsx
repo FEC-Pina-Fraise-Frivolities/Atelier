@@ -4,7 +4,7 @@ import RatingAndReview from './components/ratings-and-reviews/index';
 import RelatedAndOutfit from './components/related-items-and-outfit/index';
 
 function App() {
-  const [productId, setProductId] = useState(40436);
+  const [productId, setProductId] = useState(40348);
 
   console.log('current id in app', productId);
 
