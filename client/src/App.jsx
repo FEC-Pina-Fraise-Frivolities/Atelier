@@ -6,8 +6,6 @@ import RelatedAndOutfit from './components/related-items-and-outfit/index';
 function App() {
   const [productId, setProductId] = useState(40348);
 
-  console.log('current id in app', productId);
-
   return (
     <div>
       <Overview productId={productId} setProductId={setProductId} />
