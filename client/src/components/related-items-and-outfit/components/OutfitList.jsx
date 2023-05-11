@@ -1,42 +1,42 @@
-import { React, useEffect, useState } from 'react';
+import { React, useState } from 'react';
 import ProductCard from './ProductCard';
 
-const AddToOutfitCard = () => {
-
-};
-
-function OutfitList(props) {
+function OutfitList({ productId, setProductId }) {
   const ifRelated = false;
-  const ifOutfit = window.localStorage.getItem('outfitArr') !== null;
+  const ifOutfit = window.localStorage.getItem('outfitArr') !== ''
+            && window.localStorage.getItem('outfitArr') !== null
+            && JSON.parse(window.localStorage.getItem('outfitArr')) !== [];
+  let outfit = ifOutfit ? JSON.parse(window.localStorage.getItem('outfitArr')) : [];
+  const [outfitArr, setOutfitArr] = useState(outfit);
 
   const handleAdd = () => {
-    if (window.localStorage.getItem('outfitArr') !== null) {
-      const arr = JSON.parse(window.localStorage.getItem('outfitArr'));
-      // refactor idea: use set
-      if (arr.indexOf(props.productId) < 0) { arr.push(props.productId); }
-      console.log(arr);
-      window.localStorage.setItem('outfitArr', JSON.stringify(arr));
-    } else {
-      const arr = [props.productId];
-      window.localStorage.setItem('outfitArr', JSON.stringify(arr));
+    outfit = outfitArr.slice();
+    // can use set
+    if (outfit.indexOf(productId) < 0) {
+      outfit.unshift(productId);
+      setOutfitArr(outfit);
     }
-    console.log(window.localStorage);
+    window.localStorage.setItem('outfitArr', JSON.stringify(outfit));
   };
 
-  console.log(ifOutfit);
-
-  const OutfitAlready = () => {
-    const arr = JSON.parse(window.localStorage.getItem('outfitArr'));
-    return (
-      arr.map((id, index) => <ProductCard id={id} key={index} setProductId={props.setProductId} ifRelated={ifRelated} />)
-    );
-  };
-  // refactor idea: useState to renew the renderOutfit
+  const OutfitAlready = () => (
+    outfitArr.map((id) => (
+      <li className="card" key={id}>
+        <ProductCard
+          id={id}
+          setProductId={setProductId}
+          ifRelated={ifRelated}
+          setOutfitArr={setOutfitArr}
+        />
+      </li>
+    ))
+  );
   return (
-    <div>
-      <button onClick={handleAdd}> add </button>
-      {ifOutfit && <OutfitAlready />}
-    </div>
+    <ul className="list" id="outfit_list">
+      <li className="card" onClick={handleAdd}>add to outfit</li>
+      <OutfitAlready />
+    </ul>
+
   );
 }
 
