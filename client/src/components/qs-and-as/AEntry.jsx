@@ -15,8 +15,8 @@ const AEntry = (props) => {
 return (
 <div>
 <div> A: {props.answer.body}.</div>
-<div> user: {props.answer.answerer_name}, date: {dateParse(props.answer.date)}</div>
-<div> helpful? ({props.answer.helpfulness}) </div>
+<div> user: {props.answer.answerer_name}, {dateParse(props.answer.date)}</div>
+<div> Helpful? &#40;{props.answer.helpfulness}&#41; </div>
 <div> report</div>
 </div>
 

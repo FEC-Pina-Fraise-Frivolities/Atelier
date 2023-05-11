@@ -18,7 +18,7 @@ return (
 <div> Q: {props.question.question_body}</div>
 <div> by: {props.question.asker_name}, {dateParse(props.question.question_date)}  | Helpfulness: {props.question.question_helpfulness}</div>
 <div> {answers.slice(0, aSlice).map((a) => {return <AEntry answer={a}/>})} </div>
-<div> Load More Answers</div>
+<div onClick={() =>{setASlice(aSlice+2)}}> Load More Answers</div>
 </div>
 
 )
