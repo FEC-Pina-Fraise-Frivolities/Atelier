@@ -23,6 +23,16 @@ function GalleryView(
   const [displayedThumbs, setDisplayedThumbs] = useState(selectedStyle.photos.slice(0, 7));
   const [factor, setFactor] = useState(0);
 
+  const nextThumbs = () => {
+    if ((factor + 1) * 7 < selectedStyle.photos.length) {
+      setFactor((currFactor) => currFactor + 1);
+    }
+  };
+
+  const prevThumbs = () => {
+    if (factor > 0) { setFactor((currFactor) => currFactor - 1); }
+  };
+
   useEffect(() => {
     console.log('selectedStyle: ', selectedStyle);
     const start = factor * 7;
@@ -30,16 +40,23 @@ function GalleryView(
     if (start < selectedStyle.photos.length) {
       setDisplayedThumbs(selectedStyle.photos.slice(start, end));
     }
-  }, [factor, selectedStyle]);
+  }, [factor, selectedStyle, selectedThumb]);
 
   return (
     <div className="galleryView">
-      <LoadPrev factor={factor} setFactor={setFactor} />
+      <LoadPrev
+        factor={factor}
+        prevThumbs={prevThumbs}
+      />
       <MainPhotoArrows
         selectedStyle={selectedStyle}
         selectedPhoto={selectedPhoto}
         setSelectedPhoto={setSelectedPhoto}
         setSelectedThumb={setSelectedThumb}
+        nextThumbs={nextThumbs}
+        prevThumbs={prevThumbs}
+        factor={factor}
+        displayedThumbs={displayedThumbs}
       />
       <a href={selectedPhoto} target="blank">
         <img
@@ -64,7 +81,11 @@ function GalleryView(
         ))}
 
       </div>
-      <LoadNext factor={factor} setFactor={setFactor} selectedStyle={selectedStyle} />
+      <LoadNext
+        factor={factor}
+        selectedStyle={selectedStyle}
+        nextThumbs={nextThumbs}
+      />
     </div>
 
   );
