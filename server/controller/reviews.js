@@ -21,12 +21,12 @@ module.exports = {
   },
 
   getReviewsMeta(req, res) {
-    console.log('query', req.query);
+    // console.log('query', req.query);
     const endpoint = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/reviews/meta';
     const option = {
       method: 'GET',
       url: endpoint,
-      params: req.query.product_id,
+      params: { product_id: req.query.product_id },
       headers: {
         Authorization: process.env.AUTH,
       },
@@ -36,7 +36,7 @@ module.exports = {
         res.status(200).send(result.data);
       })
       .catch((err) => {
-        //console.log(err);
+        console.log(err);
         res.status(400).send();
       });
   },
