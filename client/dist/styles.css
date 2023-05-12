@@ -217,7 +217,8 @@
 
  .qListView {
   overflow-y: scroll;
-  height: 700px
+  height: 700px;
+  font-size: 10pt;
  }
 
  .qEntry {
@@ -258,6 +259,10 @@
   margin-bottom: 0.5%;
 }
 
+.aPicture {
+  display: flex;
+  margin-right: 0.5%;
+}
 .aFoot {
   display: flex;
   flex-direction: row;

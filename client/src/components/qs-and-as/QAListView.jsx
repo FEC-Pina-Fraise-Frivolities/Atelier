@@ -21,13 +21,14 @@ const QAListView = () => {
   React.useEffect(() => {
     getAllQuestions()
   }, [])
-console.log(questions)
+
 return (
 <div>
-<div className="qListView"> {questions.slice(0,qSlice).map((q, i) => {return <QEntry key={i} question={q}/>})}</div>
+<div className="qListView"> {questions.slice(0,qSlice).map((q, i) => {return <QEntry key={i} question={q}/>})}
 {qSlice < questions.length ? <button onClick={() => {setQSlice(qSlice+2)}}>MORE ANSWERED QUESTIONS</button> : null}
 <button onClick={()=>{setAddQuestion(true)}}>ADD A QUESTION</button>
 <div>{showAddQuestion ? <AddQuestion show={setAddQuestion} productId={40364}/> : null}</div>
+</div>
 </div>
 
 )

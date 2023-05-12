@@ -40,7 +40,8 @@ return (
   <input type="text" value={email} onChange={(e) => setEmail(e.target.value)}/>
   <div>For authentication reasons, you will not be emailed</div>
 
-  <button>Submit your question</button>
+  <button>Submit</button>
+  <div onClick={() => props.show(false)}><u>Cancel</u></div>
   </form>
 
 </div>
