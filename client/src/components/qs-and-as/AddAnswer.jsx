@@ -6,7 +6,6 @@ const AddAnswer = (props) => {
   const [ name, setName ] = useState('');
   const [ email, setEmail] = useState('');
 
-
   const handleSubmit = (e) => {
     e.preventDefault();
     let body = {
@@ -14,10 +13,12 @@ const AddAnswer = (props) => {
       name: name,
       email: email
     };
-    let payload = {question_id: props.q.question_id, body: body}
-
+    let payload = {question_id: props.q.question_id, body: body};
     axios.post('/qa/questions/:question_id/answers', payload)
+    .then((r) => props.show(false))
+    .catch((e) => console.log(e));
   }
+
 return (
 <div className="Modal">
 <form className="modalContent" onSubmit={handleSubmit}>
