@@ -13,6 +13,7 @@ function GalleryView(
     setSelectedPhoto,
     selectedThumb,
     setSelectedThumb,
+    setExpanded,
 
   },
 ) {
@@ -58,14 +59,12 @@ function GalleryView(
         factor={factor}
         displayedThumbs={displayedThumbs}
       />
-      <a href={selectedPhoto} target="blank">
-        <img
-          className="mainPhoto"
-          src={selectedPhoto}
-          alt={selectedStyle.name}
-          href={selectedPhoto}
-        />
-      </a>
+      <img
+        className="mainPhoto"
+        src={selectedPhoto}
+        alt={selectedStyle.name}
+        onClick={() => setExpanded(true)}
+      />
 
       <div className="thumbnails">
 

@@ -148,13 +148,17 @@
   flex-wrap: wrap;
  }
 
+ .styleSelector .productStyles .style:hover {
+  opacity:50%
+ }
+
  .styleSelector .productStyles .style img {
     color: green;
     font: 10px Arial;
  }
 
- .styleSelector .productStyles .style img:hover {
-  opacity: 50%;
+ img {
+  cursor: pointer;
  }
 
  .selector {
@@ -250,14 +254,19 @@
   display: flex;
   flex-direction: row-reverse;
   align-items:flex-start;
-  justify-content: flex-end;
+  justify-content: center;
   border: 2px solid royalblue;
+ }
+
+ #mainPhoto {
+  display:flex;
+  justify-content:center;
+  align-items:center;
  }
 
  .galleryView img.mainPhoto {
   max-height: 450px;
   max-width: 450px;
-  position: absolute;
   margin:12pt;
  }
 
@@ -289,15 +298,23 @@
   display: none;
  }
 
-.galleryView img.thumb:hover {
-  opacity:50%;
-}
-
  .galleryView img.thumb {
   width:100%;
   height:100%;
   object-fit: cover;
   cursor: pointer;
+ }
+
+ .galleryView img.thumb:hover {
+  opacity: 50%
+ }
+
+ .galleryView .expandedView {
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  max-width: 500px;
+  max-height: 500px;
  }
 
  .galleryView .checkmark {
