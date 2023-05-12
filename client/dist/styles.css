@@ -258,16 +258,22 @@
   border: 2px solid royalblue;
  }
 
- #mainPhoto {
+ #expandedView {
   display:flex;
   justify-content:center;
   align-items:center;
+  flex-direction: row;
+ }
+
+ #expandedView img {
+  cursor: zoom-out;
  }
 
  .galleryView img.mainPhoto {
   max-height: 450px;
   max-width: 450px;
   margin:12pt;
+  cursor:zoom-in;
  }
 
  .thumbPhotoFrame {

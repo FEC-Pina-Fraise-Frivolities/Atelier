@@ -39,7 +39,7 @@ function Overview({ productId }) {
 
   if (expanded) {
     return (
-      <div id="mainPhoto">
+      <div id="expandedView">
         <ExpandedView selectedPhoto={selectedPhoto} setExpanded={setExpanded} />
       </div>
     );
