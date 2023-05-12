@@ -9,9 +9,8 @@ module.exports = {
       headers: {
         Authorization: process.env.TOKEN,
       },
-      params: req.query,
     };
-    return axios(option)
+    axios(option)
       .then((result) => {
         res.status(200).send(result.data);
       })
@@ -22,13 +21,13 @@ module.exports = {
   },
 
   getReviewsMeta(req, res) {
+    console.log(req.query);
     const endpoint = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/reviews/meta';
     const option = {
       method: 'GET',
       url: endpoint,
-      params: { product_id: req.query.product_id },
       headers: {
-        Authorization: process.env.TOKEN,
+        Authorization: process.env.AUTH,
       },
     };
     return axios(option)

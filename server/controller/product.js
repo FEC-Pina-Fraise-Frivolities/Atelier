@@ -7,7 +7,7 @@ module.exports = {
       method: 'GET',
       url: endpoint,
       headers: {
-        Authorization: process.env.TOKEN,
+        Authorization: process.env.AUTH,
       },
     };
     axios(option)
@@ -18,30 +18,30 @@ module.exports = {
   },
 
   getProduct(req, res) {
-    const productId = req.params.product_id;
+    const { productId } = req.params;
     const endpoint = ` https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products/${productId}`;
     const option = {
       method: 'GET',
       url: endpoint,
       headers: {
-        Authorization: process.env.TOKEN,
+        Authorization: process.env.AUTH,
       },
     };
     axios(option)
       .then((result) => {
         res.send(result.data);
       })
-      .catch((err) => console.log('server: get product detail failed', err));
+      .catch((err) => console.log('server: get product detail failed'));
   },
 
   getProductStyle(req, res) {
-    const productId = req.params.product_id;
+    const { productId } = req.params;
     const endpoint = `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products/${productId}/styles`;
     const option = {
       method: 'GET',
       url: endpoint,
       headers: {
-        Authorization: process.env.TOKEN,
+        Authorization: process.env.AUTH,
       },
     };
     axios(option)
@@ -58,7 +58,7 @@ module.exports = {
       method: 'GET',
       url: endpoint,
       headers: {
-        Authorization: process.env.TOKEN,
+        Authorization: process.env.AUTH,
       },
     };
     axios(option)
