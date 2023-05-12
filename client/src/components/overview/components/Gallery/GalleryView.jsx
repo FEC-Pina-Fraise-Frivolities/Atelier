@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-has-content */
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from 'react';
 import LoadNext from './LoadNext';
@@ -22,6 +23,7 @@ function GalleryView(
   const [factor, setFactor] = useState(0);
 
   useEffect(() => {
+    console.log('selectedStyle: ', selectedStyle);
     const start = factor * 7;
     const end = (factor + 1) * 7;
     if (start < selectedStyle.photos.length) {
@@ -32,7 +34,15 @@ function GalleryView(
   return (
     <div className="galleryView">
       <LoadPrev factor={factor} setFactor={setFactor} />
-      <img className="mainPhoto" src={selectedPhoto} alt={selectedStyle.name} />
+      <a href={selectedPhoto} target="blank">
+        <img
+          className="mainPhoto"
+          src={selectedPhoto}
+          alt={selectedStyle.name}
+          href={selectedPhoto}
+        />
+      </a>
+
       <div className="thumbnails">
 
         {displayedThumbs.map((img) => (

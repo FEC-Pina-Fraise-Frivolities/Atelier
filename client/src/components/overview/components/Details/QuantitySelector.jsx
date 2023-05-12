@@ -20,7 +20,7 @@ function QuantitySelector({
 
   useEffect(() => {
     setAllQuantites([]);
-    for (let i = 1; i <= productQuantity; i += 1) {
+    for (let i = 1; i <= productQuantity && i <= 15; i += 1) {
       setAllQuantites((currentQuantites) => [...currentQuantites, i]);
     }
   }, [productQuantity]);
