@@ -21,7 +21,8 @@ function IndividualTile({ review }) {
       <div>
         {review.reviewer_name}
         ,
-        {new Date(review.date).toLocaleDateString('en-us',
+        {new Date(review.date).toLocaleDateString(
+          'en-us',
           { year: 'numeric', month: 'short', day: 'numeric' },
         )}
       </div>
