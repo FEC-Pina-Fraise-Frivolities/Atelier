@@ -1,9 +1,15 @@
-import { React, useState, useEffect } from 'react';
+import { React,
+  useState,
+  useEffect,
+  createContext,
+} from 'react';
 import axios from 'axios';
 import ReviewList from './review-list/ReviewList';
 import RatingBD from './rating-summary/RatingBD';
 import ProductBD from './rating-summary/ProductBD';
 import AddReviewForm from './add-review-form/AddReviewForm';
+
+export const FilterContext = createContext('filter');
 
 function RatingAndReview({ productId }) {
   // Component states
@@ -13,6 +19,7 @@ function RatingAndReview({ productId }) {
   const [showForm, setShowForm] = useState(false);
   const [reviewParams, setReviewParams] = useState({ sort: 'relevant', page: 1, count: 10 });
   const [buttonToggle, setButtonToggle] = useState(true);
+  const [filterReview, setFilterReview] = useState([]);
 
   // Use effect initialization - get reviews data from API
   useEffect(() => {
@@ -80,36 +87,38 @@ function RatingAndReview({ productId }) {
   }
 
   return (
-    <div className="rating-and-review">
-      <h2 id="subtitle">Ratings and Reviews</h2>
-      <div className="summary container">
-        {Object.keys(reviewMeta).length === 0 ? ''
-          : (
-            <RatingBD
-              ratings={reviewMeta.ratings}
-              recommended={reviewMeta.recommended}
-            />
+    <FilterContext.Provider value={{filterReview, setFilterReview}}>
+      <div className="rating-and-review">
+        <h2 id="subtitle">Ratings and Reviews</h2>
+        <div className="summary container">
+          {Object.keys(reviewMeta).length === 0 ? ''
+            : (
+              <RatingBD
+                ratings={reviewMeta.ratings}
+                recommended={reviewMeta.recommended}
+              />
+            )}
+          {Object.keys(reviewMeta).length === 0 ? '' : (
+            <ProductBD characteristics={reviewMeta.characteristics} />
           )}
+        </div>
+        <ReviewList
+          reviews={reviews}
+          buttonToggle={buttonToggle}
+          modalHandler={modalHandler}
+          moreReviewHandler={moreReviewHandler}
+          sortReviewHandler={sortReviewHandler}
+        />
         {Object.keys(reviewMeta).length === 0 ? '' : (
-          <ProductBD characteristics={reviewMeta.characteristics} />
+          <AddReviewForm
+            characteristics={reviewMeta.characteristics}
+            showForm={showForm}
+            modalHandler={modalHandler}
+            productId={productId}
+          />
         )}
       </div>
-      <ReviewList
-        reviews={reviews}
-        buttonToggle={buttonToggle}
-        modalHandler={modalHandler}
-        moreReviewHandler={moreReviewHandler}
-        sortReviewHandler={sortReviewHandler}
-      />
-      {Object.keys(reviewMeta).length === 0 ? '' : (
-        <AddReviewForm
-          characteristics={reviewMeta.characteristics}
-          showForm={showForm}
-          modalHandler={modalHandler}
-          productId={productId}
-        />
-      )}
-    </div>
+    </FilterContext.Provider>
   );
 }
 

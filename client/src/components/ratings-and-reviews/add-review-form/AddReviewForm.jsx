@@ -90,7 +90,7 @@ function AddReviewForm({
         <div className="characters selection">
           <p>Characteristics Rating</p>
           {Object.keys(characteristics).map((key) => (
-            <CharacteristicSelection characteristic={key} key={key} inputHandler={inputHandler}/>
+            <CharacteristicSelection characteristic={key} key={key} inputHandler={inputHandler} />
           ))}
         </div>
         <div className="summary input">
@@ -117,7 +117,7 @@ function AddReviewForm({
           >
           </textarea>
         </div>
-        <PhotoUpload inputHandler={inputHandler}/>
+        <PhotoUpload inputHandler={inputHandler} />
         <div className="nickname input">
           <p>
             What is your nickname?
