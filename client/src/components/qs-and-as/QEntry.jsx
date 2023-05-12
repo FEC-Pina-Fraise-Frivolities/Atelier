@@ -4,7 +4,7 @@ import AddAnswer from './AddAnswer';
 import axios from 'axios';
 
 const QEntry = (props) => {
-  let sortedAnswers = Object.values(props.question.answers).sort((a,b) => {return a.helpfulness - b.helpfulness})
+  let sortedAnswers = Object.values(props.question.answers).sort((a,b) => {return b.helpfulness - a.helpfulness})
   //Add Sort again by seller?  HOw to identify seller?
   const [ answers, setAnswers ] = useState(sortedAnswers);
   const [ aSlice, setASlice ] = useState(2);
@@ -19,7 +19,7 @@ return (
 <div className="qContainer">
   <div className="qLetter"> Q: </div>
   <div className="qLine">{props.question.question_body}</div>
-  <div className="qHelp"> Helpful? |</div><div className="qYes" onClick={()=>{helpfulQuestion()}}><u>Yes</u> &#40;{props.question.question_helpfulness}&#41;</div>
+  <div className="qHelp"> Helpful? |</div><div><span className="qYes" onClick={()=>{helpfulQuestion()}}><u>Yes</u></span> &#40;{props.question.question_helpfulness}&#41;</div>
   <div onClick={()=> setShowAddAnswer(true)}> Add an answer</div>
   {showAddAnswer ? <AddAnswer show={setShowAddAnswer} q={props.question}/>: null}
 </div>

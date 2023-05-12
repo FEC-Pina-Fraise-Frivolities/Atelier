@@ -15,7 +15,7 @@ const AddQuestion = (props) => {
       email: email,
       product_id: props.productId
     }
-    console.log('This is the payload', param)
+
     axios.post('/qa/questions', param)
     .then((r) => props.show(false))
     .catch((e) => console.log(e))

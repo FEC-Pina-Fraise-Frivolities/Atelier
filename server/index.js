@@ -31,6 +31,8 @@ app.get('/qa/questions', controller.questions.getQuestions);
 app.post('/qa/questions', controller.questions.addQuestion);
 app.post('/qa/questions/:question_id/answers', controller.questions.addAnswer);
 app.put('/qa/questions/:question_id/helpful', controller.questions.markHelpfulQuestion);
+app.put('/qa/answers/:answer_id/helpful', controller.questions.markHelpfulAnswer);
+app.put('/qa/answers/:answer_id/report', controller.questions.reportAnswer)
 //
 
 /* ---------------- Server listens ---------------- */

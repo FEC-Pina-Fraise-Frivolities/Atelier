@@ -78,5 +78,43 @@ module.exports = {
         console.log(err);
         res.status(400).send();
       });
-  }
+  },
+
+  markHelpfulAnswer(req, res) {
+    const endpoint = `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/qa/answers/${req.body.answer_id}/helpful`;
+    const option = {
+      method: 'PUT',
+      url: endpoint,
+      headers: {
+        Authorization: process.env.AUTH,
+      },
+    }
+    return axios(option)
+      .then((result) => {
+        res.status(200).end('Answer Helpful');
+      })
+      .catch((err) => {
+        console.log(err);
+        res.status(400).send();
+      });
+  },
+
+  reportAnswer(req, res) {
+    const endpoint = `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/qa/answers/${req.body.answer_id}/report`;
+    const option = {
+      method: 'PUT',
+      url: endpoint,
+      headers: {
+        Authorization: process.env.AUTH,
+      },
+    }
+    return axios(option)
+      .then((result) => {
+        res.status(200).end('Answer reported');
+      })
+      .catch((err) => {
+        console.log(err);
+        res.status(400).send();
+      });
+  },
 }
