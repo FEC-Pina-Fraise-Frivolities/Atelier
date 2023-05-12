@@ -14,9 +14,9 @@ app.use(express.json());
 
 // product
 app.get('/products', controller.product.getProducts);
-app.get('/products/:product_id', controller.product.getProduct);
-app.get('/products/:product_id/styles', controller.product.getProductStyle);
-app.get('/products/:product_id/related', controller.product.getRelated);
+app.get('/products/:productId', controller.product.getProduct);
+app.get('/products/:productId/styles', controller.product.getProductStyle);
+app.get('/products/:productId/related', controller.product.getRelated);
 // cart
 app.get('/cart', controller.cart.get);
 app.post('/cart', controller.cart.post);

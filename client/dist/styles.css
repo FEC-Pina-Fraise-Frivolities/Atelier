@@ -59,6 +59,263 @@
    margin: auto;
  }
 
+ div {
+  display: block;
+ }
+
+ /* --------------------------------------------------------------------------------------------------------
+ --------------------------------------Product Overview Section---------------------------------------------
+ ---------------------------------------------------------------------------------------------------------*/
+
+
+ .basics {
+  position: absolute;
+  display:flex;
+  right: 1in;
+  top: 1in;
+  font-weight: bolder;
+  font-size: larger;
+  width: 300px;
+  flex-direction: column;
+  padding: 12pt;
+  margin: 12pt;
+  border:#73AD21 3px solid;
+ }
+
+ .basics .productCategory {
+  font-weight: normal;
+  font-style:italic;
+  font-size:medium;
+  align-self: flex-end;
+ }
+
+ .basics .price {
+  border: none;
+ }
+
+ .salePrice {
+  color: red;
+ }
+
+ .productDescription {
+  position: absolute;
+  display: flex;
+  align-items: flex-end;
+  flex-direction:column-reverse;
+  align-content:flex-end;
+  left: 50px;
+  bottom: 10px;
+  width: 400px;
+  height: 150px;
+  border: 3px solid #73AD21;
+  padding: 10px;
+ }
+
+ .productDetails {
+  position:absolute;
+  right: 200px;
+  top: 300px;
+  max-width: 500px;
+  display:flex;
+  flex-direction:column;
+ }
+
+ .productDetails .sizeAndQuantitySelector {
+  position:relative;
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 12pt;
+  margin-top: 12pt;
+ }
+
+ .styleSelector .selectedStyleName {
+  position:relative;
+  display: flex;
+  font-size:large;
+  font-weight:bold;
+  justify-content:flex-start;
+  margin-bottom: 30px;
+ }
+
+ .styleSelector .productStyles{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+ }
+
+ .styleSelector .productStyles .style {
+  width:25%;
+  cursor:pointer;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+ }
+
+ .styleSelector .productStyles .style img {
+    color: green;
+    font: 10px Arial;
+ }
+
+ .styleSelector .productStyles .style img:hover {
+  opacity: 50%;
+ }
+
+ .selector {
+  position:absolute;
+  height: 0%;
+  width: 0%;
+ }
+
+.checkmark {
+  display: inline-block;
+  position:relative;
+  font-size: larger;
+  font-weight: bolder;
+  left: 70px;
+  top: 0px;
+  z-index: 1;
+  order:-1;
+  color: skyblue;
+  background-color:royalblue;
+  opacity:95%;
+  text-align: center;
+  width:30px;
+  height:30px;
+  border-radius: 50%;
+  border: 2.5px skyblue solid;
+ }
+
+.stylePhotoFrame {
+  width: 100px;
+  height: 100px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 50%;
+  margin-right: 18px;
+  margin-bottom: 18px;
+}
+
+ .stylePhotoFrame .stylePhoto {
+  width:100%;
+  height:100%;
+  object-fit: cover;
+ }
+
+ .productSizes {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  position:relative;
+  max-width: 500px;
+ }
+
+ .productSizes select{
+    width: 35%;
+ }
+
+ .quantitySelector {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  position:relative;
+  max-width: 500px;
+  margin-left: 12pt;
+ }
+
+ .addToCart {
+  width:fit-content;
+  display: flex;
+  flex-direction: row;
+  align-self: flex-end;
+  max-width: 500px;
+ }
+
+ .galleryView {
+  position: absolute;
+  left: 12pt;
+  top: 12pt;
+  width: 500px;
+  height: 540px;
+  display: flex;
+  flex-direction: row-reverse;
+  align-items:flex-start;
+  justify-content: flex-end;
+  border: 2px solid green;
+ }
+
+ .galleryView img.mainPhoto {
+  max-height: 450px;
+  max-width: 450px;
+  position: absolute;
+  margin:12pt;
+ }
+
+ .thumbPhotoFrame {
+  width: 60px;
+  height: 60px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 25%;
+  margin-right: 12px;
+  margin-bottom: 8pt;
+  border:2px solid cornflowerblue;
+}
+
+.galleryView .thumbnails {
+  width: 100%;
+  position:absolute;
+  left: 5px;
+  display: flex;
+  flex-direction: column;
+  width: 100px;
+  height: 490px;
+  overflow:hidden;
+  /* overflow-y:auto; */
+ }
+
+ .galleryView .thumbnails::-webkit-scrollbar {
+  display: none;
+ }
+
+.galleryView img.thumb:hover {
+  opacity:50%;
+}
+
+ .galleryView img.thumb {
+  width:100%;
+  height:100%;
+  object-fit: cover;
+  cursor: pointer;
+ }
+
+ .galleryView .checkmark {
+  position:relative;
+  left: 45px;
+  top: 0px;
+  width:20px;
+  height:20px;
+  font-size: small;
+  font-weight:lighter;
+  border: 2px skyblue solid;
+ }
+
+ .galleryView .loadMoreThumbs {
+  position:relative;
+  align-self: flex-end;
+  left: 20px;
+  bottom: 20px;
+  width: 30px;
+  height: 28px;
+  background-color:cornflowerblue;
+  clip-path: polygon(50% 75%, 25% 0, 75% 0);
+  cursor: pointer
+ }
+
  /*
  related api
  */
