@@ -59,17 +59,15 @@
    margin: auto;
  }
 
- div {
-  display: block;
- }
+
 
  /* --------------------------------------------------------------------------------------------------------
  --------------------------------------Product Overview Section---------------------------------------------
  ---------------------------------------------------------------------------------------------------------*/
 
 
- /* .basics {
-  /* position: absolute; */
+ .basics {
+  position: absolute;
   display:flex;
   right: 1in;
   top: 1in;
@@ -314,16 +312,13 @@
   background-color:cornflowerblue;
   clip-path: polygon(50% 75%, 25% 0, 75% 0);
   cursor: pointer
- } */
-
- /*
- related api
- */
- .relatedmodule {
-  position: relative;
-  top: 1300px;
-  margin: 10px;
  }
+
+/* --------------------------------------------------------------------------------------------------------
+ --------------------------------------Related and Outfit--------------------------------------------------
+ ---------------------------------------------------------------------------------------------------------*/
+
+
  .relatedmodule .card{
   /* border: 5px solid; */
   box-shadow: 0px 4px 8px 0px #888888;
@@ -351,9 +346,7 @@
   top: 50px;
 
  } */
-.relatedmodule {
-  position: static;
-}
+
  .relatedmodule .mainImg{
   height:200px;
   max-width: 100%;
