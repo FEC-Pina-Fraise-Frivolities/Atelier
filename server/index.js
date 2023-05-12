@@ -42,4 +42,4 @@ app.put('/qa/questions/:question_id/helpful', controller.questions.markHelpfulQu
 /* ---------------- Server listens ---------------- */
 
 app.listen(process.env.PORT || 3000);
-console.log('Listening at http://localhost:', process.env.PORT || 3000);
+console.log(`Listening at http://localhost:${process.env.PORT || 3000}`);
