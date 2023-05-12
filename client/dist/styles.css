@@ -334,6 +334,31 @@
   cursor: pointer
  }
 
+ .galleryView .nextPhoto {
+  position:relative;
+  align-self: center;
+  z-index:2;
+  left: 430px;
+  bottom: 20px;
+  width: 30px;
+  height: 28px;
+  background-color:lightblue;
+  clip-path: polygon(0 0, 50% 50%, 0 100%, 100% 50%);
+  cursor: pointer
+ }
+
+ .galleryView .prevPhoto {
+  position:relative;
+  align-self: center;
+  z-index:2;
+  left: 5px;
+  bottom: 20px;
+  width: 30px;
+  height: 28px;
+  background-color:lightblue;
+  clip-path: polygon(100% 0, 50% 50%, 100% 100%, 0 50%);
+  cursor: pointer
+ }
  /*
  related api
  */

@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import LoadNext from './LoadNext';
 import LoadPrev from './LoadPrev';
+import MainPhotoArrows from './MainPhotoArrows';
 import Thumbnail from './Thumbnail';
 
 function GalleryView(
@@ -34,6 +35,12 @@ function GalleryView(
   return (
     <div className="galleryView">
       <LoadPrev factor={factor} setFactor={setFactor} />
+      <MainPhotoArrows
+        selectedStyle={selectedStyle}
+        selectedPhoto={selectedPhoto}
+        setSelectedPhoto={setSelectedPhoto}
+        setSelectedThumb={setSelectedThumb}
+      />
       <a href={selectedPhoto} target="blank">
         <img
           className="mainPhoto"
