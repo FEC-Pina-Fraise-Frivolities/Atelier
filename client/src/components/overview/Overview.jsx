@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import placeholderImage from '../../assets/index';
-import ExpandedView from './ExpandedView';
 import {
   Basics, Description, GalleryView, ProductDetails,
 } from './index';
@@ -11,7 +10,6 @@ function Overview({ productId }) {
   const [selectedStyle, setSelectedStyle] = useState({});
   const [selectedThumb, setSelectedThumb] = useState('');
   const [selectedPhoto, setSelectedPhoto] = useState('');
-  const [expanded, setExpanded] = useState(false);
 
   useEffect(() => {
     const productEndpoint = `http://localhost:3000/products/${productId}`;
@@ -37,14 +35,6 @@ function Overview({ productId }) {
       });
   }, [productId]);
 
-  if (expanded) {
-    return (
-      <div id="expandedView">
-        <ExpandedView selectedPhoto={selectedPhoto} setExpanded={setExpanded} />
-      </div>
-    );
-  }
-
   return (
     <div className="productData">
       <Basics
@@ -67,7 +57,6 @@ function Overview({ productId }) {
         setSelectedPhoto={setSelectedPhoto}
         selectedThumb={selectedThumb}
         setSelectedThumb={setSelectedThumb}
-        setExpanded={setExpanded}
       />
     </div>
   );

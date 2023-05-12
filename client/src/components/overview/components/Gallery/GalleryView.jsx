@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-has-content */
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from 'react';
+import ExpandedView from './ExpandedView';
 import LoadNext from './LoadNext';
 import LoadPrev from './LoadPrev';
 import MainPhotoArrows from './MainPhotoArrows';
@@ -13,7 +14,6 @@ function GalleryView(
     setSelectedPhoto,
     selectedThumb,
     setSelectedThumb,
-    setExpanded,
 
   },
 ) {
@@ -23,6 +23,7 @@ function GalleryView(
 
   const [displayedThumbs, setDisplayedThumbs] = useState(selectedStyle.photos.slice(0, 7));
   const [factor, setFactor] = useState(0);
+  const [expanded, setExpanded] = useState(false);
 
   const nextThumbs = () => {
     if ((factor + 1) * 7 < selectedStyle.photos.length) {
@@ -58,6 +59,11 @@ function GalleryView(
         prevThumbs={prevThumbs}
         factor={factor}
         displayedThumbs={displayedThumbs}
+      />
+      <ExpandedView
+        open={expanded}
+        selectedPhoto={selectedPhoto}
+        onClose={() => setExpanded(false)}
       />
       <img
         className="mainPhoto"
