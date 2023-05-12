@@ -82,6 +82,20 @@
   margin: 5px;
  }
 
+ .rating-and-review .list.container {
+  width: 60%;
+  height: 800px;
+ }
+
+ .rating-and-review #scrollable-list {
+  height: 80%;
+  width: 80%;
+  margin: auto;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  overflow-y: auto;
+ }
+
  /* ------------------ Star ---------------------- */
 
  .rating-and-review .star {

@@ -2,7 +2,8 @@ import React from 'react';
 import Star from '../review-list/Star';
 import Bar from './Bar';
 
-function RatingBD({ ratings, recommended, numReviews }) {
+function RatingBD({ ratings, recommended }) {
+  const numReviews = Number(recommended.false) + Number(recommended.true);
   const sumRating = Object.keys(ratings).reduce((accumulator, currentKey) => (
     accumulator + (Number(currentKey) * Number(ratings[currentKey]))), 0);
   const averageRating = (Math.round((sumRating / numReviews) * 10) / 10) || 0;

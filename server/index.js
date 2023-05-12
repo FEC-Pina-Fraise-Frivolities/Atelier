@@ -29,6 +29,7 @@ app.post('/cart', controller.cart.post);
 app.get('/reviews', controller.reviews.getReviews);
 app.get('/reviews/meta', controller.reviews.getReviewsMeta);
 app.post('/reviews', controller.reviews.addReview);
+app.put('/reviews/helpful', controller.reviews.markHelpful);
 
 // questions
 /** ******** */
