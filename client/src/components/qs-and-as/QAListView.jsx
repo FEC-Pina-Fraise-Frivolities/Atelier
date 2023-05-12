@@ -18,7 +18,7 @@ const QAListView = () => {
     axios.get('/qa/questions', { params })
     .then((result) => {setQuestions(result.data.results); setQuestionsRaw(result.data.results)});
   }
-console.log(questionsRaw)
+
   useEffect(() => {
     getAllQuestions()
   }, [])

@@ -62,7 +62,6 @@ module.exports = {
   },
 
   markHelpfulQuestion(req, res) {
-    console.log('this is req.body:', req.body)
     const endpoint = `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/qa/questions/${req.body.question_id}/helpful`;
     const option = {
       method: 'PUT',
