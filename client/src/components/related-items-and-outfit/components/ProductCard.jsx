@@ -52,10 +52,9 @@ function CardDetail({
       <p className="category">
         {category}
       </p>
-      <p onClick={() => { handleClick(); }} className='name'>
+      <p onClick={() => { handleClick(); }} className="name">
         {name}
       </p>
-
 
       {ifSale && (
       <span className="price">
@@ -82,12 +81,12 @@ function CardDetail({
       )}
 
       <span className="ratings">
-      <p>
-        ratings:
-        {' '}
-        {rating}
-      </p>
-      <Star rating={rating} />
+        <p>
+          ratings:
+          {' '}
+          {rating}
+        </p>
+        <Star rating={rating} />
       </span>
 
     </div>
