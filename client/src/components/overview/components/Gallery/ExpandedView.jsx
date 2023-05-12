@@ -26,41 +26,51 @@ const OVERLAY_STYLES = {
 
 function ExpandedView({ open, selectedPhoto, onClose }) {
   if (!open) return null;
+  const [isZoomed, setIsZoomed] = useState(false);
 
   const zoomIn = (event, element) => {
-    const shiftX = event.pageX;
-    const shiftY = event.pageY;
-    // element.style.setProperty('transform', `translate(${shiftX}px, ${shiftY}px)`);
+    element.style.setProperty('cursor', 'zoom-out');
     element.style.setProperty('transform', 'scale(2.5)');
   };
 
   const zoomOut = (event, element) => {
+    element.style.setProperty('cursor', 'zoom-in');
+    element.style.setProperty('transform', 'scale(1)');
+  };
+
+  const zoomTrack = (event, element) => {
     const shiftX = event.pageX;
     const shiftY = event.pageY;
-    // element.style.setProperty('transform', `translate(${shiftX}px, ${shiftY}px)`);
-    element.style.setProperty('transform', 'scale(1)');
+    element.style.setProperty('transform', `scale(2.5) translate(${shiftX}px, ${shiftY}px)`);
   };
 
   return ReactDom.createPortal(
 
     <>
-      <div style={OVERLAY_STYLES} onClick={onClose} />
+      <div style={OVERLAY_STYLES} />
       <div
         id="modal"
         style={MODAL_STYLES}
-        onClick={onClose}
-
+        onClick={(e) => {
+          if (e.target.id !== 'modalPhoto') {
+            onClose();
+          } return null;
+        }}
       >
         <img
           id="modalPhoto"
           src={selectedPhoto}
           alt={selectedPhoto}
-          onMouseMove={(e) => {
-            zoomIn(e, document.querySelector('#modalPhoto'));
+          onClick={(e) => {
+            if (!isZoomed) {
+              setIsZoomed(true);
+              zoomIn(e, document.querySelector('#modalPhoto'));
+            } else {
+              setIsZoomed(false);
+              zoomOut(e, document.querySelector('#modalPhoto'));
+            }
           }}
-          onMouseOut={(e) => {
-            zoomOut(e, document.querySelector('#modalPhoto'));
-          }}
+          onMouseOver={(e) => (isZoomed ? zoomTrack(e, document.querySelector('#modalPhoto')) : null)}
         />
       </div>
     </>,
