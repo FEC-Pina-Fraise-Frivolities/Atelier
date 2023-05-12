@@ -265,11 +265,18 @@
   cursor: zoom-in;
  }
 
+ #portal #modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ }
+
  #portal img {
   cursor:zoom-out;
   position: relative;
-  left: 25%;
+  height:100%;
  }
+
 
  .thumbPhotoFrame {
   width: 60px;

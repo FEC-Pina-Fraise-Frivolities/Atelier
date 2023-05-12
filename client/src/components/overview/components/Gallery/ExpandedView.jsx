@@ -1,4 +1,5 @@
-import React from 'react';
+/* eslint-disable jsx-a11y/mouse-events-have-key-events */
+import React, { useEffect, useState } from 'react';
 import ReactDom from 'react-dom';
 
 const MODAL_STYLES = {
@@ -7,14 +8,10 @@ const MODAL_STYLES = {
   left: '50%',
   transform: 'translate(-50%, -50%)',
   backgroundColor: 'rgba(72, 61, 139, .7)',
-  'justify-content': 'center',
-  'align-items': 'center',
   padding: '50px',
   zIndex: 1000,
   width: '100%',
   height: '90%',
-  overflow: 'hidden',
-  'overflow-y': 'auto',
 };
 
 const OVERLAY_STYLES = {
@@ -30,12 +27,41 @@ const OVERLAY_STYLES = {
 function ExpandedView({ open, selectedPhoto, onClose }) {
   if (!open) return null;
 
+  const zoomIn = (event, element) => {
+    const shiftX = event.pageX;
+    const shiftY = event.pageY;
+    // element.style.setProperty('transform', `translate(${shiftX}px, ${shiftY}px)`);
+    element.style.setProperty('transform', 'scale(2.5)');
+  };
+
+  const zoomOut = (event, element) => {
+    const shiftX = event.pageX;
+    const shiftY = event.pageY;
+    // element.style.setProperty('transform', `translate(${shiftX}px, ${shiftY}px)`);
+    element.style.setProperty('transform', 'scale(1)');
+  };
+
   return ReactDom.createPortal(
 
     <>
       <div style={OVERLAY_STYLES} onClick={onClose} />
-      <div style={MODAL_STYLES} onClick={onClose}>
-        <img src={selectedPhoto} alt={selectedPhoto} />
+      <div
+        id="modal"
+        style={MODAL_STYLES}
+        onClick={onClose}
+
+      >
+        <img
+          id="modalPhoto"
+          src={selectedPhoto}
+          alt={selectedPhoto}
+          onMouseMove={(e) => {
+            zoomIn(e, document.querySelector('#modalPhoto'));
+          }}
+          onMouseOut={(e) => {
+            zoomOut(e, document.querySelector('#modalPhoto'));
+          }}
+        />
       </div>
     </>,
     document.getElementById('portal'),
