@@ -72,7 +72,7 @@
 
  .basics {
   position: absolute;
-  display:flex;
+  display: flex;
   right: 1in;
   top: 1in;
   font-weight: bolder;
@@ -81,13 +81,13 @@
   flex-direction: column;
   padding: 12pt;
   margin: 12pt;
-  border:royalblue 3px solid;
+  border: royalblue 3px solid;
  }
 
  .basics .productCategory {
   font-weight: normal;
-  font-style:italic;
-  font-size:medium;
+  font-style: italic;
+  font-size: medium;
   align-self: flex-end;
  }
 
@@ -103,8 +103,8 @@
   position: absolute;
   display: flex;
   align-items: flex-end;
-  flex-direction:column-reverse;
-  align-content:flex-end;
+  flex-direction: column-reverse;
+  align-content: flex-end;
   left: 50px;
   bottom: 10px;
   width: 400px;
@@ -114,25 +114,25 @@
  }
 
  .productDetails {
-  position:absolute;
+  position: absolute;
   right: 50px;
   top: 300px;
   max-width: 500px;
-  display:flex;
-  flex-direction:column;
+  display: flex;
+  flex-direction: column;
   align-items: flex-end;
  }
 
  .styleSelector .selectedStyleName {
 
-  font-size:large;
-  font-weight:bold;
-  justify-content:flex-start;
+  font-size: large;
+  font-weight: bold;
+  justify-content: flex-start;
   margin-bottom: 30px;
  }
 
  .styleSelector .productStyles{
-  position:relative;
+  position: relative;
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -141,7 +141,7 @@
  }
 
  .styleSelector .productStyles .style {
-  cursor:pointer;
+  cursor: pointer;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -149,7 +149,7 @@
  }
 
  .styleSelector .productStyles .style:hover {
-  opacity:50%
+  opacity: 50%
  }
 
  .styleSelector .productStyles .style img {
@@ -162,26 +162,26 @@
  }
 
  .selector {
-  position:absolute;
+  position: absolute;
   height: 0%;
   width: 0%;
  }
 
 .checkmark {
   display: inline-block;
-  position:relative;
+  position: relative;
   font-size: larger;
   font-weight: bolder;
   left: 70px;
   top: 0px;
   z-index: 1;
-  order:-1;
+  order: -1;
   color: skyblue;
-  background-color:royalblue;
-  opacity:95%;
+  background-color: royalblue;
+  opacity: 95%;
   text-align: center;
-  width:30px;
-  height:30px;
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
   border: 2.5px skyblue solid;
  }
@@ -197,18 +197,18 @@
 }
 
  .stylePhotoFrame .stylePhoto {
-  width:100%;
-  height:100%;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
  }
 
 
  .productDetails .sizeAndQuantitySelector {
-  position:relative;
+  position: relative;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  align-self:flex-start;
+  align-self: flex-start;
   margin-bottom: 12pt;
   margin-top: 12pt;
  }
@@ -218,7 +218,7 @@
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
-  position:relative;
+  position: relative;
   max-width: 500px;
  }
 
@@ -231,15 +231,15 @@
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
-  position:relative;
+  position: relative;
   max-width: 500px;
   margin-left: 12pt;
  }
 
  .addToCart {
   position: relative;
-  right:35px;
-  width:fit-content;
+  right: 35px;
+  width: fit-content;
   display: flex;
   flex-direction: row-reverse;
   max-width: 500px;
@@ -253,27 +253,22 @@
   height: 540px;
   display: flex;
   flex-direction: row-reverse;
-  align-items:flex-start;
+  align-items: flex-start;
   justify-content: center;
   border: 2px solid royalblue;
- }
-
- #expandedView {
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  flex-direction: row;
- }
-
- #expandedView img {
-  cursor: zoom-out;
  }
 
  .galleryView img.mainPhoto {
   max-height: 450px;
   max-width: 450px;
-  margin:12pt;
-  cursor:zoom-in;
+  margin: 12pt;
+  cursor: zoom-in;
+ }
+
+ #portal img {
+  cursor:zoom-out;
+  position: relative;
+  left: 25%;
  }
 
  .thumbPhotoFrame {
@@ -284,19 +279,19 @@
   border-radius: 25%;
   margin-right: 12px;
   margin-bottom: 4pt;
-  border:2px solid cornflowerblue;
+  border: 2px solid cornflowerblue;
 }
 
 .galleryView .thumbnails {
   width: 100%;
-  position:absolute;
+  position: absolute;
   left: 5px;
   top: 30px;
   display: flex;
   flex-direction: column;
   width: 100px;
   height: 490px;
-  overflow:hidden;
+  overflow: hidden;
  }
 
  .galleryView .thumbnails::-webkit-scrollbar {
@@ -304,8 +299,8 @@
  }
 
  .galleryView img.thumb {
-  width:100%;
-  height:100%;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   cursor: pointer;
  }
@@ -323,63 +318,63 @@
  }
 
  .galleryView .checkmark {
-  position:relative;
+  position: relative;
   left: 45px;
   top: 0px;
-  width:20px;
-  height:20px;
+  width: 20px;
+  height: 20px;
   font-size: small;
-  font-weight:lighter;
+  font-weight: lighter;
   border: 2px skyblue solid;
  }
 
  .galleryView .loadPrevThumbs {
-  position:relative;
+  position: relative;
   align-self: flex-start;
   right: 35px;
   bottom: 0px;
   z-index: 2;
   width: 20px;
   height: 20px;
-  background-color:powderblue;
+  background-color: powderblue;
   clip-path: polygon(100% 100%, 50% 50%, 0 100%, 50% 0);
   cursor: pointer
  }
 
  .galleryView .loadMoreThumbs {
-  position:relative;
+  position: relative;
   align-self: flex-end;
   left: 25px;
   bottom: 30px;
   width: 20px;
   height: 20px;
-  background-color:powderblue;
+  background-color: powderblue;
   clip-path: polygon(100% 0, 50% 50%, 0 0, 50% 100%);
   cursor: pointer
  }
 
  .galleryView .nextPhoto {
-  position:absolute;
+  position: absolute;
   align-self: top;
-  z-index:2;
+  z-index: 2;
   left: 430px;
   bottom: 250px;
   width: 30px;
   height: 28px;
-  background-color:powderblue;
+  background-color: powderblue;
   clip-path: polygon(0 0, 50% 50%, 0 100%, 100% 50%);
   cursor: pointer
  }
 
  .galleryView .prevPhoto {
-  position:absolute;
+  position: absolute;
   align-self: center;
-  z-index:2;
+  z-index: 2;
   left: 75px;
   bottom: 250px;
   width: 30px;
   height: 28px;
-  background-color:powderblue;
+  background-color: powderblue;
   clip-path: polygon(100% 0, 50% 50%, 100% 100%, 0 50%);
   cursor: pointer
  }

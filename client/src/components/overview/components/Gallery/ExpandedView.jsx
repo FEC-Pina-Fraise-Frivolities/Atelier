@@ -6,11 +6,13 @@ const MODAL_STYLES = {
   top: '50%',
   left: '50%',
   transform: 'translate(-50%, -50%)',
-  backgroundColor: '#FFF',
+  backgroundColor: 'rgba(72, 61, 139, .7)',
+  'justify-content': 'center',
+  'align-items': 'center',
   padding: '50px',
   zIndex: 1000,
-  'max-width': '500px',
-  'max-height': '500px',
+  width: '100%',
+  height: '90%',
   overflow: 'hidden',
   'overflow-y': 'auto',
 };
@@ -31,9 +33,9 @@ function ExpandedView({ open, selectedPhoto, onClose }) {
   return ReactDom.createPortal(
 
     <>
-      <div style={OVERLAY_STYLES} />
-      <div style={MODAL_STYLES}>
-        <img src={selectedPhoto} alt={selectedPhoto} onClick={onClose} />
+      <div style={OVERLAY_STYLES} onClick={onClose} />
+      <div style={MODAL_STYLES} onClick={onClose}>
+        <img src={selectedPhoto} alt={selectedPhoto} />
       </div>
     </>,
     document.getElementById('portal'),
