@@ -28,7 +28,7 @@ function RelatedList({
   const [relateArr, setRelatedArr] = useState([]);
 
   useEffect(() => {
-    axios(`http://localhost:3000/products/${productId}/related`)
+    axios(`/products/${productId}/related`)
       .then((res) => res.data)
       .then((result) => {
         const arr = [];

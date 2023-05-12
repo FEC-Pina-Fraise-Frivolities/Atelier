@@ -50,7 +50,7 @@ function ComparisonView({ productId, nextId }) {
   const obj = {};
   const [featureObj, setFeatureObj] = useState({});
   useEffect(() => {
-    let endpoint = `http://localhost:3000/products/${productId}`;
+    let endpoint = `/products/${productId}`;
     let option = {
       method: 'GET',
       url: endpoint,
@@ -65,7 +65,7 @@ function ComparisonView({ productId, nextId }) {
       })
       .catch((err) => console.log('server: get products failed', err))
       .then(() => {
-        endpoint = `http://localhost:3000/products/${nextId}`;
+        endpoint = `/products/${nextId}`;
         option = {
           method: 'GET',
           url: endpoint,

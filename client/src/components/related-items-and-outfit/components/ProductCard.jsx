@@ -106,7 +106,7 @@ function ProductCard({
   const [mainUrl, setMainUrl] = useState('');
 
   useEffect(() => {
-    fetch(`http://localhost:3000/reviews/meta?product_id=${id}`)
+    fetch(`/reviews/meta?product_id=${id}`)
       .then((res) => res.json())
       .then((result) => {
         // find the rate
@@ -119,7 +119,7 @@ function ProductCard({
         setRatings((total / count).toFixed(2));
       })
       .then(
-        fetch(`http://localhost:3000/products/${id}/styles`)
+        fetch(`/products/${id}/styles`)
           .then((res) => res.json())
           .then((result) => {
             setOiginalPrice(result.results[0].original_price);
@@ -136,7 +136,7 @@ function ProductCard({
           .catch((err) => console.log('get styles failed', err)),
       )
       .then(
-        fetch(`http://localhost:3000/products/${id}`)
+        fetch(`/products/${id}`)
           .then((res) => res.json())
           .then((result) => {
             setCategory(result.category);
