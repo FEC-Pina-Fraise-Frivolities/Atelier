@@ -8,14 +8,17 @@ function PhotoGallery({ photoArr, setPhotoUrl }) {
     photoArr.map((url) => (
       <li key={url}>
         <img
-        className="thumphoto"
-        src={url}
-        alt="header image"
-        width="30"
-        height="30"
-        onClick={() => { setPhotoUrl(url); }}
-
-      />
+          className="thumphoto"
+          src={url}
+          onError={(e) => { e.target.src = require('../assets/Image_not_available.jpg'); }}
+          alt="header image"
+          width="40"
+          height="40"
+          onClick={() => {
+            console.log('click');
+            setPhotoUrl(url);
+          }}
+        />
       </li>
 
     ))
@@ -40,40 +43,53 @@ function CardDetail({
       <img
         className="mainImg"
         src={photoUrl}
+        onError={(e) => { e.target.src = require('../assets/Image_not_available.jpg'); }}
         alt="header image"
-        onMouseEnter={() => setShow(true)}
-        onMouseLeave={() => setShow(false)}
+        onMouseOver={() => setShow(true)}
+        onMouseOut={() => setShow(false)}
       />
       {show && <ul className="list-gallery"><PhotoGallery photoArr={photoArr} setPhotoUrl={setPhotoUrl} /></ul>}
-      <p onClick={() => { handleClick(); }}>
-        name:
-        {' '}
+      <p className="category">
+        {category}
+      </p>
+      <p onClick={() => { handleClick(); }} className='name'>
         {name}
       </p>
+
+
+      {ifSale && (
+      <span className="price">
+        <p>
+          <s>
+            $
+            {' '}
+            {originalPrice}
+          </s>
+        </p>
+        <p className="salesPrice">
+          $
+          {' '}
+          {salePrice}
+        </p>
+      </span>
+      )}
+      {!ifSale && (
+      <p className="price">
+        $
+        {' '}
+        {originalPrice}
+      </p>
+      )}
+
+      <span className="ratings">
       <p>
         ratings:
         {' '}
         {rating}
-        <Star rating={rating} />
       </p>
+      <Star rating={rating} />
+      </span>
 
-      <p>
-        original_price:
-        {' '}
-        {originalPrice}
-      </p>
-      {ifSale && (
-      <p>
-        salePrice:
-        {' '}
-        {salePrice}
-      </p>
-      )}
-      <p>
-        category:
-        {' '}
-        {category}
-      </p>
     </div>
 
   );
@@ -133,7 +149,7 @@ function ProductCard({
   }, [id]);
 
   return (
-    <div>
+    <div className="card">
       <CardDetail
         ratings={ratings}
         name={name}

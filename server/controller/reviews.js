@@ -7,7 +7,7 @@ module.exports = {
       method: 'GET',
       url: endpoint,
       headers: {
-        Authorization: process.env.TOKEN,
+        Authorization: process.env.AUTH,
       },
       params: req.query,
     };
@@ -28,7 +28,7 @@ module.exports = {
       url: endpoint,
       params: { product_id: req.query.product_id },
       headers: {
-        Authorization: process.env.TOKEN,
+        Authorization: process.env.AUTH,
       },
     };
     return axios(option)

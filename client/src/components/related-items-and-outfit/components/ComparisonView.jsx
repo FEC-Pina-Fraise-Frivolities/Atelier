@@ -33,7 +33,6 @@ function CompareHelper({ obj }) {
       featureArr[i].push('not mentioned');
     }
   }
-  console.log(featureArr);
 
   return (
     featureArr.map((arr) => (

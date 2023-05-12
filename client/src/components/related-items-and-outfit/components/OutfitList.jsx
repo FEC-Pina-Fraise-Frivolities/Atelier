@@ -1,7 +1,11 @@
 import { React, useState } from 'react';
 import ProductCard from './ProductCard';
+import LeftArrow from './LeftArrow';
+import RightArrow from './RightArrow';
 
-function OutfitList({ productId, setProductId }) {
+function OutfitList({
+  productId, setProductId, outfitIndex, setOutfitIndex,
+}) {
   const ifRelated = false;
   const ifOutfit = window.localStorage.getItem('outfitArr') !== ''
             && window.localStorage.getItem('outfitArr') !== null
@@ -19,24 +23,54 @@ function OutfitList({ productId, setProductId }) {
     window.localStorage.setItem('outfitArr', JSON.stringify(outfit));
   };
 
-  const OutfitAlready = () => (
-    outfitArr.map((id) => (
-      <li className="card" key={id}>
-        <ProductCard
-          id={id}
-          setProductId={setProductId}
-          ifRelated={ifRelated}
-          setOutfitArr={setOutfitArr}
-        />
-      </li>
-    ))
-  );
+  const OutfitAlready = ({ index }) => {
+    console.log(outfitIndex);
+    let renderIndex = outfitIndex;
+    if (outfitIndex !== 0) {
+      renderIndex -= 1;
+    }
+    const renderArr = outfitArr.slice(renderIndex, index + renderIndex);
+    console.log('render', renderArr);
+    return (
+      renderArr.map((id) => (
+        <li key={id}>
+          <ProductCard
+            id={id}
+            setProductId={setProductId}
+            ifRelated={ifRelated}
+            setOutfitArr={setOutfitArr}
+          />
+        </li>
+      ))
+    );
+  };
+  console.log(outfitArr);
   return (
-    <ul className="list" id="outfit_list">
-      <li className="card" onClick={handleAdd}>add to outfit</li>
-      <OutfitAlready />
-    </ul>
+    <div className="listAndArrow">
+      {outfitIndex > 0 && <LeftArrow index={outfitIndex} setIndex={setOutfitIndex} />}
+      {outfitIndex === 0
+        && (
+        <ul className="list" id="outfit_list">
+          <li className="card" onClick={handleAdd}>
+            <img src={require('../assets/addToOutfit.jpg')} alt="addttoOutfit" />
+          </li>
+          <OutfitAlready index={3} />
+        </ul>
+        )}
+      {outfitIndex > 0
+      && (
+      <ul className="list" id="outfit_list">
+        <OutfitAlready index={4} />
+      </ul>
+      )}
 
+      {(outfitIndex === 0 && outfitArr.length > 3)
+       && <RightArrow index={outfitIndex} setIndex={setOutfitIndex} />}
+
+      {(outfitIndex > 0 && outfitIndex + 4 <= outfitArr.length)
+       && <RightArrow index={outfitIndex} setIndex={setOutfitIndex} />}
+
+    </div>
   );
 }
 

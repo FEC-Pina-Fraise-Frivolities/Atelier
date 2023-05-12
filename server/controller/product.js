@@ -7,7 +7,7 @@ module.exports = {
       method: 'GET',
       url: endpoint,
       headers: {
-        Authorization: process.env.TOKEN,
+        Authorization: process.env.AUTH,
       },
     };
     axios(option)
@@ -18,32 +18,31 @@ module.exports = {
   },
 
   getProduct(req, res) {
-    console.log('line 21', req.params);
-    const productId = req.params.product_id;
+    const { productId } = req.params;
     const endpoint = ` https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products/${productId}`;
-    console.log('endpoint', endpoint);
     const option = {
       method: 'GET',
       url: endpoint,
       headers: {
-        Authorization: process.env.TOKEN,
+        Authorization: process.env.AUTH,
       },
     };
     axios(option)
       .then((result) => {
         res.send(result.data);
       })
-      .catch((err) => console.log('server: get product detail failed'));
+      .catch((err) => console.log('server: get product detail failed', err))
+      .finally(console.log('req params: ', req.params));
   },
 
   getProductStyle(req, res) {
-    const productId = req.params.product_id;
+    const { productId } = req.params;
     const endpoint = `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products/${productId}/styles`;
     const option = {
       method: 'GET',
       url: endpoint,
       headers: {
-        Authorization: process.env.TOKEN,
+        Authorization: process.env.AUTH,
       },
     };
     axios(option)
@@ -54,18 +53,17 @@ module.exports = {
   },
 
   getRelated(req, res) {
-    const productId = req.params.product_id;
+    const { productId } = req.params;
     const endpoint = `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products/${productId}/related`;
     const option = {
       method: 'GET',
       url: endpoint,
       headers: {
-        Authorization: process.env.TOKEN,
+        Authorization: process.env.AUTH,
       },
     };
     axios(option)
       .then((result) => {
-        console.log(result.data);
         res.send(result.data);
       })
       .catch((err) => console.log('server: get related list failed', err));
