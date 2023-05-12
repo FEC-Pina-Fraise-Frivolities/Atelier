@@ -29,6 +29,7 @@ app.get('/reviews/meta', controller.reviews.getReviewsMeta);
 /** ******** */
 app.get('/qa/questions', controller.questions.getQuestions);
 app.post('/qa/questions', controller.questions.addQuestion);
+app.post('/qa/questions/:question_id/answers', controller.questions.addAnswer)
 //
 
 /* ---------------- Server listens ---------------- */
