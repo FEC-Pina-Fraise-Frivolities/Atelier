@@ -27,10 +27,13 @@ app.get('/reviews/meta', controller.reviews.getReviewsMeta);
 
 // questions
 /** ******** */
-
+app.get('/qa/questions', controller.questions.getQuestions);
+app.post('/qa/questions', controller.questions.addQuestion);
+app.post('/qa/questions/:question_id/answers', controller.questions.addAnswer);
+app.put('/qa/questions/:question_id/helpful', controller.questions.markHelpfulQuestion);
 //
 
 /* ---------------- Server listens ---------------- */
 
-app.listen(process.env.PORT);
-console.log(`Listening at http://localhost:${process.env.PORT}`);
+app.listen(process.env.PORT || 3000);
+console.log('Listening at http://localhost:', process.env.PORT || 3000);
