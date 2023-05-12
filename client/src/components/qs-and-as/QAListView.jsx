@@ -13,7 +13,7 @@ const QAListView = () => {
   const getAllQuestions = () => {
     const params = {
       product_id: 40364,  //change out of hardcode for integration
-      count: 100
+      count: 200
     };
     axios.get('/qa/questions', { params })
     .then((result) => {setQuestions(result.data.results); setQuestionsRaw(result.data.results)});

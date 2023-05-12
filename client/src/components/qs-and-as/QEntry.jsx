@@ -1,6 +1,7 @@
 import { React, useEffect, useState } from 'react';
 import AEntry from './AEntry';
-import AddAnswer from './AddAnswer'
+import AddAnswer from './AddAnswer';
+import axios from 'axios';
 
 const QEntry = (props) => {
   let sortedAnswers = Object.values(props.question.answers).sort((a,b) => {return a.helpfulness - b.helpfulness})
@@ -10,7 +11,7 @@ const QEntry = (props) => {
   const [ showAddAnswer, setShowAddAnswer ] = useState(false);
 
 const helpfulQuestion = () => {
-  //Axios PUT Mark question was help
+  axios.put('/qa/questions/:question_id/helpful', {question_id: props.question.question_id})
 }
 
 return (
@@ -25,7 +26,6 @@ return (
 <div className="aContainer"> {answers.slice(0, aSlice).map((a, i) => {return <AEntry key={i} answer={a}/>})} </div>
 {aSlice < answers.length ? <div onClick={() =>{setASlice(aSlice+2)}}> Load More Answers</div> : null}
 </div>
-
 )
 
 };
