@@ -337,11 +337,11 @@
  }
 
  .galleryView .nextPhoto {
-  position:relative;
-  align-self: center;
+  position:absolute;
+  align-self: top;
   z-index:2;
   left: 430px;
-  bottom: 20px;
+  bottom: 250px;
   width: 30px;
   height: 28px;
   background-color:powderblue;
@@ -350,11 +350,11 @@
  }
 
  .galleryView .prevPhoto {
-  position:relative;
+  position:absolute;
   align-self: center;
   z-index:2;
-  left: 5px;
-  bottom: 20px;
+  left: 75px;
+  bottom: 250px;
   width: 30px;
   height: 28px;
   background-color:powderblue;

@@ -38,7 +38,7 @@ function StylePhoto(
       <div className="stylePhotoFrame">
         <img
           className="stylePhoto"
-          src={thumbSrc || placeholderImage}
+          src={style.photos[0].thumbnail_url || placeholderImage}
           alt={style.name}
           onError={onImageError}
         />
