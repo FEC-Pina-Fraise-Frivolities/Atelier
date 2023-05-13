@@ -499,6 +499,10 @@
   margin: 6px;
 }
 
+#review-form .error {
+  display: none;
+}
+
 .rating-and-review .modal {
   position: fixed;
   top: 0;
