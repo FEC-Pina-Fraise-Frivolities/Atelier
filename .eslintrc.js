@@ -28,5 +28,6 @@ module.exports = {
     'consistent-return': 'off',
     'jsx-a11y/label-has-associated-control': 'off',
     'no-alert': 'off',
+    'global-require': 'off',
   },
 };

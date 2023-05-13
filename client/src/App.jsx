@@ -5,14 +5,14 @@ import RelatedAndOutfit from './components/related-items-and-outfit/index';
 import QAIndex from './components/qs-and-as/index';
 
 function App() {
-  const [productId, setProductId] = useState(40348);
+  const [productId, setProductId] = useState(40449);
 
   return (
     <div>
-      <Overview productId={productId} setProductId={setProductId} />
+      {/* <Overview productId={productId} setProductId={setProductId} /> */}
       <div><RelatedAndOutfit productId={productId} setProductId={setProductId} /></div>
-      <div><QAIndex /></div>
-      <div><RatingAndReview productId={productId} /></div>
+      {/* <div><QAIndex /></div>
+      <div><RatingAndReview productId={productId} /></div> */}
     </div>
   );
 }

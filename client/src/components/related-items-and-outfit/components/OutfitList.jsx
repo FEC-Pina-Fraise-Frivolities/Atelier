@@ -33,7 +33,7 @@ function OutfitList({
     console.log('render', renderArr);
     return (
       renderArr.map((id) => (
-        <li key={id}>
+        <li key={id} className="card">
           <ProductCard
             id={id}
             setProductId={setProductId}

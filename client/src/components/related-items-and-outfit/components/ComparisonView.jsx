@@ -5,7 +5,7 @@ function CompareHelper({ obj }) {
   // return <div>{Object.keys(obj)}</div>;
   const featureArr = [];
   const { length } = Object.keys(obj);
-  for (let i = 0; i < length; i++) {
+  for (let i = 0; i < length; i += 1) {
     const feature = Object.keys(obj)[i];
     featureArr.push([feature]);
     if (obj[feature].currentProduct !== undefined) {

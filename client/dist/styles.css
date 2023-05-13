@@ -398,7 +398,7 @@
   display: flex;
   list-style: none;
   position: relative;
-  top: 160px;
+  top: 150px;
   bottom: 40px;
   right:20px;
   z-index: 9999;
@@ -406,7 +406,8 @@
 }
 .relatedmodule .thumphoto {
   display: flex;
-  margin: 1px;
+  margin: 10px;
+  z-index: 9999;
 }
 .relatedmodule .salesPrice {
   color: red;

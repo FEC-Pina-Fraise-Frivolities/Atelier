@@ -11,7 +11,7 @@ function RelatedListHelper({
   const renderArr = relateArr.slice(relateIndex, relateIndex + 4);
   return (
     renderArr.map((id) => (
-      <li key={id}>
+      <li key={id} className="card">
         <ProductCard
           id={id}
           productId={productId}
