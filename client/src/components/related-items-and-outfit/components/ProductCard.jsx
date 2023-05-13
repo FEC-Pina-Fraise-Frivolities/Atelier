@@ -1,10 +1,8 @@
 import { React, useState, useEffect } from 'react';
-import StarButton from './StarButton';
-import DeleteButton from './DeleteButton';
 import CardDetail from './CardDetail';
 
 function ProductCard({
-  id, productId, setProductId, ifRelated, setOutfitArr,
+  id, setProductId, ifRelated, setOutfitArr, setStoreArr, storeArr,
 }) {
   const [ratings, setRatings] = useState(0);
   const [category, setCategory] = useState('');
@@ -13,7 +11,6 @@ function ProductCard({
   const [salePrice, setSalePrice] = useState(null);
   const [photos, setPhotos] = useState([]);
   const [mainUrl, setMainUrl] = useState('');
-
   useEffect(() => {
     fetch(`/reviews/meta?product_id=${id}`)
       .then((res) => res.json())
@@ -26,6 +23,7 @@ function ProductCard({
           count += parseInt(result.ratings[num]);
         }
         setRatings((total / count).toFixed(2));
+        // obj.ratings = (total / count).toFixed(2);
       })
       .then(
         fetch(`/products/${id}/styles`)
@@ -57,21 +55,21 @@ function ProductCard({
   }, [id]);
 
   return (
-    <div>
-      <CardDetail
-        ratings={ratings}
-        name={name}
-        originalPrice={originalPrice}
-        salePrice={salePrice}
-        category={category}
-        mainUrl={mainUrl}
-        photoArr={photos}
-        setProductId={setProductId}
-        id={id}
-      />
-      {ifRelated && <StarButton productId={productId} nextId={id} />}
-      {!ifRelated && <DeleteButton deleteId={id} setOutfitArr={setOutfitArr} />}
-    </div>
+
+    <CardDetail
+      ratings={ratings}
+      name={name}
+      originalPrice={originalPrice}
+      salePrice={salePrice}
+      category={category}
+      mainUrl={mainUrl}
+      photoArr={photos}
+      setProductId={setProductId}
+      id={id}
+      setStoreArr={setStoreArr}
+      storeArr={storeArr}
+    />
+
   );
 }
 export default ProductCard;

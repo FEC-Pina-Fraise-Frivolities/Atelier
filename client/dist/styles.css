@@ -338,15 +338,6 @@
 
  }
 
- /* .relatedmodule .leftButton  {
-  background-color: transparent;
-  border-style: none;
-  position: absolute;
-  left: 35px;
-  top: 50px;
-
- } */
-
  .relatedmodule .mainImg{
   height:200px;
   max-width: 100%;
@@ -416,12 +407,11 @@
   position: absolute;
   top: 0px;
   right: 0px;
-  border-radius: 50%;
+  border: transparent;
   background-color: transparent;
-  border: solid 1px #b0d7f7;
-  color: #b0d7f7;
-  width:28px;
-  height:28px;
+  color: #1c455a;
+  width:24px;
+  height:24px;
   z-index: 9999;
 }
 

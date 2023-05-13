@@ -3,27 +3,51 @@ import axios from 'axios';
 import ProductCard from './ProductCard';
 import LeftArrow from './LeftArrow';
 import RightArrow from './RightArrow';
+import StarButton from './StarButton';
+import CardDetail from './CardDetail';
 
 function RelatedListHelper({
-  productId, setProductId, relateArr, relateIndex,
+  productId, setProductId, relateArr, relateIndex, setStoreArr, storeArr,
 }) {
-  const ifRelated = true;
   const renderArr = relateArr.slice(relateIndex, relateIndex + 4);
+  console.log(storeArr);
   return (
-    renderArr.map((id) => (
-      <li key={id} className="card">
-        <ProductCard
-          id={id}
-          productId={productId}
-          setProductId={setProductId}
-          ifRelated={ifRelated}
-        />
-      </li>
-    )));
+    renderArr.map((id) => {
+      const ifNotStored = storeArr[id.toString()] === undefined;
+      return (
+        <li key={id} className="card">
+          {ifNotStored && (
+          <ProductCard
+            id={id}
+            productId={productId}
+            setProductId={setProductId}
+            setStoreArr={setStoreArr}
+            storeArr={storeArr}
+          />
+          )}
+          {!ifNotStored && (
+          <CardDetail
+            ratings={storeArr[id.toString()].ratings}
+            name={storeArr[id.toString()].name}
+            originalPrice={storeArr[id.toString()].originalPrice}
+            salePrice={storeArr[id.toString()].salePrice}
+            category={storeArr[id.toString()].category}
+            mainUrl={storeArr[id.toString()].mainUrl}
+            photoArr={storeArr[id.toString()].photos}
+            setProductId={setProductId}
+            id={id}
+            setStoreArr={setStoreArr}
+            storeArr={storeArr}
+          />
+          )}
+          <StarButton productId={productId} nextId={id} />
+        </li>
+      );
+    }));
 }
 
 function RelatedList({
-  productId, setProductId, relateIndex, setRelateIndex,
+  productId, setProductId, relateIndex, setRelateIndex, storeArr, setStoreArr,
 }) {
   const [relateArr, setRelatedArr] = useState([]);
 
@@ -41,7 +65,6 @@ function RelatedList({
       })
       .catch((err) => console.error('get related list failed', err));
   }, [productId]);
-
   return (
     <div className="listAndArrow">
       { relateIndex > 0 && <LeftArrow index={relateIndex} setIndex={setRelateIndex} />}
@@ -51,6 +74,8 @@ function RelatedList({
           setProductId={setProductId}
           relateArr={relateArr}
           relateIndex={relateIndex}
+          setStoreArr={setStoreArr}
+          storeArr={storeArr}
         />
       </ul>
       { relateIndex + 4 < relateArr.length

@@ -3,12 +3,12 @@ import Star from '../../ratings-and-reviews/Star';
 
 function PhotoGallery({ photoArr, setPhotoUrl, setShow }) {
   return (
-    photoArr.map((url) => {
+    photoArr.map((url, index) => {
       if (url === null) {
         url = require('../assets/Image_not_available.jpg');
       }
       return (
-        <li key={url} className="thumphoto">
+        <li key={url + index} className="thumphoto">
           <img
             src={url}
             onError={(e) => { e.target.src = require('../assets/Image_not_available.jpg'); }}
@@ -28,13 +28,29 @@ function PhotoGallery({ photoArr, setPhotoUrl, setShow }) {
 }
 
 function CardDetail({
-  ratings, name, originalPrice, salePrice, category, mainUrl, photoArr, setProductId, id,
+  ratings, name, originalPrice, salePrice, category, mainUrl,
+  photoArr, setProductId, id, setStoreArr, storeArr,
 }) {
   const [show, setShow] = useState(false);
   const [photoUrl, setPhotoUrl] = useState('');
+  console.log(storeArr);
   if (mainUrl === null) {
     mainUrl = require('../assets/Image_not_available.jpg');
   }
+
+  const obj = {};
+  obj.ratings = ratings;
+  obj.name = name;
+  console.log('name', obj.name);
+  obj.originalPrice = originalPrice;
+  obj.salePrice = salePrice;
+  obj.category = category;
+  obj.mainUrl = mainUrl;
+  obj.photos = photoArr;
+  const store = storeArr;
+  store[id.toString()] = obj;
+  setStoreArr(store);
+  console.log('jj');
   useEffect(() => {
     setPhotoUrl(mainUrl);
   }, [mainUrl]);

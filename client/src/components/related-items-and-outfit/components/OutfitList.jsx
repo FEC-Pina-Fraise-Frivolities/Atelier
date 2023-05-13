@@ -2,9 +2,11 @@ import { React, useState } from 'react';
 import ProductCard from './ProductCard';
 import LeftArrow from './LeftArrow';
 import RightArrow from './RightArrow';
+import CardDetail from './CardDetail';
+import DeleteButton from './DeleteButton';
 
 function OutfitList({
-  productId, setProductId, outfitIndex, setOutfitIndex,
+  productId, setProductId, outfitIndex, setOutfitIndex, setStoreArr, storeArr,
 }) {
   const ifRelated = false;
   const ifOutfit = window.localStorage.getItem('outfitArr') !== ''
@@ -32,16 +34,39 @@ function OutfitList({
     const renderArr = outfitArr.slice(renderIndex, index + renderIndex);
     console.log('render', renderArr);
     return (
-      renderArr.map((id) => (
-        <li key={id} className="card">
-          <ProductCard
-            id={id}
-            setProductId={setProductId}
-            ifRelated={ifRelated}
-            setOutfitArr={setOutfitArr}
-          />
-        </li>
-      ))
+      renderArr.map((id) => {
+        const ifNotStored = storeArr[id.toString()] === undefined;
+        return (
+          <li key={id} className="card">
+            {ifNotStored && (
+            <ProductCard
+              id={id}
+              productId={productId}
+              setProductId={setProductId}
+              ifRelated={ifRelated}
+              setStoreArr={setStoreArr}
+              storeArr={storeArr}
+            />
+            )}
+            {!ifNotStored && (
+            <CardDetail
+              ratings={storeArr[id.toString()].ratings}
+              name={storeArr[id.toString()].name}
+              originalPrice={storeArr[id.toString()].originalPrice}
+              salePrice={storeArr[id.toString()].salePrice}
+              category={storeArr[id.toString()].category}
+              mainUrl={storeArr[id.toString()].mainUrl}
+              photoArr={storeArr[id.toString()].photos}
+              setProductId={setProductId}
+              id={id}
+              setStoreArr={setStoreArr}
+              storeArr={storeArr}
+            />
+            )}
+            <DeleteButton deleteId={id} setOutfitArr={setOutfitArr} />
+          </li>
+        );
+      })
     );
   };
   console.log(outfitArr);

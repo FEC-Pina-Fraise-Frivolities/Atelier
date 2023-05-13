@@ -5,6 +5,7 @@ import OutfitList from './components/OutfitList';
 function RelatedAndOutfit({ productId, setProductId }) {
   const [relateIndex, setRelateIndex] = useState(0);
   const [outfitIndex, setOutfitIndex] = useState(0);
+  const [storeArr, setStoreArr] = useState({});
   useEffect(() => {
     setRelateIndex(0);
     setOutfitIndex(0);
@@ -22,6 +23,8 @@ function RelatedAndOutfit({ productId, setProductId }) {
         setProductId={setProductId}
         relateIndex={relateIndex}
         setRelateIndex={setRelateIndex}
+        storeArr={storeArr}
+        setStoreArr={setStoreArr}
       />
 
       <OutfitList
@@ -30,6 +33,8 @@ function RelatedAndOutfit({ productId, setProductId }) {
         setProductId={setProductId}
         outfitIndex={outfitIndex}
         setOutfitIndex={setOutfitIndex}
+        storeArr={storeArr}
+        setStoreArr={setStoreArr}
       />
     </div>
   );
