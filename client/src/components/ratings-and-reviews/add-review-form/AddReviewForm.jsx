@@ -128,7 +128,7 @@ function AddReviewForm({
         </div>
         <div className="email input">
           <p>
-            What is your nickname?
+            What is your email?
             <small> (60 characters max)</small>
           </p>
           <textarea name="email" maxLength={60} placeholder="jackson11@email.com" rows={3} value={reviewObj.email} onChange={inputHandler}></textarea>
