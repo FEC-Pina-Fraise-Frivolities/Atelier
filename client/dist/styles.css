@@ -371,19 +371,22 @@
  .relatedmodule .leftButton{
   position: absolute;
   top: 170px;
-  left: 50px;
+  left:30px;
   z-index: 9999;
-
+  background: transparent;
   border: none;
   font-weight: 3px;
+  color: rgb(105, 132, 241);
+
  }
  .relatedmodule .rightButton{
   position: absolute;
-  left:1140px;
+  left:1170px;
   top: 170px;
-
+  background: transparent;
   border: none;
   font-weight: 3px;
+  color: rgb(105, 132, 241);
  }
 .relatedmodule .list-gallery {
   display: flex;
@@ -414,6 +417,20 @@
   height:24px;
   z-index: 9999;
 }
+
+.relatedmodule .imgleftbuttton{
+  position: relative;
+  right: 30px;
+  bottom: 65px;
+}
+
+.relatedmodule .imgrightbuttton{
+  position: relative;
+  right: 940px;
+  bottom: 65px;
+  z-index: 9999;
+}
+
 
 .relatedmodule .category{
   color: #9e9e9e;

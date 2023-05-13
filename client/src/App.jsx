@@ -5,7 +5,7 @@ import RelatedAndOutfit from './components/related-items-and-outfit/index';
 import QAIndex from './components/qs-and-as/index';
 
 function App() {
-  const [productId, setProductId] = useState(40880);
+  const [productId, setProductId] = useState(40636);
 
   return (
     <div>

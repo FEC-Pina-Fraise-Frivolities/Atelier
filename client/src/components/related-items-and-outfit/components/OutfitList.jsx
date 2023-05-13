@@ -55,7 +55,6 @@ function OutfitList({
               originalPrice={storeArr[id.toString()].originalPrice}
               salePrice={storeArr[id.toString()].salePrice}
               category={storeArr[id.toString()].category}
-              mainUrl={storeArr[id.toString()].mainUrl}
               photoArr={storeArr[id.toString()].photos}
               setProductId={setProductId}
               id={id}

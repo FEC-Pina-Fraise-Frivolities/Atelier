@@ -26,7 +26,9 @@ function RelatedAndOutfit({ productId, setProductId }) {
         storeArr={storeArr}
         setStoreArr={setStoreArr}
       />
-
+      <p className="sub-title">
+        outfitlist
+      </p>
       <OutfitList
         className="listAndArrow"
         productId={productId}

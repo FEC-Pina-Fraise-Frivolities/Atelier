@@ -2,7 +2,7 @@ import { React, useState, useEffect } from 'react';
 import CardDetail from './CardDetail';
 
 function ProductCard({
-  id, setProductId, ifRelated, setOutfitArr, setStoreArr, storeArr,
+  id, setProductId, setStoreArr, storeArr,
 }) {
   const [ratings, setRatings] = useState(0);
   const [category, setCategory] = useState('');
@@ -10,7 +10,6 @@ function ProductCard({
   const [originalPrice, setOiginalPrice] = useState(0);
   const [salePrice, setSalePrice] = useState(null);
   const [photos, setPhotos] = useState([]);
-  const [mainUrl, setMainUrl] = useState('');
   useEffect(() => {
     fetch(`/reviews/meta?product_id=${id}`)
       .then((res) => res.json())
@@ -31,7 +30,6 @@ function ProductCard({
           .then((result) => {
             setOiginalPrice(result.results[0].original_price);
             setSalePrice(result.results[0].sale_price);
-            setMainUrl(result.results[0].photos[0].thumbnail_url);
             const photoArr = [];
             result.results.forEach((obj) => {
               if (obj.thumbnail_url !== null && photoArr.length < 4) {
@@ -62,7 +60,6 @@ function ProductCard({
       originalPrice={originalPrice}
       salePrice={salePrice}
       category={category}
-      mainUrl={mainUrl}
       photoArr={photos}
       setProductId={setProductId}
       id={id}
