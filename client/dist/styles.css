@@ -379,18 +379,111 @@
  }
 
  .rating-and-review .list.container {
-  width: 60%;
-  height: 800px;
+  width: 65%;
  }
 
  .rating-and-review #scrollable-list {
-  height: 80%;
-  width: 80%;
+  height: 576px;
+  width: 95%;
   margin: auto;
   margin-top: 15px;
   margin-bottom: 15px;
   overflow-y: auto;
  }
+
+ .rating-and-review .list h3,  .rating-and-review .list .list-button {
+  position: relative;
+  left: 2.5%;
+ }
+
+ .rating-and-review .list .list-button button {
+  margin-right: 18px;
+  background-color: transparent;
+  border: 2px solid #767676;
+  border-radius: 6px;
+  font-size: 20px;
+  font-weight: 700;
+  padding: 2%;
+  cursor: pointer;
+ }
+
+ .rating-and-review .list .list-button button:hover {
+  background-color: #767676;
+  color: white;
+ }
+
+  /* ------------------ Indiviual review ---------------------- */
+ .rating-and-review .review.container {
+  position: relative;
+  padding: 5px;
+  border: none;
+  border-top: 2px solid #767676;
+ }
+
+ .rating-and-review .review .name-date {
+  display: inline-block;
+  position: absolute;
+  right: 1%;
+  top: 5px;
+ }
+
+ .rating-and-review .review .body {
+  margin-top: 14px;
+  overflow-wrap: break-word;
+ }
+
+ .rating-and-review .review .body input {
+  color: #6D78EF;
+  cursor: pointer;
+  text-decoration: underline;
+  border: none;
+  padding: 0px;
+  margin-left: 6px;
+  background-color: transparent;
+  font-style: italic;
+  font-size: smaller;
+ }
+
+ .rating-and-review .review .body .images {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+ }
+
+ .rating-and-review .review .body img {
+  margin: 2px;
+  border: 1px solid gray;
+ }
+
+ .rating-and-review .review .recommend {
+  margin-top: 4px;
+ }
+
+ .rating-and-review .review .recommend span {
+  margin: 4px;
+  font-weight: bold;
+  font-size: 18px;
+  color: beige;
+  background-color: #73ad21;
+  border-radius: 50%;
+ }
+
+ .rating-and-review .review .helpful {
+  margin-top: 4px;
+ }
+
+ .rating-and-review .review .helpful button {
+  background-color: transparent;
+  cursor: pointer;
+  border: 1px solid mediumseagreen;
+  border-radius: 5px;
+ }
+
+ .rating-and-review .review .helpful button:hover {
+  background-color: #2AE860;
+  color: whitesmoke;
+ }
+
 
  /* ------------------ Star ---------------------- */
     .star {

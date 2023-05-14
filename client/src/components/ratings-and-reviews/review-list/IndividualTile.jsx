@@ -1,6 +1,7 @@
 import { React, useState } from 'react';
 import axios from 'axios';
 import Star from './Star';
+import Body from './Body';
 
 function IndividualTile({ review }) {
   const [helpfulness, setHelpfulness] = useState(review.helpfulness);
@@ -18,27 +19,32 @@ function IndividualTile({ review }) {
   return (
     <div className="review container">
       <Star rating={review.rating} />
-      <div>
+      <div className="name-date">
         {review.reviewer_name}
-        ,
+        {' '}
+        on
+        {' '}
         {new Date(review.date).toLocaleDateString(
           'en-us',
           { year: 'numeric', month: 'short', day: 'numeric' },
         )}
       </div>
       <h3>{review.summary}</h3>
-      <div>{review.body}</div>
+      <Body body={review.body} photos={review.photos} />
       {review.recommend ? (
-        <div>
+        <div className="recommend">
           <span>&#10003;</span>
           I recommend this product
         </div>
       ) : null}
-      <div>{review.response ? review.response : ''}</div>
-      <div>
+      <div className="response">{review.response ? review.response : ''}</div>
+      <div className="helpful">
         Helpful?
-        <button type="button" onClick={helpfulHandler}> Yes</button>
-        {`(${helpfulness})`}
+        {' '}
+        <button type="button" onClick={helpfulHandler}>
+          Yes
+          {` (${helpfulness})`}
+        </button>
       </div>
     </div>
   );

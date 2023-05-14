@@ -28,8 +28,10 @@ function ReviewList({
         {filteredReviews.map((review) => (
           <IndividualTile review={review} key={review.review_id} />))}
       </div>
-      {buttonToggle ? <button type="button" onClick={moreReviewHandler}>More review</button> : <span>All reviews loaded</span>}
-      <button type="button" onClick={modalHandler}>Add a review</button>
+      <div className="list-button">
+        {buttonToggle ? <button type="button" onClick={moreReviewHandler}>More review <span>&#9787;</span></button> : <span>All reviews loaded</span>}
+        <button type="button" onClick={modalHandler}>Add a review <span>&#9998;</span></button>
+      </div>
     </div>
   );
 }

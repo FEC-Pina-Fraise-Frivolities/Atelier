@@ -17,7 +17,7 @@ function RatingAndReview({ productId }) {
   const [reviewMeta, setReviewMeta] = useState({});
   // const [numReviews, setNumReviews] = useState(0);
   const [showForm, setShowForm] = useState(false);
-  const [reviewParams, setReviewParams] = useState({ sort: 'relevant', page: 1, count: 10 });
+  const [reviewParams, setReviewParams] = useState({ sort: 'relevant', count: 3 });
   const [buttonToggle, setButtonToggle] = useState(true);
   const [filterReview, setFilterReview] = useState([]);
 
@@ -29,7 +29,7 @@ function RatingAndReview({ productId }) {
     const paramsReviews = {
       product_id: productId,
       sort: reviewParams.sort,
-      count: reviewParams.count * reviewParams.page,
+      count: reviewParams.count,
     };
     Promise.all([axios.get('/reviews', { params: paramsReviews }), axios.get('/reviews/meta', { params: paramsMeta })])
       .then((results) => {
@@ -53,15 +53,15 @@ function RatingAndReview({ productId }) {
     const params = {
       product_id: productId,
       sort: reviewParams.sort,
-      count: reviewParams.count * (reviewParams.page + 1),
+      count: reviewParams.count + 10,
     };
     axios.get('/reviews', { params })
       .then((result) => {
-        if (result.data.results.length < (reviewParams.count * (reviewParams.page + 1))) {
+        if (result.data.results.length < (reviewParams.count + 10)) {
           setButtonToggle(false);
         }
         setReviews(result.data.results);
-        setReviewParams({ ...reviewParams, page: reviewParams.page + 1 });
+        setReviewParams({ ...reviewParams, count: reviewParams.count + 10 });
       })
       .catch((err) => {
         console.log(err);
@@ -74,7 +74,7 @@ function RatingAndReview({ productId }) {
     const params = {
       product_id: productId,
       sort: e.target.value,
-      count: reviewParams.count * reviewParams.page,
+      count: reviewParams.count,
     };
     axios.get('/reviews', { params })
       .then((result) => {
