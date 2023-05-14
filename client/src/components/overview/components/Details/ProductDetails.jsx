@@ -18,6 +18,7 @@ function ProductDetails(
   const [selectedSize, setSelectedSize] = useState('');
   const [skusNull, setSkusNull] = useState(false);
   const [selectedQuantity, setSelectedQuantity] = useState(1);
+
   return (
     <div className="productDetails">
 

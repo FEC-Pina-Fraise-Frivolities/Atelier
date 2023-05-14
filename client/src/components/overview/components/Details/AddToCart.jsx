@@ -9,6 +9,9 @@ function AddToCart({
       return;
     }
     console.log(`You have added ${selectedQuantity} size ${selectedSize} ${selectedStyle.name} ${productData.name} to your cart`);
+    // fetch(`http://localhost:3000/cart${new URLSearchParams({
+    //   sku_id: skuId,
+    // })}`);
   };
 
   if (skusNull) {

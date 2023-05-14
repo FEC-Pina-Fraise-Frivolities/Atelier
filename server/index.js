@@ -18,8 +18,8 @@ app.get('/products/:productId', controller.product.getProduct);
 app.get('/products/:productId/styles', controller.product.getProductStyle);
 app.get('/products/:productId/related', controller.product.getRelated);
 // cart
-app.get('/cart', controller.cart.get);
-app.post('/cart', controller.cart.post);
+app.get('/cart', controller.cart.getCart);
+app.post('/cart', controller.cart.addToCart);
 // reviews
 /** ******* */
 app.get('/reviews', controller.reviews.getReviews);

@@ -1,7 +1,11 @@
 import React, { useEffect, useState } from 'react';
 
 function SizeSelector({
-  selectedStyle, selectedSize, setSelectedSize, skusNull, setSkusNull,
+  selectedStyle,
+  selectedSize,
+  setSelectedSize,
+  skusNull,
+  setSkusNull,
 }) {
   const [productSkus, setProductSkus] = useState([]);
 

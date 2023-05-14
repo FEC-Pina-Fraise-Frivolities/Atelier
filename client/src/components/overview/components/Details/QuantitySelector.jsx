@@ -2,7 +2,11 @@
 import React, { useEffect, useState } from 'react';
 
 function QuantitySelector({
-  selectedStyle, selectedSize, skusNull, selectedQuantity, setSelectedQuantity,
+  selectedStyle,
+  selectedSize,
+  skusNull,
+  selectedQuantity,
+  setSelectedQuantity,
 }) {
   const [productQuantity, setProductQuantity] = useState(0);
   const [allQuantities, setAllQuantites] = useState([]);
@@ -24,6 +28,12 @@ function QuantitySelector({
       setAllQuantites((currentQuantites) => [...currentQuantites, i]);
     }
   }, [productQuantity]);
+
+  useEffect(() => {
+    if (productQuantity < selectedQuantity) {
+      setSelectedQuantity(productQuantity);
+    }
+  }, [selectedStyle, productQuantity, selectedQuantity, setSelectedQuantity]);
 
   if (skusNull || !selectedSize) {
     return '';
