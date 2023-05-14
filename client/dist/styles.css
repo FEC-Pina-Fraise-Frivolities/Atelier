@@ -355,138 +355,199 @@
   display: flex;
 } */
 
- /* --------------------------------------------------------------------------------------------------------
- ----------------------------------Rating and Review Section------------------------------------------------
- ---------------------------------------------------------------------------------------------------------*/
+/* --------------------------------------------------------------------------------------------------------
+----------------------------------Rating and Review Section------------------------------------------------
+---------------------------------------------------------------------------------------------------------*/
 
 
- /* ------------------ Overall layout ---------------------- */
- .rating-and-review {
+/* ------------------ Overall layout ---------------------- */
+.rating-and-review {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
- }
+}
 
- .rating-and-review #subtitle {
-  flex-basis: 100%;
- }
-
- /* ------------------ Review List ---------------------- */
-
- .rating-and-review .container {
+.rating-and-review .container {
   border: 1px solid black;
   margin: 5px;
- }
+}
 
- .rating-and-review .list.container {
-  width: 65%;
- }
+.rating-and-review #subtitle {
+  flex-basis: 100%;
+  border-bottom: 4px double #767676;
+}
 
- .rating-and-review #scrollable-list {
-  height: 576px;
-  width: 95%;
-  margin: auto;
-  margin-top: 15px;
-  margin-bottom: 15px;
-  overflow-y: auto;
- }
+.rating-and-review > .container {
+  border: 0;
+  margin-top: 16px;
+}
 
- .rating-and-review .list h3,  .rating-and-review .list .list-button {
-  position: relative;
-  left: 2.5%;
- }
+/* ------------------ Review List ---------------------- */
 
- .rating-and-review .list .list-button button {
-  margin-right: 18px;
-  background-color: transparent;
-  border: 2px solid #767676;
-  border-radius: 6px;
-  font-size: 20px;
-  font-weight: 700;
-  padding: 2%;
-  cursor: pointer;
- }
+.rating-and-review .list.container {
+width: 65%;
+}
 
- .rating-and-review .list .list-button button:hover {
-  background-color: #767676;
-  color: white;
- }
+.rating-and-review #scrollable-list {
+height: 576px;
+width: 95%;
+margin: auto;
+margin-top: 15px;
+margin-bottom: 15px;
+overflow-y: auto;
+}
 
-  /* ------------------ Indiviual review ---------------------- */
- .rating-and-review .review.container {
-  position: relative;
-  padding: 5px;
-  border: none;
-  border-top: 2px solid #767676;
- }
+.rating-and-review .list h3,  .rating-and-review .list .list-button {
+position: relative;
+left: 2.5%;
+}
 
- .rating-and-review .review .name-date {
+.rating-and-review .list .list-button button {
+margin-right: 18px;
+background-color: transparent;
+border: 2px solid #767676;
+border-radius: 6px;
+font-size: 20px;
+font-weight: 700;
+padding: 2%;
+cursor: pointer;
+}
+
+.rating-and-review .list .list-button button:hover {
+background-color: #767676;
+color: white;
+}
+
+/* ------------------ Indiviual review ---------------------- */
+.rating-and-review .review.container {
+position: relative;
+padding: 5px;
+border: none;
+border-top: 2px solid #767676;
+}
+
+.rating-and-review .review .name-date {
+display: inline-block;
+position: absolute;
+right: 1%;
+top: 5px;
+font-weight: 300;
+font-size: smaller;
+}
+
+.rating-and-review .review .body {
+margin-top: 14px;
+overflow-wrap: break-word;
+}
+
+.rating-and-review .review .body input {
+color: #6D78EF;
+cursor: pointer;
+text-decoration: underline;
+border: none;
+padding: 0px;
+margin-left: 6px;
+background-color: transparent;
+font-style: italic;
+font-size: smaller;
+}
+
+.rating-and-review .review .body .images {
+display: flex;
+flex-direction: row;
+flex-wrap: wrap;
+}
+
+.rating-and-review .review .body img {
+margin: 2px;
+border: 1px solid gray;
+}
+
+.rating-and-review .review .recommend {
+margin-top: 4px;
+}
+
+.rating-and-review .review .recommend span {
+margin: 4px;
+font-weight: bold;
+font-size: 18px;
+color: beige;
+background-color: #73ad21;
+border-radius: 50%;
+}
+
+.rating-and-review .review .helpful {
+margin-top: 4px;
+}
+
+.rating-and-review .review .helpful button {
+background-color: transparent;
+cursor: pointer;
+border: 1px solid mediumseagreen;
+border-radius: 5px;
+}
+
+.rating-and-review .review .helpful button:hover {
+background-color: #2AE860;
+color: whitesmoke;
+}
+
+/* ------------------ Summary ---------------------- */
+.rating-and-review .rating {
+  margin-top: 0px;
+}
+
+.rating-and-review .summary > .container {
+  border: 0;
+}
+
+/* ------------------ Rating BD ---------------------- */
+.rating-and-review .rating h3 {
   display: inline-block;
-  position: absolute;
-  right: 1%;
-  top: 5px;
- }
+  margin-right: 4px;
+  font-size: xxx-large;
+  position: relative;
+  top: -16px;
+}
 
- .rating-and-review .review .body {
-  margin-top: 14px;
-  overflow-wrap: break-word;
- }
-
- .rating-and-review .review .body input {
-  color: #6D78EF;
-  cursor: pointer;
-  text-decoration: underline;
-  border: none;
-  padding: 0px;
-  margin-left: 6px;
-  background-color: transparent;
+.rating-and-review .rating p {
   font-style: italic;
-  font-size: smaller;
- }
+  font-weight: 300;
+  text-shadow: 1px 1px 1px #bfd1e5;
+}
 
- .rating-and-review .review .body .images {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
- }
+.rating-and-review .rating .star {
+  display: inline-block;
+  position: relative;
+  top: -16px;
+}
 
- .rating-and-review .review .body img {
-  margin: 2px;
-  border: 1px solid gray;
- }
+.rating-and-review .rating .bars {
+  margin-top: 26px;
+  margin-left: 0px;
+  margin-right: 0px;
+  border: 0;
+}
 
- .rating-and-review .review .recommend {
-  margin-top: 4px;
- }
+.rating-and-review .rating .bars .bar {
+  margin-left: 0px;
+  margin-right: 0px;
+}
 
- .rating-and-review .review .recommend span {
-  margin: 4px;
-  font-weight: bold;
-  font-size: 18px;
-  color: beige;
-  background-color: #73ad21;
-  border-radius: 50%;
- }
+/* ------------------ Product BD ---------------------- */
 
- .rating-and-review .review .helpful {
-  margin-top: 4px;
- }
+.rating-and-review .product {
+  margin-top: 26px;
+}
 
- .rating-and-review .review .helpful button {
-  background-color: transparent;
-  cursor: pointer;
-  border: 1px solid mediumseagreen;
-  border-radius: 5px;
- }
+.rating-and-review .product .character {
+  margin-left: 0px;
+  margin-right: 0px;
+  border: 0;
+}
 
- .rating-and-review .review .helpful button:hover {
-  background-color: #2AE860;
-  color: whitesmoke;
- }
-
-
- /* ------------------ Star ---------------------- */
-    .star {
+/* ------------------ Star ---------------------- */
+.star {
   position: relative;
   display: inline-block;
 }
@@ -511,6 +572,11 @@
 
 .rating-and-review .bar.container {
   border: 0px;
+  cursor: pointer;
+}
+
+.rating-and-review .bar.container:hover {
+  background-color: #C9F7DF;
 }
 
 .rating-and-review .double-bar.container {
@@ -533,7 +599,7 @@
 .rating-and-review .double-bar .empty {
   height: 100%;
   width: 100%;
-  background-color: #E2FEF2;
+  background-color: #ebf5ee;
   position: absolute;
   top: 0px;
   left: 0px;
@@ -565,7 +631,7 @@
 }
 
 .rating-and-review .scale .scale-bar {
-  background-color: #ffd6ff;
+  background-color: #d8bfaa;
   display: inline-block;
   height: 8px;
   width: 31%;
@@ -617,6 +683,7 @@
   height: 90%;
   padding: 10px;
 }
+
 
  /* --------------------------------------------------------------------------------------------------------
  ----------------------------------Questions and Answers Section--------------------------------------------

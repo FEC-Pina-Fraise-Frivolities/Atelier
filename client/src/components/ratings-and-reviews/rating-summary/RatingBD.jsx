@@ -32,9 +32,13 @@ function RatingBD({ ratings, recommended }) {
 
   return (
     <div className="rating container">
-      <h1>{averageRating}</h1>
+      <h3>{averageRating}</h3>
       <Star rating={averageRating} />
-      <p>{`${percentRecommend * 100}% of reviews recommend this product`}</p>
+      <p>
+        <u>{`${percentRecommend * 100}%`}</u>
+        {' '}
+        of reviews recommend this product
+      </p>
       <div className="bars container">
         {[...Array(5)].map((element, index) => {
           const key = `${5 - index} stars`;
