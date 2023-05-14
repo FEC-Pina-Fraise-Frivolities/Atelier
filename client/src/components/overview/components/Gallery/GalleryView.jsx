@@ -36,7 +36,6 @@ function GalleryView(
   };
 
   useEffect(() => {
-    console.log('selectedStyle: ', selectedStyle);
     const start = factor * 7;
     const end = (factor + 1) * 7;
     if (start < selectedStyle.photos.length) {

@@ -15,7 +15,6 @@ function MainPhotoArrows(
   const photoIdx = selectedStyle.photos.findIndex((photo) => photo.url === selectedPhoto);
 
   const loadNextPhoto = () => {
-    console.log('photoIdx: ', photoIdx, 'factor: ', factor, 'displayedThumbs.length: ', displayedThumbs.length);
     if (photoIdx < selectedStyle.photos.length - 1) {
       setSelectedPhoto(selectedStyle.photos[photoIdx + 1].url);
       setSelectedThumb(selectedStyle.photos[photoIdx + 1].thumbnail_url);
@@ -26,7 +25,6 @@ function MainPhotoArrows(
   };
 
   const loadPrevPhoto = () => {
-    console.log('photoIdx: ', photoIdx, 'factor: ', factor, 'displayedThumbs.length: ', displayedThumbs.length);
     if (photoIdx > 0) {
       setSelectedPhoto(selectedStyle.photos[photoIdx - 1].url);
       setSelectedThumb(selectedStyle.photos[photoIdx - 1].thumbnail_url);

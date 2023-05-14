@@ -20,7 +20,7 @@ function QuantitySelector({
         }
       }
     }
-  }, [selectedSize, selectedStyle]);
+  }, [selectedSize, selectedStyle, selectedQuantity]);
 
   useEffect(() => {
     setAllQuantites([]);
@@ -30,10 +30,14 @@ function QuantitySelector({
   }, [productQuantity]);
 
   useEffect(() => {
-    if (productQuantity < selectedQuantity) {
+    if (productQuantity > 0 && productQuantity < selectedQuantity) {
       setSelectedQuantity(productQuantity);
     }
   }, [selectedStyle, productQuantity, selectedQuantity, setSelectedQuantity]);
+
+  const handleChange = (e) => {
+    setSelectedQuantity(e.target.value);
+  };
 
   if (skusNull || !selectedSize) {
     return '';
@@ -46,7 +50,7 @@ function QuantitySelector({
         {' '}
         <select
           value={selectedQuantity}
-          onChange={(e) => setSelectedQuantity(e.target.value)}
+          onChange={handleChange}
         >
           {allQuantities.map((quantity) => (
             <option value={quantity} key={quantity}>
