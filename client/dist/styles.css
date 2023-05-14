@@ -273,7 +273,7 @@
 
  #portal img {
   cursor:zoom-in;
-  position: relative;
+  position: absolute;
   height:100%;
  }
 

@@ -29,19 +29,16 @@ function ExpandedView({ open, selectedPhoto, onClose }) {
   const [isZoomed, setIsZoomed] = useState(false);
 
   const zoomIn = (event, element) => {
+    const { offsetX, offsetY } = event.nativeEvent;
+    const { clientWidth, clientHeight } = element;
+    element.style.setProperty('transform-origin', `${(offsetX / clientWidth) * 100}% ${(offsetY / clientHeight) * 100}%`);
     element.style.setProperty('cursor', 'zoom-out');
-    element.style.setProperty('transform', 'scale(2.5)');
+    element.style.setProperty('transform', 'scale(2.5) translate(0  , 0)');
   };
 
   const zoomOut = (event, element) => {
     element.style.setProperty('cursor', 'zoom-in');
     element.style.setProperty('transform', 'scale(1)');
-  };
-
-  const zoomTrack = (event, element) => {
-    const shiftX = event.pageX;
-    const shiftY = event.pageY;
-    element.style.setProperty('transform', `scale(2.5) translate(${shiftX}px, ${shiftY}px)`);
   };
 
   return ReactDom.createPortal(
@@ -70,7 +67,6 @@ function ExpandedView({ open, selectedPhoto, onClose }) {
               zoomOut(e, document.querySelector('#modalPhoto'));
             }
           }}
-          onMouseOver={(e) => (isZoomed ? zoomTrack(e, document.querySelector('#modalPhoto')) : null)}
         />
       </div>
     </>,
