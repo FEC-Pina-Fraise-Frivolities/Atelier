@@ -5,7 +5,7 @@ function CompareHelper({ obj }) {
   // return <div>{Object.keys(obj)}</div>;
   const featureArr = [];
   const { length } = Object.keys(obj);
-  for (let i = 0; i < length; i++) {
+  for (let i = 0; i < length; i += 1) {
     const feature = Object.keys(obj)[i];
     featureArr.push([feature]);
     if (obj[feature].currentProduct !== undefined) {
@@ -33,7 +33,6 @@ function CompareHelper({ obj }) {
       featureArr[i].push('not mentioned');
     }
   }
-  console.log(featureArr);
 
   return (
     featureArr.map((arr) => (
@@ -51,7 +50,7 @@ function ComparisonView({ productId, nextId }) {
   const obj = {};
   const [featureObj, setFeatureObj] = useState({});
   useEffect(() => {
-    let endpoint = `http://localhost:3000/products/${productId}`;
+    let endpoint = `/products/${productId}`;
     let option = {
       method: 'GET',
       url: endpoint,
@@ -66,7 +65,7 @@ function ComparisonView({ productId, nextId }) {
       })
       .catch((err) => console.log('server: get products failed', err))
       .then(() => {
-        endpoint = `http://localhost:3000/products/${nextId}`;
+        endpoint = `/products/${nextId}`;
         option = {
           method: 'GET',
           url: endpoint,
