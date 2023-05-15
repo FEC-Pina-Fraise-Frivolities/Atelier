@@ -19,6 +19,8 @@
  html,
  body {
    height: 100%;
+   background-color:darkslateblue;
+   color:lightblue;
  }
 
  body {
@@ -68,7 +70,7 @@
 
  .basics {
   position: absolute;
-  display:flex;
+  display: flex;
   right: 1in;
   top: 1in;
   font-weight: bolder;
@@ -77,13 +79,13 @@
   flex-direction: column;
   padding: 12pt;
   margin: 12pt;
-  border:#73AD21 3px solid;
+  border: royalblue 3px solid;
  }
 
  .basics .productCategory {
   font-weight: normal;
-  font-style:italic;
-  font-size:medium;
+  font-style: italic;
+  font-size: medium;
   align-self: flex-end;
  }
 
@@ -99,43 +101,36 @@
   position: absolute;
   display: flex;
   align-items: flex-end;
-  flex-direction:column-reverse;
-  align-content:flex-end;
+  flex-direction: column-reverse;
+  align-content: flex-end;
   left: 50px;
   bottom: 10px;
   width: 400px;
   height: 150px;
-  border: 3px solid #73AD21;
+  border: 3px solid royalblue;
   padding: 10px;
  }
 
  .productDetails {
-  position:absolute;
-  right: 200px;
+  position: absolute;
+  right: 50px;
   top: 300px;
   max-width: 500px;
-  display:flex;
-  flex-direction:column;
- }
-
- .productDetails .sizeAndQuantitySelector {
-  position:relative;
   display: flex;
-  flex-direction: row;
-  margin-bottom: 12pt;
-  margin-top: 12pt;
+  flex-direction: column;
+  align-items: flex-end;
  }
 
  .styleSelector .selectedStyleName {
-  position:relative;
-  display: flex;
-  font-size:large;
-  font-weight:bold;
-  justify-content:flex-start;
+
+  font-size: large;
+  font-weight: bold;
+  justify-content: flex-start;
   margin-bottom: 30px;
  }
 
  .styleSelector .productStyles{
+  position: relative;
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -144,12 +139,15 @@
  }
 
  .styleSelector .productStyles .style {
-  width:25%;
-  cursor:pointer;
+  cursor: pointer;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   flex-wrap: wrap;
+ }
+
+ .styleSelector .productStyles .style:hover {
+  opacity: 50%
  }
 
  .styleSelector .productStyles .style img {
@@ -157,31 +155,31 @@
     font: 10px Arial;
  }
 
- .styleSelector .productStyles .style img:hover {
-  opacity: 50%;
+ img {
+  cursor: pointer;
  }
 
  .selector {
-  position:absolute;
+  position: absolute;
   height: 0%;
   width: 0%;
  }
 
 .checkmark {
   display: inline-block;
-  position:relative;
+  position: relative;
   font-size: larger;
   font-weight: bolder;
   left: 70px;
   top: 0px;
   z-index: 1;
-  order:-1;
+  order: -1;
   color: skyblue;
-  background-color:royalblue;
-  opacity:95%;
+  background-color: royalblue;
+  opacity: 95%;
   text-align: center;
-  width:30px;
-  height:30px;
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
   border: 2.5px skyblue solid;
  }
@@ -197,9 +195,20 @@
 }
 
  .stylePhotoFrame .stylePhoto {
-  width:100%;
-  height:100%;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
+ }
+
+
+ .productDetails .sizeAndQuantitySelector {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-self: flex-start;
+  margin-bottom: 12pt;
+  margin-top: 12pt;
  }
 
  .productSizes {
@@ -207,7 +216,7 @@
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
-  position:relative;
+  position: relative;
   max-width: 500px;
  }
 
@@ -220,16 +229,17 @@
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
-  position:relative;
+  position: relative;
   max-width: 500px;
   margin-left: 12pt;
  }
 
  .addToCart {
-  width:fit-content;
+  position: relative;
+  right: 35px;
+  width: fit-content;
   display: flex;
-  flex-direction: row;
-  align-self: flex-end;
+  flex-direction: row-reverse;
   max-width: 500px;
  }
 
@@ -241,17 +251,30 @@
   height: 540px;
   display: flex;
   flex-direction: row-reverse;
-  align-items:flex-start;
-  justify-content: flex-end;
-  border: 2px solid green;
+  align-items: flex-start;
+  justify-content: center;
+  border: 2px solid royalblue;
  }
 
  .galleryView img.mainPhoto {
   max-height: 450px;
   max-width: 450px;
-  position: absolute;
-  margin:12pt;
+  margin: 12pt;
+  cursor: zoom-in;
  }
+
+ #portal #modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ }
+
+ #portal img {
+  cursor:zoom-in;
+  position: absolute;
+  height:100%;
+ }
+
 
  .thumbPhotoFrame {
   width: 60px;
@@ -260,60 +283,106 @@
   overflow: hidden;
   border-radius: 25%;
   margin-right: 12px;
-  margin-bottom: 8pt;
-  border:2px solid cornflowerblue;
+  margin-bottom: 4pt;
+  border: 2px solid cornflowerblue;
 }
 
 .galleryView .thumbnails {
   width: 100%;
-  position:absolute;
+  position: absolute;
   left: 5px;
+  top: 30px;
   display: flex;
   flex-direction: column;
   width: 100px;
   height: 490px;
-  overflow:hidden;
-  /* overflow-y:auto; */
+  overflow: hidden;
  }
 
  .galleryView .thumbnails::-webkit-scrollbar {
   display: none;
  }
 
-.galleryView img.thumb:hover {
-  opacity:50%;
-}
-
  .galleryView img.thumb {
-  width:100%;
-  height:100%;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   cursor: pointer;
  }
 
+ .galleryView img.thumb:hover {
+  opacity: 50%
+ }
+
+ .galleryView .expandedView {
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  max-width: 500px;
+  max-height: 500px;
+ }
+
  .galleryView .checkmark {
-  position:relative;
+  position: relative;
   left: 45px;
   top: 0px;
-  width:20px;
-  height:20px;
+  width: 20px;
+  height: 20px;
   font-size: small;
-  font-weight:lighter;
+  font-weight: lighter;
   border: 2px skyblue solid;
  }
 
- .galleryView .loadMoreThumbs {
-  position:relative;
-  align-self: flex-end;
-  left: 20px;
-  bottom: 20px;
-  width: 30px;
-  height: 28px;
-  background-color:cornflowerblue;
-  clip-path: polygon(50% 75%, 25% 0, 75% 0);
+ .galleryView .loadPrevThumbs {
+  position: relative;
+  align-self: flex-start;
+  right: 35px;
+  bottom: 0px;
+  z-index: 2;
+  width: 20px;
+  height: 20px;
+  background-color: powderblue;
+  clip-path: polygon(100% 100%, 50% 50%, 0 100%, 50% 0);
   cursor: pointer
  }
 
+ .galleryView .loadMoreThumbs {
+  position: relative;
+  align-self: flex-end;
+  left: 25px;
+  bottom: 30px;
+  width: 20px;
+  height: 20px;
+  background-color: powderblue;
+  clip-path: polygon(100% 0, 50% 50%, 0 0, 50% 100%);
+  cursor: pointer
+ }
+
+ .galleryView .nextPhoto {
+  position: absolute;
+  align-self: top;
+  z-index: 2;
+  left: 430px;
+  bottom: 250px;
+  width: 30px;
+  height: 28px;
+  background-color: powderblue;
+  clip-path: polygon(0 0, 50% 50%, 0 100%, 100% 50%);
+  cursor: pointer
+ }
+
+ .galleryView .prevPhoto {
+  position: absolute;
+  align-self: center;
+  z-index: 2;
+  left: 75px;
+  bottom: 250px;
+  width: 30px;
+  height: 28px;
+  background-color: powderblue;
+  clip-path: polygon(100% 0, 50% 50%, 100% 100%, 0 50%);
+  cursor: pointer
+ }
 /* --------------------------------------------------------------------------------------------------------
  --------------------------------------Related and Outfit--------------------------------------------------
  ---------------------------------------------------------------------------------------------------------*/
@@ -495,195 +564,9 @@
 
 /* ------------------ Review List ---------------------- */
 
-.rating-and-review .list.container {
-width: 65%;
-}
-
-.rating-and-review #scrollable-list {
-  height: 620px;
-  width: 95%;
-  margin: auto;
-  margin-top: 15px;
-  margin-bottom: 36px;
-  overflow-y: auto;
-}
-
-.rating-and-review .list h3, .rating-and-review .list .list-button {
-  position: relative;
-  left: 2.5%;
-}
-
-.rating-and-review .list .list-button {
-  margin-top: 16px;
-}
-
-.rating-and-review .list .list-button button {
-margin-right: 18px;
-background-color: transparent;
-border: 2px solid #767676;
-border-radius: 6px;
-font-size: 20px;
-font-weight: 700;
-padding: 2%;
-cursor: pointer;
-}
-
-.rating-and-review .list .list-button button:hover {
-background-color: #767676;
-color: white;
-}
-
-#all-review-loaded {
-  margin-right: 18px;
-  color: #6D78EF;
-}
-
-/* ------------------ Indiviual review ---------------------- */
-.rating-and-review .review.container {
-position: relative;
-padding: 5px;
-border: none;
-border-top: 2px solid #767676;
-}
-
-.rating-and-review .review .name-date {
-display: inline-block;
-position: absolute;
-right: 1%;
-top: 5px;
-font-weight: 300;
-font-size: smaller;
-}
-
-.rating-and-review .review .body {
-margin-top: 14px;
-overflow-wrap: break-word;
-}
-
-.rating-and-review .review .body input {
-color: #6D78EF;
-cursor: pointer;
-text-decoration: underline;
-border: none;
-padding: 0px;
-margin-left: 6px;
-background-color: transparent;
-font-style: italic;
-font-size: smaller;
-}
-
-.rating-and-review .review .body .images {
-display: flex;
-flex-direction: row;
-flex-wrap: wrap;
-}
-
-.rating-and-review .review .body img {
-margin: 2px;
-border: 1px solid gray;
-}
-
-.rating-and-review .review .recommend {
-margin-top: 4px;
-}
-
-.rating-and-review .review .recommend span {
-margin: 4px;
-font-weight: bold;
-font-size: 18px;
-color: beige;
-background-color: #73ad21;
-border-radius: 50%;
-}
-
-.rating-and-review .review .helpful {
-margin-top: 4px;
-}
-
-.rating-and-review .review .helpful button {
-background-color: transparent;
-cursor: pointer;
-border: 1px solid mediumseagreen;
-border-radius: 5px;
-}
-
-.rating-and-review .review .helpful button:hover {
-background-color: #2AE860;
-color: whitesmoke;
-}
-
-/* image */
-.rating-and-review .review .body .image-modal {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  flex-direction: column;
-  background-color: rgba(0, 0, 0, 0.5);
-  justify-content: center;
-  align-items: center;
-  z-index: 3;
-  display: none;
-}
-
-.rating-and-review .review .body .image-modal > img {
-  object-fit: cover;
-  height: 75%;
-}
-
-/* ------------------ Summary ---------------------- */
-.rating-and-review .rating {
-  margin-top: 0px;
-}
-
-.rating-and-review .summary > .container {
-  border: 0;
-}
-
-/* ------------------ Rating BD ---------------------- */
-.rating-and-review .rating h3 {
-  display: inline-block;
-  margin-right: 4px;
-  font-size: xxx-large;
-  position: relative;
-  top: -16px;
-}
-
-.rating-and-review .rating p {
-  font-style: italic;
-  font-weight: 300;
-  text-shadow: 1px 1px 1px #bfd1e5;
-}
-
-.rating-and-review .rating .star {
-  display: inline-block;
-  position: relative;
-  top: -16px;
-}
-
-.rating-and-review .rating .bars {
-  margin-top: 26px;
-  margin-left: 0px;
-  margin-right: 0px;
-  border: 0;
-}
-
-.rating-and-review .rating .bars .bar {
-  margin-left: 0px;
-  margin-right: 0px;
-}
-
-/* ------------------ Product BD ---------------------- */
-
-.rating-and-review .product {
-  margin-top: 26px;
-}
-
-.rating-and-review .product .character {
-  margin-left: 0px;
-  margin-right: 0px;
-  border: 0;
+ .rating-and-review .container {
+  border: 1px solid black;
+  margin: 5px;
 }
 
 /* ------------------ Star ---------------------- */

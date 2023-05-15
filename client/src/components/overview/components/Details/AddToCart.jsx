@@ -1,14 +1,38 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 
 function AddToCart({
-  productData, selectedStyle, selectedSize, selectedQuantity, skusNull,
+  productData,
+  selectedStyle,
+  selectedSize,
+  selectedQuantity,
+  skusNull,
+  skuRef,
 }) {
   const handleClick = (e) => {
     if (!selectedSize) {
       window.alert('Please select a size!');
       return;
     }
-    console.log(`You have added ${selectedQuantity} size ${selectedSize} ${selectedStyle.name} ${productData.name} to your cart`);
+    const skuId = skuRef.current;
+    const endpoint = 'http://localhost:3000/cart';
+    const options = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        sku_id: skuId,
+      }),
+    };
+    for (let i = 0; i < selectedQuantity; i += 1) {
+      fetch(endpoint, options)
+        .then((res) => {
+          res.text();
+        })
+        .catch((err) => {
+          console.error('add to cart failed', err);
+        });
+    }
   };
 
   if (skusNull) {

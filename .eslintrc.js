@@ -35,5 +35,6 @@ module.exports = {
     'guard-for-in': 'off',
     radix: 'off',
     'react-hooks/exhaustive-deps': 'off',
+    'react-hooks/rules-of-hooks': 'off',
   },
 };
