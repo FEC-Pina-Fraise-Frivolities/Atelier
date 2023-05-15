@@ -501,6 +501,26 @@ background-color: #2AE860;
 color: whitesmoke;
 }
 
+/* image */
+.rating-and-review .review .body .image-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  flex-direction: column;
+  background-color: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+  z-index: 3;
+  display: none;
+}
+
+.rating-and-review .review .body .image-modal > img {
+  object-fit: cover;
+  height: 75%;
+}
+
 /* ------------------ Summary ---------------------- */
 .rating-and-review .rating {
   margin-top: 0px;
