@@ -1,5 +1,5 @@
 import { React, useState, useEffect } from 'react';
-import Star from '../../ratings-and-reviews/Star';
+import Star from '../../ratings-and-reviews/review-list/Star';
 import LeftArrow from './LeftArrow';
 import RightArrow from './RightArrow';
 
