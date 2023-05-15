@@ -33,16 +33,23 @@ const AEntry = (props) => {
 
   return (
     <div className="answer">
-      <div> A: {props.answer.body}</div>
-      <div className="aPicture"> {props.answer.photos.map((pic, i) => <img src={pic} key={i} width="70" height="50" onClick={(e) => pictureModal(pic)}></img>)}</div>
-      {showPicture ? <div className="Modal">
-        <img className="modalContent" src={picture} onClick={() => setShowPicture(false)}></img>
+
+      <div className="aLine">
+      <div className="qaLetter">A: </div>
+      <div className="qaText">{props.answer.body}</div>
+      </div>
+
+      <div className="aPictureContainer"> {props.answer.photos.map((pic, i) => <img className="aPicture" src={pic} key={i} width="70" height="50" onClick={(e) => pictureModal(pic)}></img>)}</div>
+      {showPicture ? <div className="qaModal">
+        <img className="qaModalContent" src={picture} onClick={() => setShowPicture(false)}></img>
       </div> : null}
+
       <div className="aFoot">
         <div> by {props.answer.answerer_name === "Seller" ? <b>props.answer.answerer_name</b> : props.answer.answerer_name}, {dateParse(props.answer.date)} | </div>
-        <div> Helpful? <span onClick={helpfulAnswer}><u>Yes</u></span> &#40;{props.answer.helpfulness}&#41; | </div>
-        {reported ? <div>Reported</div> : <div onClick={reportAnswer}>Report</div>}
+        <div> Helpful? <span className="qaYes qaPoint" onClick={helpfulAnswer}><u>Yes</u></span> &#40;{props.answer.helpfulness}&#41; | </div>
+        {reported ? <div>Reported</div> : <div className="qaPoint" onClick={reportAnswer}>Report</div>}
       </div>
+
     </div>
   )
 

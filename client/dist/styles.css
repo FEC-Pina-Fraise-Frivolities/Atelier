@@ -468,13 +468,33 @@
  ----------------------------------Questions and Answers Section--------------------------------------------
  ---------------------------------------------------------------------------------------------------------*/
 
+
  .qSearch {
-  width: 30%;
+  width: 40%;
+  height: 10%;
+  position: relative;
+  display: flex;
+  margin: 10px;
  }
+
+ .qsearchTerm {
+  width: 100%;
+  border: 1px solid #646464;
+  padding: 5px;
+  height: 40px;
+  box-shadow: 6px 6px 6px 0px rgba(0, 0, 0, 0.45);
+  border-radius: 5px;
+  outline: none;
+  color: #9DBFAF;
+}
+
+.qsearchTerm:focus{
+  color: #000000;
+}
 
  .qListView {
   overflow-y: scroll;
-  height: 700px;
+  height: 900px;
   font-size: 10pt;
  }
 
@@ -485,48 +505,88 @@
  .qContainer {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: flex-start;
+  align-items: baseline;
 
 
  }
 
 .qaTitle {
-  font-family: Verdana, Geneva, sans-serif;
-  color: #6D78EF;
-  font-weight: 700;
+  color: #111;
+  font-family: 'Helvetica Neue', sans-serif;
+  font-size: 50px;
+  font-weight: bold;
 }
 
-.qLetter {
-  color: #6D78EF;
-  font-weight: 700;
+.qaLetter {
+  color: #111;
+  font-family: 'Helvetica Neue', sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+  margin-right: 2px;
 }
 
-.qLine {
-  color: red;
+.qaText {
+  color: #282828;
+  font-family: 'Helvetica Neue', sans-serif;
+  font-size: 15px;
   width: 80%;
-
 }
 
-.qHelp {
+.qaPoint {
+  cursor: pointer;
+}
 
+.qaPoint:hover {
+  color: #111;
+}
+
+.qaPhoto {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.qaMoreQ {
+  margin: 5px
 }
 
 .answer {
-  margin-top: 0.5%;
-  margin-bottom: 0.5%;
+  margin-left: 20px
+}
+
+.aLine {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: baseline;
+}
+
+.aPictureContainer {
+  display: flex;
+  margin-left: 20px;
+  gap: 20px;
 }
 
 .aPicture {
-  display: flex;
-  margin-right: 0.5%;
+  filter: drop-shadow(5px 5px 5px rgba(0,0,0,0.3));
+  cursor: zoom-in;
 }
+
 .aFoot {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
+  margin-left: 20px;
+  font-size: smaller;
+  gap: 5px;
 }
 
-.Modal {
+.qaMoreAnswer {
+  font-weight: bold;
+  color: #888;
+}
+
+.qaModal {
   position: fixed;
   z-index: 1;
   left: 0;
@@ -538,15 +598,29 @@
   background-color: rgba(0,0,0,0.4);
 }
 
-.modalContent {
+.qaModalContent {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: left;
   align-content: left;
   background-color: #fefefe;
   margin: 15% auto;
   padding: 20px;
   border: 1px solid #888;
-  width: 80%;
+  border-radius: 5px;
+  width: 40%;
+  box-shadow: #282828;
+}
+
+.characterCount {
+  margin-bottom: 10px;
+}
+
+.qaEmailAdd {
+  margin-top: 10px;
+}
+
+ #qaPreview li {
+  display: inline-block;
 }
