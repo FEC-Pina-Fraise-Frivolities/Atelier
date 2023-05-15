@@ -34,16 +34,24 @@ function MainPhotoArrows(
     }
   };
 
-  // if (photoIdx > 0) {
-  return (
-    <>
+  if (photoIdx === 0) {
+    return (
       <div className="nextPhoto" onClick={loadNextPhoto} />
+    );
+  }
+  if (photoIdx === selectedStyle.photos.length - 1) {
+    return (
       <div className="prevPhoto" onClick={loadPrevPhoto} />
-    </>
-
-  );
-  // }
-  // return '';
+    );
+  }
+  if (photoIdx < selectedStyle.photos.length - 1) {
+    return (
+      <>
+        <div className="nextPhoto" onClick={loadNextPhoto} />
+        <div className="prevPhoto" onClick={loadPrevPhoto} />
+      </>
+    );
+  }
 }
 
 export default MainPhotoArrows;
