@@ -13,10 +13,26 @@ function AddToCart({
       window.alert('Please select a size!');
       return;
     }
-    console.log(`You have added ${selectedQuantity} size ${selectedSize} ${selectedStyle.name} ${productData.name} (skuId: ${skuRef.current}) to your cart`);
-    // fetch(`http://localhost:3000/cart${new URLSearchParams({
-    //   sku_id: skuId,
-    // })}`);
+    const skuId = skuRef.current;
+    console.log(`You have added ${selectedQuantity} size ${selectedSize} ${selectedStyle.name} ${productData.name} (skuId: ${skuId}) to your cart`);
+    const endpoint = `http://localhost:3000/cart?${new URLSearchParams({
+      sku_id: skuId,
+    })}`;
+    const options = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        sku_id: skuId,
+      }),
+    };
+    fetch(endpoint, options)
+      .then((res) => res.json())
+      .then((res) => console.log(res))
+      .catch((err) => {
+        console.log('add to cart failed', err);
+      });
   };
 
   if (skusNull) {

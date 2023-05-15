@@ -1,5 +1,7 @@
 /* eslint-disable no-console */
 require('dotenv').config();
+const morgan = require('morgan');
+const cors = require('cors');
 const express = require('express');
 const path = require('path');
 
@@ -9,6 +11,11 @@ const controller = require('./controller');
 // Serves up all static and generated assets in ../client/dist.
 app.use(express.static(path.join(__dirname, '../client/dist')));
 app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+
+// middleware
+app.use(morgan('tiny'));
+app.use(cors());
 
 // Set up our routes
 
@@ -20,6 +27,12 @@ app.get('/products/:productId/related', controller.product.getRelated);
 // cart
 app.get('/cart', controller.cart.getCart);
 app.post('/cart', controller.cart.addToCart);
+// app.post('/cart', (req, res) => {
+//   console.log(req.body);
+//   res.status(201).json({
+//     sku_id: req.body.sku_id,
+//   });
+// });
 // reviews
 /** ******* */
 app.get('/reviews', controller.reviews.getReviews);
