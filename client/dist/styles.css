@@ -389,18 +389,21 @@ width: 65%;
 }
 
 .rating-and-review #scrollable-list {
-height: 620px;
-width: 95%;
-margin: auto;
-margin-top: 15px;
-margin-bottom: 36px;
-overflow-y: auto;
+  height: 620px;
+  width: 95%;
+  margin: auto;
+  margin-top: 15px;
+  margin-bottom: 36px;
+  overflow-y: auto;
 }
 
-.rating-and-review .list h3,  .rating-and-review .list .list-button {
-position: relative;
-left: 2.5%;
-margin-top: 16px;
+.rating-and-review .list h3, .rating-and-review .list .list-button {
+  position: relative;
+  left: 2.5%;
+}
+
+.rating-and-review .list .list-button {
+  margin-top: 16px;
 }
 
 .rating-and-review .list .list-button button {
