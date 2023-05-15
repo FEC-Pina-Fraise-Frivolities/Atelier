@@ -1,4 +1,4 @@
-import { React, useState } from 'react';
+import { React, useState, useEffect } from 'react';
 import ProductCard from './ProductCard';
 import LeftArrow from './LeftArrow';
 import RightArrow from './RightArrow';
@@ -6,7 +6,7 @@ import CardDetail from './CardDetail';
 import DeleteButton from './DeleteButton';
 
 function OutfitList({
-  productId, setProductId, outfitIndex, setOutfitIndex, setStoreArr, storeArr,
+  productId, setProductId, setStoreArr, storeArr,
 }) {
   const ifRelated = false;
   const ifOutfit = window.localStorage.getItem('outfitArr') !== ''
@@ -14,7 +14,10 @@ function OutfitList({
             && JSON.parse(window.localStorage.getItem('outfitArr')) !== [];
   let outfit = ifOutfit ? JSON.parse(window.localStorage.getItem('outfitArr')) : [];
   const [outfitArr, setOutfitArr] = useState(outfit);
-
+  const [outfitIndex, setOutfitIndex] = useState(0);
+  useEffect(() => {
+    setOutfitIndex(0);
+  }, [productId]);
   const handleAdd = () => {
     outfit = outfitArr.slice();
     // can use set
@@ -32,7 +35,6 @@ function OutfitList({
       renderIndex -= 1;
     }
     const renderArr = outfitArr.slice(renderIndex, index + renderIndex);
-    console.log('render', renderArr);
     return (
       renderArr.map((id) => {
         const ifNotStored = storeArr[id.toString()] === undefined;

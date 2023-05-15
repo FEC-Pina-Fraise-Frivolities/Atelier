@@ -45,11 +45,12 @@ function RelatedListHelper({
 }
 
 function RelatedList({
-  productId, setProductId, relateIndex, setRelateIndex, storeArr, setStoreArr,
+  productId, setProductId, storeArr, setStoreArr,
 }) {
   const [relateArr, setRelatedArr] = useState([]);
-
+  const [relateIndex, setRelateIndex] = useState(0);
   useEffect(() => {
+    setRelateIndex(0);
     axios(`/products/${productId}/related`)
       .then((res) => res.data)
       .then((result) => {
