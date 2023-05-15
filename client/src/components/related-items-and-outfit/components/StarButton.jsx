@@ -9,7 +9,14 @@ function StarButton({ productId, nextId }) {
   };
   return (
     <div>
-      <button className="relatedbutton" type="button" onClick={() => { handleClick(); }}>⭐️</button>
+      <button
+        className="relatedbutton"
+        id="starButton"
+        type="button"
+        onClick={() => { handleClick(); }}
+      >
+        &#9733;
+      </button>
       {compare && <ComparisonView productId={productId} nextId={nextId} />}
     </div>
   );

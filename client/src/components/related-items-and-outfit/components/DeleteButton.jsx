@@ -10,7 +10,7 @@ function DeleteButton({ deleteId, setOutfitArr }) {
   };
   return (
     <div>
-      <button className="relatedbutton" type="button" onClick={handleClick}>delete</button>
+      <button className="relatedbutton" type="button" onClick={handleClick}>&#10005;</button>
     </div>
   );
 }

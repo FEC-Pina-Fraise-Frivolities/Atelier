@@ -1,8 +1,9 @@
 import React from 'react';
-import Star from './Star';
+import Star from '../review-list/Star';
 import Bar from './Bar';
 
-function RatingBD({ ratings, recommended, numReviews }) {
+function RatingBD({ ratings, recommended }) {
+  const numReviews = Number(recommended.false) + Number(recommended.true);
   const sumRating = Object.keys(ratings).reduce((accumulator, currentKey) => (
     accumulator + (Number(currentKey) * Number(ratings[currentKey]))), 0);
   const averageRating = (Math.round((sumRating / numReviews) * 10) / 10) || 0;
@@ -31,9 +32,13 @@ function RatingBD({ ratings, recommended, numReviews }) {
 
   return (
     <div className="rating container">
-      <h1>{averageRating}</h1>
+      <h3>{averageRating}</h3>
       <Star rating={averageRating} />
-      <p>{`${percentRecommend * 100}% of reviews recommend this product`}</p>
+      <p>
+        <u>{`${percentRecommend * 100}%`}</u>
+        {' '}
+        of reviews recommend this product
+      </p>
       <div className="bars container">
         {[...Array(5)].map((element, index) => {
           const key = `${5 - index} stars`;
