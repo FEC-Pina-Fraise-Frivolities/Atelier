@@ -2,7 +2,11 @@
 import React, { useEffect, useState } from 'react';
 
 function QuantitySelector({
-  selectedStyle, selectedSize, skusNull, selectedQuantity, setSelectedQuantity,
+  selectedStyle,
+  selectedSize,
+  skusNull,
+  selectedQuantity,
+  setSelectedQuantity,
 }) {
   const [productQuantity, setProductQuantity] = useState(0);
   const [allQuantities, setAllQuantites] = useState([]);
@@ -16,14 +20,24 @@ function QuantitySelector({
         }
       }
     }
-  }, [selectedSize]);
+  }, [selectedSize, selectedStyle, selectedQuantity]);
 
   useEffect(() => {
     setAllQuantites([]);
-    for (let i = 1; i <= productQuantity; i += 1) {
+    for (let i = 1; i <= productQuantity && i <= 15; i += 1) {
       setAllQuantites((currentQuantites) => [...currentQuantites, i]);
     }
   }, [productQuantity]);
+
+  useEffect(() => {
+    if (productQuantity > 0 && productQuantity < selectedQuantity) {
+      setSelectedQuantity(productQuantity);
+    }
+  }, [selectedStyle, productQuantity, selectedQuantity, setSelectedQuantity]);
+
+  const handleChange = (e) => {
+    setSelectedQuantity(e.target.value);
+  };
 
   if (skusNull || !selectedSize) {
     return '';
@@ -36,7 +50,7 @@ function QuantitySelector({
         {' '}
         <select
           value={selectedQuantity}
-          onChange={(e) => setSelectedQuantity(e.target.value)}
+          onChange={handleChange}
         >
           {allQuantities.map((quantity) => (
             <option value={quantity} key={quantity}>

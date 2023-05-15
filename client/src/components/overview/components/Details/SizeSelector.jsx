@@ -1,10 +1,15 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
 
 function SizeSelector({
-  selectedStyle, selectedSize, setSelectedSize, skusNull, setSkusNull,
+  selectedStyle,
+  selectedSize,
+  setSelectedSize,
+  skusNull,
+  setSkusNull,
+  productSkus,
+  setProductSkus,
+  skuRef,
 }) {
-  const [productSkus, setProductSkus] = useState([]);
-
   useEffect(() => {
     setProductSkus([]);
     setSkusNull(false);
@@ -18,7 +23,15 @@ function SizeSelector({
         setProductSkus((currSkus) => [...currSkus, skus[i]]);
       }
     }
-  }, [selectedStyle]);
+  }, [selectedStyle, setSkusNull, setProductSkus]);
+
+  useEffect(() => {
+  }, [selectedSize, skuRef]);
+
+  const handleChange = (e) => {
+    setSelectedSize(e.target.value);
+    skuRef.current = document.querySelector(`option[value=${e.target.value}]`).getAttribute('id');
+  };
 
   if (skusNull) {
     return '';
@@ -28,10 +41,19 @@ function SizeSelector({
     <div className="sizeSelector">
       <select
         value={selectedSize}
-        onChange={(e) => setSelectedSize(e.target.value)}
+        ref={skuRef}
+        onChange={handleChange}
       >
         <option value="">Please select a size</option>
-        {productSkus.map((sku) => <option value={sku[1].size} key={sku[0]}>{sku[1].size}</option>)}
+        {productSkus.map((sku) => (
+          <option
+            value={sku[1].size}
+            id={sku[0]}
+            key={sku[0]}
+          >
+            {sku[1].size}
+          </option>
+        ))}
       </select>
     </div>
 

@@ -33,11 +33,10 @@ function Overview({ productId }) {
       .catch((err) => {
         console.log('get product data failed', err);
       });
-  }, []);
+  }, [productId]);
 
   return (
     <div className="productData">
-      <div />
       <Basics
         productData={productData}
         selectedStyle={selectedStyle}
@@ -47,6 +46,7 @@ function Overview({ productId }) {
         productData={productData}
         productStyles={productStyles}
         selectedStyle={selectedStyle}
+        selectedPhoto={selectedPhoto}
         setSelectedStyle={setSelectedStyle}
         setSelectedPhoto={setSelectedPhoto}
         setSelectedThumb={setSelectedThumb}
