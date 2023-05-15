@@ -14,10 +14,7 @@ function AddToCart({
       return;
     }
     const skuId = skuRef.current;
-    console.log(`You have added ${selectedQuantity} size ${selectedSize} ${selectedStyle.name} ${productData.name} (skuId: ${skuId}) to your cart`);
-    const endpoint = `http://localhost:3000/cart?${new URLSearchParams({
-      sku_id: skuId,
-    })}`;
+    const endpoint = 'http://localhost:3000/cart';
     const options = {
       method: 'POST',
       headers: {
@@ -27,12 +24,15 @@ function AddToCart({
         sku_id: skuId,
       }),
     };
-    fetch(endpoint, options)
-      .then((res) => res.json())
-      .then((res) => console.log(res))
-      .catch((err) => {
-        console.log('add to cart failed', err);
-      });
+    for (let i = 0; i < selectedQuantity; i += 1) {
+      fetch(endpoint, options)
+        .then((res) => {
+          res.text();
+        })
+        .catch((err) => {
+          console.error('add to cart failed', err);
+        });
+    }
   };
 
   if (skusNull) {
