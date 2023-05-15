@@ -352,8 +352,8 @@
 }
 
 .relatedmodule .compareTable {
-  background-color: rgb(6, 5, 5);
-  color: rgb(99, 158, 230);
+  background-color: white;
+  color: rgb(41, 65, 95);
   width: 500px;
   position: absolute;
   top: 25px;
@@ -403,6 +403,14 @@
   margin: 10px;
   z-index: 9999;
 }
+
+.relatedmodule .selectphoto {
+  display: flex;
+  margin: 10px;
+  z-index: 9999;
+  border: solid 2px white;
+}
+
 .relatedmodule .salesPrice {
   color: red;
 }
@@ -422,13 +430,14 @@
   position: relative;
   right: 30px;
   bottom: 65px;
+  z-index: 9990;
 }
 
 .relatedmodule .imgrightbuttton{
   position: relative;
   right: 940px;
   bottom: 65px;
-  z-index: 9999;
+  z-index: 9990;
 }
 
 

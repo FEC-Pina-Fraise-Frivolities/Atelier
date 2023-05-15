@@ -1,10 +1,10 @@
-import { React, useState } from 'react';
+import { React, useState, useEffect } from 'react';
 import Star from '../../ratings-and-reviews/Star';
 import LeftArrow from './LeftArrow';
 import RightArrow from './RightArrow';
 
 function PhotoGallery({
-  photoArr, setShow, setImgIndex,
+  photoArr, setShow, setImgIndex, imgIndex,
 }) {
   return (
     photoArr.map((url, index) => {
@@ -12,7 +12,7 @@ function PhotoGallery({
         url = require('../assets/Image_not_available.jpg');
       }
       return (
-        <li key={url + index} className="thumphoto">
+        <li key={url + index} className={index === imgIndex ? 'selectphoto' : 'thumphoto'}>
           <img
             src={url}
             onError={(e) => { e.target.src = require('../assets/Image_not_available.jpg'); }}
@@ -44,9 +44,12 @@ function CardDetail({
   obj.salePrice = salePrice;
   obj.category = category;
   obj.photos = photoArr;
-  const store = storeArr;
-  store[id.toString()] = obj;
-  setStoreArr(store);
+  useEffect(() => {
+    const store = storeArr;
+    store[id.toString()] = obj;
+    setStoreArr(store);
+  }, [obj]);
+
   const handleClick = () => {
     setProductId(id);
   };
@@ -57,8 +60,6 @@ function CardDetail({
   const ifSale = salePrice !== null;
   return (
     <div>
-      {/* <div className="mainImgBox">
-        <div className="imgbuttton"><LeftArrow /></div> */}
       <div className="mainImgBox">
         <div className="imgleftbuttton">
           {imgIndex !== 0 && (
@@ -93,6 +94,7 @@ function CardDetail({
           setShow={setShow}
           photoArr={photoArr}
           setImgIndex={setImgIndex}
+          imgIndex={imgIndex}
         />
       </ul>
       )}
@@ -127,6 +129,7 @@ function CardDetail({
       </p>
       )}
 
+      {!ratings.isNaN && (
       <span className="ratings">
         <p>
           ratings:
@@ -135,6 +138,7 @@ function CardDetail({
         </p>
         <Star rating={rating} />
       </span>
+      )}
 
     </div>
 

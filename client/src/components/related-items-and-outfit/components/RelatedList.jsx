@@ -10,7 +10,6 @@ function RelatedListHelper({
   productId, setProductId, relateArr, relateIndex, setStoreArr, storeArr,
 }) {
   const renderArr = relateArr.slice(relateIndex, relateIndex + 4);
-  console.log(storeArr);
   return (
     renderArr.map((id) => {
       const ifNotStored = storeArr[id.toString()] === undefined;

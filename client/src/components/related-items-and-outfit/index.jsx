@@ -14,8 +14,7 @@ function RelatedAndOutfit({ productId, setProductId }) {
   return (
     <div className="relatedmodule">
       <p className="sub-title" id="relatedTitle">
-        related list of
-        {productId}
+        Related Items
       </p>
 
       <RelatedList
@@ -27,7 +26,7 @@ function RelatedAndOutfit({ productId, setProductId }) {
         setStoreArr={setStoreArr}
       />
       <p className="sub-title">
-        outfitlist
+        Your Outfit
       </p>
       <OutfitList
         className="listAndArrow"

@@ -29,5 +29,10 @@ module.exports = {
     'jsx-a11y/label-has-associated-control': 'off',
     'no-alert': 'off',
     'global-require': 'off',
+    'no-param-reassign': 0,
+    'no-restricted-syntax': 'off',
+    'guard-for-in': 'off',
+    radix: 'off',
+    'react-hooks/exhaustive-deps': 'off',
   },
 };

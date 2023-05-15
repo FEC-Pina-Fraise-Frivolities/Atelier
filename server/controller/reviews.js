@@ -21,7 +21,6 @@ module.exports = {
   },
 
   getReviewsMeta(req, res) {
-    console.log(req.query);
     const endpoint = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/reviews/meta';
     const option = {
       method: 'GET',

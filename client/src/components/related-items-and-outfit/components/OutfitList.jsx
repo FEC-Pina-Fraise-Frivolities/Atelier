@@ -68,7 +68,6 @@ function OutfitList({
       })
     );
   };
-  console.log(outfitArr);
   return (
     <div className="listAndArrow">
       {outfitIndex > 0 && <LeftArrow index={outfitIndex} setIndex={setOutfitIndex} />}

@@ -4,7 +4,7 @@ import CardDetail from './CardDetail';
 function ProductCard({
   id, setProductId, setStoreArr, storeArr,
 }) {
-  const [ratings, setRatings] = useState(0);
+  const [ratings, setRatings] = useState(NaN);
   const [category, setCategory] = useState('');
   const [name, setName] = useState('');
   const [originalPrice, setOiginalPrice] = useState(0);
@@ -22,7 +22,6 @@ function ProductCard({
           count += parseInt(result.ratings[num]);
         }
         setRatings((total / count).toFixed(2));
-        // obj.ratings = (total / count).toFixed(2);
       })
       .then(
         fetch(`/products/${id}/styles`)
@@ -53,7 +52,6 @@ function ProductCard({
   }, [id]);
 
   return (
-
     <CardDetail
       ratings={ratings}
       name={name}
@@ -66,7 +64,6 @@ function ProductCard({
       setStoreArr={setStoreArr}
       storeArr={storeArr}
     />
-
   );
 }
 export default ProductCard;
