@@ -90,33 +90,31 @@ function RatingAndReview({ productId }) {
     <FilterContext.Provider value={{filterReview, setFilterReview}}>
       <div className="rating-and-review">
         <h2 id="subtitle">Ratings and Reviews</h2>
-        <div className="summary container">
-          {Object.keys(reviewMeta).length === 0 ? ''
-            : (
-              <RatingBD
-                ratings={reviewMeta.ratings}
-                recommended={reviewMeta.recommended}
+        {reviews.length && Object.keys(reviewMeta).length
+          ? (
+            <>
+              <div className="summary container">
+                <RatingBD
+                  ratings={reviewMeta.ratings}
+                  recommended={reviewMeta.recommended}
+                />
+                <ProductBD characteristics={reviewMeta.characteristics} />
+              </div>
+              <ReviewList
+                reviews={reviews}
+                buttonToggle={buttonToggle}
+                modalHandler={modalHandler}
+                moreReviewHandler={moreReviewHandler}
+                sortReviewHandler={sortReviewHandler}
               />
-            )}
-          {Object.keys(reviewMeta).length === 0 ? '' : (
-            <ProductBD characteristics={reviewMeta.characteristics} />
-          )}
-        </div>
-        <ReviewList
-          reviews={reviews}
-          buttonToggle={buttonToggle}
-          modalHandler={modalHandler}
-          moreReviewHandler={moreReviewHandler}
-          sortReviewHandler={sortReviewHandler}
-        />
-        {Object.keys(reviewMeta).length === 0 ? '' : (
-          <AddReviewForm
-            characteristics={reviewMeta.characteristics}
-            showForm={showForm}
-            modalHandler={modalHandler}
-            productId={productId}
-          />
-        )}
+              <AddReviewForm
+                characteristics={reviewMeta.characteristics}
+                showForm={showForm}
+                modalHandler={modalHandler}
+                productId={productId}
+              />
+            </>
+          ) : <span>loading...</span>}
       </div>
     </FilterContext.Provider>
   );

@@ -389,17 +389,18 @@ width: 65%;
 }
 
 .rating-and-review #scrollable-list {
-height: 576px;
+height: 620px;
 width: 95%;
 margin: auto;
 margin-top: 15px;
-margin-bottom: 15px;
+margin-bottom: 36px;
 overflow-y: auto;
 }
 
 .rating-and-review .list h3,  .rating-and-review .list .list-button {
 position: relative;
 left: 2.5%;
+margin-top: 16px;
 }
 
 .rating-and-review .list .list-button button {
@@ -416,6 +417,11 @@ cursor: pointer;
 .rating-and-review .list .list-button button:hover {
 background-color: #767676;
 color: white;
+}
+
+#all-review-loaded {
+  margin-right: 18px;
+  color: #6D78EF;
 }
 
 /* ------------------ Indiviual review ---------------------- */
@@ -631,7 +637,7 @@ color: whitesmoke;
 }
 
 .rating-and-review .scale .scale-bar {
-  background-color: #d8bfaa;
+  background-color: #bfd1e5;
   display: inline-block;
   height: 8px;
   width: 31%;
@@ -639,6 +645,7 @@ color: whitesmoke;
 
 /* ------------------ Review Form ---------------------- */
 
+/* Star */
 .rating-and-review .dynamic-star {
   direction: rtl;
   text-align: left;
@@ -646,6 +653,7 @@ color: whitesmoke;
 
 .rating-and-review .dynamic-star span {
   color: #ccc;
+  font-size: 24px;
 }
 
 .rating-and-review .dynamic-star span:hover, .rating-and-review .dynamic-star span:hover ~ span{
@@ -654,14 +662,53 @@ color: whitesmoke;
 }
 
 #review-form fieldset div {
-  display: inline-block;
   margin: 6px;
 }
 
-#review-form .error {
-  display: none;
+/* field set */
+#review-form fieldset {
+  border: 3px solid #bfd1e5;
+  border-radius: 12px;
+  margin: 36px 36px;
 }
 
+#review-form fieldset legend {
+  font-size: larger;
+  padding: 12px;
+  font-weight: 600;
+}
+
+/* label */
+#review-form .section .subsection > label {
+  display: block;
+}
+
+#review-form .photo.section label {
+  display: block;
+}
+
+#review-form .radio label {
+  margin-right: 16px;
+}
+
+#review-form .radio label input {
+  margin: 4px
+}
+
+/* callout message */
+#review-form .call-out {
+  display: block;
+  font-size: xx-small;
+  font-weight: 300;
+}
+
+/* error message */
+#review-form .error {
+  display: none;
+  color: red;
+}
+
+/* model */
 .rating-and-review .modal {
   position: fixed;
   top: 0;
@@ -682,8 +729,32 @@ color: whitesmoke;
   width: 65%;
   height: 90%;
   padding: 10px;
+  position: relative;
 }
 
+/* button */
+.rating-and-review #close-form {
+  position: absolute;
+  right: 0px;
+  top: 0%;
+  background-color: transparent;
+  cursor: pointer;
+  border: 2px solid #bfd1e5;
+}
+
+.rating-and-review #submit-form {
+  background-color: transparent;
+  border: 2px solid #bfd1e5;
+  cursor: pointer;
+  border-radius: 6px;
+  position: relative;
+  left: 36px;
+}
+
+#review-form > button:hover {
+  background-color: #767676;
+  color: white;
+}
 
  /* --------------------------------------------------------------------------------------------------------
  ----------------------------------Questions and Answers Section--------------------------------------------

@@ -13,7 +13,7 @@ function ReviewList({
     return filterReview.includes(review.rating);
   });
 
-  return filteredReviews.length === 0 ? '' : (
+  return (
     <div className="list container">
       <h3>
         {/* eslint "react/jsx-one-expression-per-line":0 */}
@@ -24,12 +24,15 @@ function ReviewList({
           <option value="helpful">Helpful</option>
         </select>
       </h3>
-      <div id="scrollable-list">
-        {filteredReviews.map((review) => (
-          <IndividualTile review={review} key={review.review_id} />))}
-      </div>
+      {filteredReviews.length === 0 ? ''
+        : (
+          <div id="scrollable-list">
+            {filteredReviews.map((review) => (
+              <IndividualTile review={review} key={review.review_id} />))}
+          </div>
+        )}
       <div className="list-button">
-        {buttonToggle ? <button type="button" onClick={moreReviewHandler}>More review <span>&#9787;</span></button> : <span>All reviews loaded</span>}
+        {buttonToggle ? <button type="button" onClick={moreReviewHandler}>More review <span>&#9787;</span></button> : <span id="all-review-loaded">All reviews loaded</span>}
         <button type="button" onClick={modalHandler}>Add a review <span>&#9998;</span></button>
       </div>
     </div>
