@@ -26,7 +26,6 @@ module.exports = {
     const option = {
       method: 'GET',
       url: endpoint,
-      params: { product_id: req.query.product_id },
       headers: {
         Authorization: process.env.AUTH,
       },
