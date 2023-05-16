@@ -1,48 +1,61 @@
-import { React, useEffect, useState } from 'react';
+import { React, useState } from 'react';
 import axios from 'axios';
+import PhotoUpload from './Jay-PhotoUpload-URL';
 
-const AddAnswer = (props) => {
-  const [ answer, setAnswer ] = useState('');
-  const [ name, setName ] = useState('');
-  const [ email, setEmail] = useState('');
+function AddAnswer({ show, q }) {
+  const [answer, setAnswer] = useState('');
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [photos, setPhotos] = useState([]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    let body = {
+    const body = {
       body: answer,
-      name: name,
-      email: email
+      name,
+      email,
+      photos,
     };
-    let payload = {question_id: props.q.question_id, body: body};
+
+    const payload = { question_id: q.question_id, body };
     axios.post('/qa/questions/:question_id/answers', payload)
-    .then((r) => props.show(false))
-    .catch((e) => console.log(e));
-  }
+      .then(show(false))
+      .catch(console.log(e));
+  };
 
-return (
-<div className="Modal">
-<form className="modalContent" onSubmit={handleSubmit}>
-  <h2>Submit your answer</h2>
-  <h4>PROUCT NAME: {props.q.question_body}</h4>
+  return (
+    <div className="qaModal">
+      <form className="qaModalContent" onSubmit={handleSubmit}>
+        <h2>Submit your answer</h2>
+        <h4>
+          PROUCT NAME:
+          {q.question_body}
+        </h4>
 
-  <label> Your answer </label>
-  <textarea type="text" maxLength="1000" value={answer} onChange={(e) => setAnswer(e.target.value)} required />
+        <label> Your answer </label>
+        <textarea type="text" maxLength="1000" value={answer} onChange={(e) => setAnswer(e.target.value)} required />
+        <span className="characterCount">
+          {answer.length}
+          /1000
+        </span>
 
-  <label>What is your nickname</label>
-  <input type="text" value={name} onChange={(e) => setName(e.target.value)} placeholder="Example: jackson11!" required/>
-  <div>For privacy reasons, do not use your full name or email address</div>
+        <label>What is your nickname</label>
+        <input type="text" value={name} onChange={(e) => setName(e.target.value)} placeholder="Example: jackson11!" required />
+        <small>For privacy reasons, do not use your full name or email address</small>
 
-  <label>Your email</label>
-  <input type="text" value={email} onChange={(e) => setEmail(e.target.value)}/>
-  <div>For authentication reasons, you will not be emailed</div>
+        <label className="qaEmailAdd">Your email</label>
+        <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+        <small>For authentication reasons, you will not be emailed</small>
 
-  <button>Submit</button>
-  <div onClick={() => props.show(false)}><u>Cancel</u></div>
-  </form>
+        <PhotoUpload setPhotos={setPhotos} photos={photos} />
 
-</div>
-)
+        <button className="qaAnswerSubmit" type="submit">Submit</button>
 
-};
+        <div className="qaPoint" onClick={() => show(false)}><u>Cancel</u></div>
+      </form>
+
+    </div>
+  );
+}
 
 export default AddAnswer;

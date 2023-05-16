@@ -19,8 +19,8 @@ const QASearch = (props) => {
   }, [search])
 
   return (
-  <div>
-    <input className="qSearch" value={search} onChange={(e) => setSearch(e.target.value)} placeholder='HAVE A QUESTION? SEARCH FOR ANSWERS...'></input>
+  <div className="qSearch">
+    <input className="qsearchTerm" value={search} onChange={(e) => setSearch(e.target.value)} placeholder='got questions? we got answers...'/>
   </div>
   )
 
