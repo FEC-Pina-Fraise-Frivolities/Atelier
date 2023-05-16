@@ -7,7 +7,7 @@ const QEntry = (props) => {
   let sortedAnswers = Object.values(props.question.answers).sort((a,b) => {return b.helpfulness - a.helpfulness})
   //Add Sort again by seller?  HOw to identify seller?
   const [ answers, setAnswers ] = useState(sortedAnswers);
-  const [ aSlice, setASlice ] = useState(1);
+  const [ aSlice, setASlice ] = useState(2);
   const [ showAddAnswer, setShowAddAnswer ] = useState(false);
 
 const helpfulQuestion = () => {

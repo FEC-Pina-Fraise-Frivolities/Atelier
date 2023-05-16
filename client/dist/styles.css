@@ -18,13 +18,15 @@
 
  html,
  body {
+  display: flex;
+  flex-direction:column;
    height: 100%;
-   background-color:darkslateblue;
-   color:lightblue;
+   background-color:white;
+   color:black;
  }
 
  body {
-   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+   font-family: 'Helvetica Neue', sans-serif;
    line-height: 1.5;
    -webkit-font-smoothing: antialiased;
  }
@@ -67,52 +69,56 @@
  --------------------------------------Product Overview Section---------------------------------------------
  ---------------------------------------------------------------------------------------------------------*/
 
+ #productOverview {
+  display:flex;
+  flex-direction: column;
+  position:relative;
+  top: 0px;
+  left: 0px;
+  margin: 24pt;
+ }
 
- .basics {
-  position: absolute;
-  display: flex;
-  right: 1in;
-  top: 1in;
+ #productOverview .top {
+  width: 25%;
+ }
+
+ #productOverview .bottom {
+  width: 25%;
+ }
+
+ #productOverview .basics {
   font-weight: bolder;
   font-size: larger;
   width: 300px;
-  flex-direction: column;
   padding: 12pt;
   margin: 12pt;
   border: royalblue 3px solid;
  }
 
- .basics .productCategory {
+ #productOverview .basics .productCategory {
   font-weight: normal;
   font-style: italic;
   font-size: medium;
   align-self: flex-end;
  }
 
- .basics .price {
+ #productOverview .basics .price {
   border: none;
  }
 
- .salePrice {
+ #productOverview .salePrice {
   color: red;
  }
 
- .productDescription {
-  position: absolute;
-  display: flex;
-  align-items: flex-end;
-  flex-direction: column-reverse;
-  align-content: flex-end;
-  left: 50px;
-  bottom: 10px;
+ #productOverview .productDescription {
+  position: relative;
   width: 400px;
   height: 150px;
   border: 3px solid royalblue;
-  padding: 10px;
  }
 
- .productDetails {
-  position: absolute;
+ #productOverview .productDetails {
+  position: relative;
   right: 50px;
   top: 300px;
   max-width: 500px;
@@ -121,15 +127,14 @@
   align-items: flex-end;
  }
 
- .styleSelector .selectedStyleName {
-
+ #productOverview .styleSelector .selectedStyleName {
   font-size: large;
   font-weight: bold;
   justify-content: flex-start;
   margin-bottom: 30px;
  }
 
- .styleSelector .productStyles{
+ #productOverview .styleSelector .productStyles{
   position: relative;
   width: 100%;
   display: flex;
@@ -138,7 +143,7 @@
   flex-wrap: wrap;
  }
 
- .styleSelector .productStyles .style {
+ #productOverview .styleSelector .productStyles .style {
   cursor: pointer;
   display: flex;
   flex-direction: row;
@@ -146,26 +151,25 @@
   flex-wrap: wrap;
  }
 
- .styleSelector .productStyles .style:hover {
+ #productOverview .styleSelector .productStyles .style:hover {
   opacity: 50%
  }
 
- .styleSelector .productStyles .style img {
+ #productOverview .styleSelector .productStyles .style img {
     color: green;
     font: 10px Arial;
  }
 
- img {
+ #productOverview img {
   cursor: pointer;
  }
 
- .selector {
-  position: absolute;
+ #productOverview .selector {
   height: 0%;
   width: 0%;
  }
 
-.checkmark {
+ #productOverview .checkmark {
   display: inline-block;
   position: relative;
   font-size: larger;
@@ -184,7 +188,7 @@
   border: 2.5px skyblue solid;
  }
 
-.stylePhotoFrame {
+ #productOverview .stylePhotoFrame {
   width: 100px;
   height: 100px;
   position: relative;
@@ -194,14 +198,14 @@
   margin-bottom: 18px;
 }
 
- .stylePhotoFrame .stylePhoto {
+#productOverview .stylePhotoFrame .stylePhoto {
   width: 100%;
   height: 100%;
   object-fit: cover;
  }
 
 
- .productDetails .sizeAndQuantitySelector {
+ #productOverview .productDetails .sizeAndQuantitySelector {
   position: relative;
   display: flex;
   flex-direction: row;
@@ -211,7 +215,7 @@
   margin-top: 12pt;
  }
 
- .productSizes {
+ #productOverview .productSizes {
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -220,11 +224,11 @@
   max-width: 500px;
  }
 
- .productSizes select{
+ #productOverview .productSizes select{
     width: 35%;
  }
 
- .quantitySelector {
+ #productOverview .quantitySelector {
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -234,7 +238,7 @@
   margin-left: 12pt;
  }
 
- .addToCart {
+ #productOverview .addToCart {
   position: relative;
   right: 35px;
   width: fit-content;
@@ -243,23 +247,19 @@
   max-width: 500px;
  }
 
- .galleryView {
-  position: absolute;
-  left: 12pt;
-  top: 12pt;
+ #productOverview .galleryView {
   width: 500px;
   height: 540px;
   display: flex;
   flex-direction: row-reverse;
   align-items: flex-start;
-  justify-content: center;
+  justify-content: flex-end;
   border: 2px solid royalblue;
  }
 
- .galleryView img.mainPhoto {
+ #productOverview .galleryView img.mainPhoto {
   max-height: 450px;
   max-width: 450px;
-  margin: 12pt;
   cursor: zoom-in;
  }
 
@@ -276,7 +276,7 @@
  }
 
 
- .thumbPhotoFrame {
+ #productOverview .thumbPhotoFrame {
   width: 60px;
   height: 60px;
   position: relative;
@@ -287,9 +287,9 @@
   border: 2px solid cornflowerblue;
 }
 
-.galleryView .thumbnails {
+#productOverview .galleryView .thumbnails {
   width: 100%;
-  position: absolute;
+  position: relative;
   left: 5px;
   top: 30px;
   display: flex;
@@ -299,22 +299,22 @@
   overflow: hidden;
  }
 
- .galleryView .thumbnails::-webkit-scrollbar {
+ #productOverview .galleryView .thumbnails::-webkit-scrollbar {
   display: none;
  }
 
- .galleryView img.thumb {
+ #productOverview .galleryView img.thumb {
   width: 100%;
   height: 100%;
   object-fit: cover;
   cursor: pointer;
  }
 
- .galleryView img.thumb:hover {
+ #productOverview .galleryView img.thumb:hover {
   opacity: 50%
  }
 
- .galleryView .expandedView {
+ #productOverview .galleryView .expandedView {
   position: relative;
   align-items: center;
   justify-content: center;
@@ -322,7 +322,7 @@
   max-height: 500px;
  }
 
- .galleryView .checkmark {
+ #productOverview .galleryView .checkmark {
   position: relative;
   left: 45px;
   top: 0px;
@@ -333,7 +333,7 @@
   border: 2px skyblue solid;
  }
 
- .galleryView .loadPrevThumbs {
+ #productOverview .galleryView .loadPrevThumbs {
   position: relative;
   align-self: flex-start;
   right: 35px;
@@ -346,7 +346,7 @@
   cursor: pointer
  }
 
- .galleryView .loadMoreThumbs {
+ #productOverview .galleryView .loadMoreThumbs {
   position: relative;
   align-self: flex-end;
   left: 25px;
@@ -358,7 +358,7 @@
   cursor: pointer
  }
 
- .galleryView .nextPhoto {
+ #productOverview .galleryView .nextPhoto {
   position: absolute;
   align-self: top;
   z-index: 2;
@@ -371,7 +371,7 @@
   cursor: pointer
  }
 
- .galleryView .prevPhoto {
+ #productOverview .galleryView .prevPhoto {
   position: absolute;
   align-self: center;
   z-index: 2;
@@ -444,7 +444,7 @@
   z-index: 9999;
   background: transparent;
   border: none;
-  font-weight: 3px;
+  font-weight: 10px;
   color: rgb(105, 132, 241);
 
  }
@@ -454,8 +454,16 @@
   top: 170px;
   background: transparent;
   border: none;
-  font-weight: 3px;
+  font-weight: 10px;
   color: rgb(105, 132, 241);
+ }
+
+ .relatedmodule .listButton .leftButton{
+  font-size: 30px;
+ }
+
+ .relatedmodule .listButton .rightButton{
+  font-size: 30px;
  }
 .relatedmodule .list-gallery {
   display: flex;
@@ -500,6 +508,7 @@
   right: 30px;
   bottom: 65px;
   z-index: 9990;
+  font-size: 15px;
 }
 
 .relatedmodule .imgrightbuttton{
@@ -507,6 +516,7 @@
   right: 940px;
   bottom: 65px;
   z-index: 9990;
+  font-size: 15px;
 }
 
 
@@ -539,7 +549,6 @@
  ----------------------------------Rating and Review Section------------------------------------------------
  ---------------------------------------------------------------------------------------------------------*/
 
-
 /* ------------------ Overall layout ---------------------- */
 .rating-and-review {
   display: flex;
@@ -564,9 +573,195 @@
 
 /* ------------------ Review List ---------------------- */
 
- .rating-and-review .container {
-  border: 1px solid black;
-  margin: 5px;
+.rating-and-review .list.container {
+width: 65%;
+}
+
+.rating-and-review #scrollable-list {
+  height: 620px;
+  width: 95%;
+  margin: auto;
+  margin-top: 15px;
+  margin-bottom: 36px;
+  overflow-y: auto;
+}
+
+.rating-and-review .list h3, .rating-and-review .list .list-button {
+  position: relative;
+  left: 2.5%;
+}
+
+.rating-and-review .list .list-button {
+  margin-top: 16px;
+}
+
+.rating-and-review .list .list-button button {
+margin-right: 18px;
+background-color: transparent;
+border: 2px solid #767676;
+border-radius: 6px;
+font-size: 20px;
+font-weight: 700;
+padding: 2%;
+cursor: pointer;
+}
+
+.rating-and-review .list .list-button button:hover {
+background-color: #767676;
+color: white;
+}
+
+#all-review-loaded {
+  margin-right: 18px;
+  color: #6D78EF;
+}
+
+/* ------------------ Indiviual review ---------------------- */
+.rating-and-review .review.container {
+position: relative;
+padding: 5px;
+border: none;
+border-top: 2px solid #767676;
+}
+
+.rating-and-review .review .name-date {
+display: inline-block;
+position: absolute;
+right: 1%;
+top: 5px;
+font-weight: 300;
+font-size: smaller;
+}
+
+.rating-and-review .review .body {
+margin-top: 14px;
+overflow-wrap: break-word;
+}
+
+.rating-and-review .review .body input {
+color: #6D78EF;
+cursor: pointer;
+text-decoration: underline;
+border: none;
+padding: 0px;
+margin-left: 6px;
+background-color: transparent;
+font-style: italic;
+font-size: smaller;
+}
+
+.rating-and-review .review .body .images {
+display: flex;
+flex-direction: row;
+flex-wrap: wrap;
+}
+
+.rating-and-review .review .body img {
+margin: 2px;
+border: 1px solid gray;
+}
+
+.rating-and-review .review .recommend {
+margin-top: 4px;
+}
+
+.rating-and-review .review .recommend span {
+margin: 4px;
+font-weight: bold;
+font-size: 18px;
+color: beige;
+background-color: #73ad21;
+border-radius: 50%;
+}
+
+.rating-and-review .review .helpful {
+margin-top: 4px;
+}
+
+.rating-and-review .review .helpful button {
+background-color: transparent;
+cursor: pointer;
+border: 1px solid mediumseagreen;
+border-radius: 5px;
+}
+
+.rating-and-review .review .helpful button:hover {
+background-color: #2AE860;
+color: whitesmoke;
+}
+
+/* image */
+.rating-and-review .review .body .image-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  flex-direction: column;
+  background-color: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+  z-index: 3;
+  display: none;
+}
+
+.rating-and-review .review .body .image-modal > img {
+  object-fit: cover;
+  height: 75%;
+}
+
+/* ------------------ Summary ---------------------- */
+.rating-and-review .rating {
+  margin-top: 0px;
+}
+
+.rating-and-review .summary > .container {
+  border: 0;
+}
+
+/* ------------------ Rating BD ---------------------- */
+.rating-and-review .rating h3 {
+  display: inline-block;
+  margin-right: 4px;
+  font-size: xxx-large;
+  position: relative;
+  top: -16px;
+}
+
+.rating-and-review .rating p {
+  font-style: italic;
+  font-weight: 300;
+  text-shadow: 1px 1px 1px #bfd1e5;
+}
+
+.rating-and-review .rating .star {
+  display: inline-block;
+  position: relative;
+  top: -16px;
+}
+
+.rating-and-review .rating .bars {
+  margin-top: 26px;
+  margin-left: 0px;
+  margin-right: 0px;
+  border: 0;
+}
+
+.rating-and-review .rating .bars .bar {
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
+/* ------------------ Product BD ---------------------- */
+
+.rating-and-review .product {
+  margin-top: 26px;
+}
+
+.rating-and-review .product .character {
+  margin-left: 0px;
+  margin-right: 0px;
+  border: 0;
 }
 
 /* ------------------ Star ---------------------- */
@@ -574,19 +769,19 @@
   position: relative;
   display: inline-block;
 }
-  .empty-star {
+.empty-star {
   color: #ccc;
   display: inline-block;
 }
 
-  .filled-star {
+ .filled-star {
   display: inline-block;
   position: absolute;
   top: 0;
   left: 0;
 }
 
-.star span {
+ .star span {
   font-size: 16px;
 }
 
@@ -776,9 +971,10 @@
  /* --------------------------------------------------------------------------------------------------------
  ----------------------------------Questions and Answers Section--------------------------------------------
  ---------------------------------------------------------------------------------------------------------*/
-
-
- .qSearch {
+.qa {
+  margin-bottom: 20px;
+}
+ .qa .qSearch {
   width: 40%;
   height: 10%;
   position: relative;
@@ -786,7 +982,7 @@
   margin: 10px;
  }
 
- .qsearchTerm {
+ .qa .qsearchTerm {
   width: 100%;
   border: 1px solid #646464;
   padding: 5px;
@@ -797,21 +993,20 @@
   color: #9DBFAF;
 }
 
-.qsearchTerm:focus{
+.qa .qsearchTerm:focus{
   color: #000000;
 }
 
- .qListView {
+.qa .qListView {
   overflow-y: scroll;
-  height: 900px;
-  font-size: 10pt;
+  height: 500px;
  }
 
- .qEntry {
+ .qa .qEntry {
   margin-bottom: 1%;
  }
 
- .qContainer {
+ .qa .qContainer {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -820,14 +1015,13 @@
 
  }
 
-.qaTitle {
+ .qa .qaTitle {
   color: #111;
   font-family: 'Helvetica Neue', sans-serif;
-  font-size: 50px;
-  font-weight: bold;
+  border-bottom: 4px double #767676;
 }
 
-.qaLetter {
+.qa .qaLetter {
   color: #111;
   font-family: 'Helvetica Neue', sans-serif;
   font-size: 20px;
@@ -835,53 +1029,64 @@
   margin-right: 2px;
 }
 
-.qaText {
+.qa .qaText {
   color: #282828;
   font-family: 'Helvetica Neue', sans-serif;
   font-size: 15px;
-  width: 80%;
+  width: 60%;
 }
 
-.qaPoint {
+.qa .qaPoint {
   cursor: pointer;
 }
 
-.qaPoint:hover {
+.qa .qaPoint:hover {
   color: #111;
 }
 
-.qaPhoto {
+.qa .qaPhoto {
   margin-top: 10px;
   margin-bottom: 10px;
 }
 
-.qaMoreQ {
-  margin: 5px
+.qa .qaMoreQ {
+  margin-right: 18px;
+  background-color: transparent;
+  border: 2px solid #767676;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  }
+
+.qa .qaMoreQ:hover {
+  background-color: #767676;
+  color: white;
 }
 
-.answer {
+.qa .answer {
   margin-left: 20px
 }
 
-.aLine {
+.qa .aLine {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   align-items: baseline;
 }
 
-.aPictureContainer {
+.qa .aPictureContainer {
   display: flex;
   margin-left: 20px;
   gap: 20px;
 }
 
-.aPicture {
+.qa .aPicture {
   filter: drop-shadow(5px 5px 5px rgba(0,0,0,0.3));
   cursor: zoom-in;
 }
 
-.aFoot {
+.qa .aFoot {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -890,12 +1095,12 @@
   gap: 5px;
 }
 
-.qaMoreAnswer {
+.qa .qaMoreAnswer {
   font-weight: bold;
   color: #888;
 }
 
-.qaModal {
+.qa .qaModal {
   position: fixed;
   z-index: 1;
   left: 0;
@@ -907,7 +1112,7 @@
   background-color: rgba(0,0,0,0.4);
 }
 
-.qaModalContent {
+.qa .qaModalContent {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -922,14 +1127,14 @@
   box-shadow: #282828;
 }
 
-.characterCount {
+.qa .characterCount {
   margin-bottom: 10px;
 }
 
-.qaEmailAdd {
+.qa .qaEmailAdd {
   margin-top: 10px;
 }
 
- #qaPreview li {
+ .qa #qaPreview li {
   display: inline-block;
 }

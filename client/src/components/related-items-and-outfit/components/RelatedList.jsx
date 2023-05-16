@@ -66,7 +66,9 @@ function RelatedList({
   }, [productId]);
   return (
     <div className="listAndArrow">
-      { relateIndex > 0 && <LeftArrow index={relateIndex} setIndex={setRelateIndex} />}
+      { relateIndex > 0 && <div className="listButton">
+      <LeftArrow index={relateIndex} setIndex={setRelateIndex} />
+      </div>}
       <ul className="list">
         <RelatedListHelper
           productId={productId}
@@ -78,7 +80,9 @@ function RelatedList({
         />
       </ul>
       { relateIndex + 4 < relateArr.length
-      && <RightArrow index={relateIndex} setIndex={setRelateIndex} />}
+      &&<div className="listButton">
+          <RightArrow index={relateIndex} setIndex={setRelateIndex} />
+      </div>}
     </div>
   );
 }

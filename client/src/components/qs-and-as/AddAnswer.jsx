@@ -1,16 +1,12 @@
-import { React, useState, useEffect } from 'react';
+import { React, useState } from 'react';
 import axios from 'axios';
-import PhotoUpload from './Jay-PhotoUpload-URL'
+import PhotoUpload from './Jay-PhotoUpload-URL';
 
 function AddAnswer({ show, q }) {
   const [answer, setAnswer] = useState('');
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [photos, setPhotos] = useState([]);
-
-  // useEffect(()=> {
-  //   console.log('This is photo:', photo)
-  // }, [photo])
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -38,7 +34,10 @@ function AddAnswer({ show, q }) {
 
         <label> Your answer </label>
         <textarea type="text" maxLength="1000" value={answer} onChange={(e) => setAnswer(e.target.value)} required />
-        <span className="characterCount">{answer.length}/1000</span>
+        <span className="characterCount">
+          {answer.length}
+          /1000
+        </span>
 
         <label>What is your nickname</label>
         <input type="text" value={name} onChange={(e) => setName(e.target.value)} placeholder="Example: jackson11!" required />
@@ -48,9 +47,7 @@ function AddAnswer({ show, q }) {
         <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
         <small>For authentication reasons, you will not be emailed</small>
 
-        <PhotoUpload setPhotos={setPhotos} photos={photos}/>
-
-
+        <PhotoUpload setPhotos={setPhotos} photos={photos} />
 
         <button className="qaAnswerSubmit" type="submit">Submit</button>
 
