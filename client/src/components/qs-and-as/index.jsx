@@ -2,12 +2,12 @@ import React from 'react';
 import QAListView from './QAListView.jsx';
 
 
-const QAIndex = () => {
+const QAIndex = ( { productId }) => {
 
 return (
-<div>
-<div className="qaTitle"> QUESTIONS & ANSWERS</div>
-<div className="qaListView"><QAListView /></div>
+<div className="qa">
+<div className="qaTitle"> <h2>QUESTIONS & ANSWERS</h2></div>
+<div className="qaListView"><QAListView productId={productId}/></div>
 </div>
 
 )

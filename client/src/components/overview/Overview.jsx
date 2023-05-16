@@ -36,28 +36,32 @@ function Overview({ productId }) {
   }, [productId]);
 
   return (
-    <div className="productData">
-      <Basics
-        productData={productData}
-        selectedStyle={selectedStyle}
-      />
-      <Description productData={productData} />
-      <ProductDetails
-        productData={productData}
-        productStyles={productStyles}
-        selectedStyle={selectedStyle}
-        selectedPhoto={selectedPhoto}
-        setSelectedStyle={setSelectedStyle}
-        setSelectedPhoto={setSelectedPhoto}
-        setSelectedThumb={setSelectedThumb}
-      />
-      <GalleryView
-        selectedStyle={selectedStyle}
-        selectedPhoto={selectedPhoto}
-        setSelectedPhoto={setSelectedPhoto}
-        selectedThumb={selectedThumb}
-        setSelectedThumb={setSelectedThumb}
-      />
+    <div id="productOverview">
+      <div id="top">
+        <GalleryView
+          selectedStyle={selectedStyle}
+          selectedPhoto={selectedPhoto}
+          setSelectedPhoto={setSelectedPhoto}
+          selectedThumb={selectedThumb}
+          setSelectedThumb={setSelectedThumb}
+        />
+        <Basics
+          productData={productData}
+          selectedStyle={selectedStyle}
+        />
+      </div>
+      <div id="bottom">
+        <Description productData={productData} />
+        <ProductDetails
+          productData={productData}
+          productStyles={productStyles}
+          selectedStyle={selectedStyle}
+          selectedPhoto={selectedPhoto}
+          setSelectedStyle={setSelectedStyle}
+          setSelectedPhoto={setSelectedPhoto}
+          setSelectedThumb={setSelectedThumb}
+        />
+      </div>
     </div>
   );
 }

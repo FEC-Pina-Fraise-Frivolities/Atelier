@@ -29,7 +29,6 @@ function OutfitList({
   };
 
   const OutfitAlready = ({ index }) => {
-    console.log(outfitIndex);
     let renderIndex = outfitIndex;
     if (outfitIndex !== 0) {
       renderIndex -= 1;
@@ -72,7 +71,7 @@ function OutfitList({
   };
   return (
     <div className="listAndArrow">
-      {outfitIndex > 0 && <LeftArrow index={outfitIndex} setIndex={setOutfitIndex} />}
+      {outfitIndex > 0 && <div className="listButton"> <LeftArrow index={outfitIndex} setIndex={setOutfitIndex} /> </div>}
       {outfitIndex === 0
         && (
         <ul className="list" id="outfit_list">
@@ -90,10 +89,10 @@ function OutfitList({
       )}
 
       {(outfitIndex === 0 && outfitArr.length > 3)
-       && <RightArrow index={outfitIndex} setIndex={setOutfitIndex} />}
+       &&<div className="listButton">  <RightArrow index={outfitIndex} setIndex={setOutfitIndex} /> </div>}
 
       {(outfitIndex > 0 && outfitIndex + 4 <= outfitArr.length)
-       && <RightArrow index={outfitIndex} setIndex={setOutfitIndex} />}
+       &&  <div className="listButton"> <RightArrow index={outfitIndex} setIndex={setOutfitIndex} /></div>}
 
     </div>
   );
