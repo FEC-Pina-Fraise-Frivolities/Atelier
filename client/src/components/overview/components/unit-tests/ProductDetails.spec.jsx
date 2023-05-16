@@ -1,7 +1,13 @@
+/* eslint-disable prefer-destructuring */
 /* eslint-disable no-undef */
-import { render, renderHook, screen } from '@testing-library/react';
-import React, { useEffect, useState } from 'react';
+import {
+  fireEvent, render, renderHook, screen,
+} from '@testing-library/react';
+import React, { useEffect, useRef, useState } from 'react';
+import AddToCart from '../Details/AddToCart';
 import ProductDetails from '../Details/ProductDetails';
+
+global.alert = jest.fn(() => 'Please select a size!');
 
 const productData = {
   id: 40346,
@@ -564,17 +570,34 @@ describe('ProductDetails component testing', () => {
     const [selectedStyle, setSelectedStyle] = useState({});
     const [selectedPhoto, setSelectedPhoto] = useState('');
     const [selectedThumb, setSelectedThumb] = useState('');
+    const [selectedSize, setSelectedSize] = useState('');
+    const [skusNull, setSkusNull] = useState(false);
+    const [selectedQuantity, setSelectedQuantity] = useState(1);
+    const [productSkus, setProductSkus] = useState([]);
+    const skuRef = useRef(0);
+
+    const skus = Object.entries(productStyles[0].skus);
 
     useEffect(() => {
       setSelectedStyle(productStyles[0]);
-      setSelectedPhoto(selectedStyle.photos[0].url);
-      setSelectedThumb(selectedStyle.photos[0].thumbnail_url);
+      setSelectedPhoto(productStyles[0].photos[0].url);
+      setSelectedThumb(productStyles[0].photos[0].thumbnail_url);
+      setSelectedSize(skus[0][1].size);
+      setSelectedQuantity(1);
+      setProductSkus(skus);
+      setSkusNull(false);
+      [skuRef.current] = skus[0];
     }, []);
 
     return {
       selectedStyle,
       selectedPhoto,
       selectedThumb,
+      selectedSize,
+      selectedQuantity,
+      productSkus,
+      skuRef,
+      skusNull,
     };
   });
 
@@ -589,5 +612,68 @@ describe('ProductDetails component testing', () => {
       />,
     );
     expect(screen.getAllByRole('generic')).toBeTruthy();
+  });
+
+  it('Should render an AddToCart component', () => {
+    global.fetch = jest.fn(() => Promise.resolve({
+      text: () => Promise.resolve('Created'),
+    }));
+    const handleClick = global.fetch;
+    const { queryByText } = render(
+      <AddToCart
+        selectedSize={result.current.selectedSize}
+        selectedQuantity={result.current.selectedQuantity}
+        skusNull={result.current.skusNull}
+        skuRef={result.current.skuRef}
+      />,
+    );
+    const button = queryByText('Add to Cart');
+    fireEvent.click(button);
+    expect(handleClick).toHaveBeenCalledTimes(1);
+    expect(screen.getAllByRole('generic')).toBeTruthy();
+  });
+
+  it('Should throw an error if fetch request failed', () => {
+    global.fetch = jest.fn(() => Promise.reject(console.error('add to cart failed', undefined)));
+    const handleClick = global.fetch;
+    const { queryByText } = render(
+      <AddToCart
+        selectedSize={result.current.selectedSize}
+        selectedQuantity={result.current.selectedQuantity}
+        skusNull={result.current.skusNull}
+        skuRef={result.current.skuRef}
+      />,
+    );
+
+    const button = queryByText('Add to Cart');
+    fireEvent.click(button);
+    expect(handleClick).toHaveBeenCalledTimes(1);
+  });
+  it('Should alert the user if no size was selected', () => {
+    const handleClick = global.alert;
+    const { queryByText } = render(
+      <AddToCart
+        selectedSize={null}
+        selectedQuantity={result.current.selectedQuantity}
+        skusNull={result.current.skusNull}
+        skuRef={result.current.skuRef}
+      />,
+    );
+
+    const button = queryByText('Add to Cart');
+    fireEvent.click(button);
+    expect(handleClick).toHaveBeenCalledTimes(1);
+  });
+  it('Should render an empty string if skusNull == true', () => {
+    const { queryByText } = render(
+      <AddToCart
+        selectedSize={result.current.selectedSize}
+        selectedQuantity={result.current.selectedQuantity}
+        skusNull
+        skuRef={result.current.skuRef}
+      />,
+    );
+    const button = queryByText('Add to Cart');
+    expect(button).toBeFalsy();
   });
 });
