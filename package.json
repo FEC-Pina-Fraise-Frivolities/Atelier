@@ -10,7 +10,8 @@
     "build": "npx webpack",
     "start": "npm run server-dev & npm run client-dev",
     "test": "jest --env=jsdom",
-    "coverage": "open ./coverage/lcov-report/index.html"
+    "coverage": "open ./coverage/lcov-report/index.html",
+    "test:coverage": "npm run test && npm run coverage"
   },
   "repository": {
     "type": "git",

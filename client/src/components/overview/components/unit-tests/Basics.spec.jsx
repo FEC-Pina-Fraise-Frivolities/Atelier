@@ -40,7 +40,7 @@ describe('Basics component testing', () => {
     ],
   };
 
-  it('Should render a ProductData component', () => {
+  it('Should render a Basics component', () => {
     render(
       <Basics productData={productData} selectedStyle={selectedStyle} />,
     );
