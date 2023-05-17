@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import React from 'react';
-import Basics from '../Basics/Basics';
+import Basics from '../Basics';
 
 /* eslint "no-undef": 0 */
 describe('Basics component testing', () => {

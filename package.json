@@ -9,9 +9,10 @@
     "client-dev": "npx webpack --watch",
     "build": "npx webpack",
     "start": "npm run server-dev & npm run client-dev",
-    "test": "jest --env=jsdom",
+    "test": "jest",
     "coverage": "open ./coverage/lcov-report/index.html",
-    "test:coverage": "npm run test && npm run coverage"
+    "test:coverage": "npm run test && npm run coverage",
+    "test:details": "jest ./client/src/components/overview/components/Details/unit-tests"
   },
   "repository": {
     "type": "git",
@@ -50,6 +51,7 @@
     "@babel/preset-env": "^7.21.5",
     "@babel/preset-react": "^7.18.6",
     "@testing-library/react": "^14.0.0",
+    "@testing-library/user-event": "^14.4.3",
     "babel": "^6.23.0",
     "babel-loader": "^9.1.2",
     "babel-plugin-add-import-extension": "^1.6.0",
