@@ -18,11 +18,9 @@
 
  html,
  body {
-  display: flex;
-  flex-direction:column;
-   height: 100%;
-   background-color:white;
-   color:black;
+  height: 100%;
+  background-color:white;
+  color:black;
  }
 
  body {
@@ -578,7 +576,7 @@ width: 65%;
 }
 
 .rating-and-review #scrollable-list {
-  height: 620px;
+  height: 576px;
   width: 95%;
   margin: auto;
   margin-top: 15px;
@@ -710,6 +708,17 @@ color: whitesmoke;
   height: 75%;
 }
 
+.rating-and-review .review .body .image-modal > button {
+  cursor: pointer;
+}
+
+.rating-and-review .review .body .image > img {
+  cursor: zoom-in;
+}
+
+.rating-and-review .review .body .image > img:hover {
+  border: 2px solid purple
+}
 /* ------------------ Summary ---------------------- */
 .rating-and-review .rating {
   margin-top: 0px;

@@ -9,7 +9,7 @@
     "client-dev": "npx webpack --watch",
     "build": "npx webpack",
     "start": "npm run server-dev & npm run client-dev",
-    "test": "jest --env=jsdom",
+    "test": "jest ratings-and-reviews --env=jsdom",
     "coverage": "open ./coverage/lcov-report/index.html"
   },
   "repository": {
