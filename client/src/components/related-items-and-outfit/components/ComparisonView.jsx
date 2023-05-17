@@ -46,18 +46,18 @@ function CompareHelper({ obj }) {
     ))
   );
 }
-function ComparisonView({ productId, nextId }) {
+function ComparisonView({ productId, nextId, setCompare }) {
+  console.log(productId, nextId);
   const obj = {};
   const [featureObj, setFeatureObj] = useState({});
+  const [nameArr, setNameArr] = useState([]);
   useEffect(() => {
-    let endpoint = `/products/${productId}`;
-    let option = {
-      method: 'GET',
-      url: endpoint,
-    };
-    axios(option)
+    const name = [];
+    axios.get(`/products/${productId}`)
       .then((res) => {
         const result = res.data;
+        console.log('produt id', result.name);
+        name.push(result.name);
         result.features.forEach((objFeature) => {
           const featureName = objFeature.feature;
           obj[featureName] = { currentProduct: objFeature.value };
@@ -65,14 +65,12 @@ function ComparisonView({ productId, nextId }) {
       })
       .catch((err) => console.log('server: get products failed', err))
       .then(() => {
-        endpoint = `/products/${nextId}`;
-        option = {
-          method: 'GET',
-          url: endpoint,
-        };
-        axios(option)
+        axios.get(`/products/${nextId}`)
           .then((res) => {
             const result = res.data;
+            name.push(result.name);
+            setNameArr(name);
+            console.log(name);
             result.features.forEach((objFeature) => {
               const featureName = objFeature.feature;
               if (obj[featureName] === undefined) {
@@ -88,10 +86,24 @@ function ComparisonView({ productId, nextId }) {
   }, []);
   const ifRender = Object.keys(featureObj).length > 0;
   return (
-    <div className="compareTable">
-      <p className="sub-title" id="comapre">compareView</p>
-      {ifRender && <table><CompareHelper obj={featureObj} /></table>}
+
+    <div className="compareTable" onClick={() => { setCompare(false); }}>
+      {ifRender && (
+        <div className="compareTable">
+          <table className="compareTableHelper">
+            <tbody>
+              <tr>
+                <td>{nameArr[0]}</td>
+                <td>{' '}</td>
+                <td>{nameArr[1]}</td>
+              </tr>
+            </tbody>
+            <CompareHelper obj={featureObj} />
+          </table>
+        </div>
+      )}
     </div>
+
   );
 }
 export default ComparisonView;

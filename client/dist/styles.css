@@ -386,7 +386,11 @@
 /* --------------------------------------------------------------------------------------------------------
  --------------------------------------Related and Outfit--------------------------------------------------
  ---------------------------------------------------------------------------------------------------------*/
-
+ .relatedmodule {
+  /* display: flex; */
+  flex-direction: row;
+  flex-wrap: wrap;
+}
 
  .relatedmodule .card{
   /* border: 5px solid; */
@@ -416,19 +420,31 @@
   right: 0;
   left: 0;
   margin: auto;
-
-
 }
 
-.relatedmodule .compareTable {
+.relatedmodule .compareTableHelper {
   background-color: white;
-  color: rgb(41, 65, 95);
-  width: 500px;
-  position: absolute;
-  top: 25px;
-  left: 200px;
+  min-height: 300px;
+  width: 50%;
+  position: relative;
+  z-index: 9999;
+  margin: 100px auto;
+  padding: 20px;
+  overflow:auto;
+  top: 150px;
+}
+.relatedmodule .compareTable{
+  width: 100%;
+  height: 100vh;
+  background-color: rgb(0,0,0,0.5);
+  left: 0;
+  top: 0;
+  position: fixed;
   z-index: 9999;
 }
+
+
+
 .relatedmodule .listAndArrow {
   display: flex;
   position: relative;
@@ -500,7 +516,7 @@
   color: #1c455a;
   width:24px;
   height:24px;
-  z-index: 9999;
+  z-index: 999;
 }
 
 .relatedmodule .imgleftbuttton{
@@ -544,6 +560,17 @@
 
 .relatedmodule .sub-title {
   color: #9e9e9e;
+}
+
+.relatedmodule .addCard {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 250px;
+  font-size: 1.5rem;
+  background-color: #b3b3b3;
+  color: white;
+
 }
  /* --------------------------------------------------------------------------------------------------------
  ----------------------------------Rating and Review Section------------------------------------------------

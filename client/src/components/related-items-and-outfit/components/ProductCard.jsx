@@ -1,4 +1,5 @@
 import { React, useState, useEffect } from 'react';
+import axios from 'axios';
 import CardDetail from './CardDetail';
 
 function ProductCard({
@@ -11,8 +12,8 @@ function ProductCard({
   const [salePrice, setSalePrice] = useState(null);
   const [photos, setPhotos] = useState([]);
   useEffect(() => {
-    fetch(`/reviews/meta?product_id=${id}`)
-      .then((res) => res.json())
+    axios.get(`/reviews/meta?product_id=${id}`)
+      .then((res) => res.data)
       .then((result) => {
         // find the rate
         let count = 0;
@@ -24,8 +25,8 @@ function ProductCard({
         setRatings((total / count).toFixed(2));
       })
       .then(
-        fetch(`/products/${id}/styles`)
-          .then((res) => res.json())
+        axios.get(`/products/${id}/styles`)
+          .then((res) => res.data)
           .then((result) => {
             setOiginalPrice(result.results[0].original_price);
             setSalePrice(result.results[0].sale_price);
@@ -40,8 +41,8 @@ function ProductCard({
           .catch((err) => console.log('get styles failed', err)),
       )
       .then(
-        fetch(`/products/${id}`)
-          .then((res) => res.json())
+        axios.get(`/products/${id}`)
+          .then((res) => res.data)
           .then((result) => {
             setCategory(result.category);
             setName(result.name);

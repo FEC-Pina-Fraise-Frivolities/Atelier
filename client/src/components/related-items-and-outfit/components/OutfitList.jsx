@@ -71,12 +71,20 @@ function OutfitList({
   };
   return (
     <div className="listAndArrow">
-      {outfitIndex > 0 && <div className="listButton"> <LeftArrow index={outfitIndex} setIndex={setOutfitIndex} /> </div>}
+      {outfitIndex > 0 && (
+      <div className="listButton">
+        {' '}
+        <LeftArrow index={outfitIndex} setIndex={setOutfitIndex} />
+        {' '}
+      </div>
+      )}
       {outfitIndex === 0
         && (
         <ul className="list" id="outfit_list">
           <li className="card" onClick={handleAdd}>
-            <img src={require('../assets/addToOutfit.jpg')} alt="addttoOutfit" />
+            <span className="addCard">
+              <strong>Add to Your Outfit</strong>
+            </span>
           </li>
           <OutfitAlready index={3} />
         </ul>
@@ -89,10 +97,21 @@ function OutfitList({
       )}
 
       {(outfitIndex === 0 && outfitArr.length > 3)
-       &&<div className="listButton">  <RightArrow index={outfitIndex} setIndex={setOutfitIndex} /> </div>}
+       && (
+       <div className="listButton">
+         {' '}
+         <RightArrow index={outfitIndex} setIndex={setOutfitIndex} />
+         {' '}
+       </div>
+       )}
 
       {(outfitIndex > 0 && outfitIndex + 4 <= outfitArr.length)
-       &&  <div className="listButton"> <RightArrow index={outfitIndex} setIndex={setOutfitIndex} /></div>}
+       && (
+       <div className="listButton">
+         {' '}
+         <RightArrow index={outfitIndex} setIndex={setOutfitIndex} />
+       </div>
+       )}
 
     </div>
   );
