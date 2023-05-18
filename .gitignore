@@ -140,3 +140,6 @@ config.js
 
 #random
 random.json
+
+#vscode
+.vscode

@@ -1,4 +1,3 @@
-// TODO: FIX QUANTITY RERENDERING WHEN CHANGING STYLES
 import React, { useEffect, useState } from 'react';
 
 function QuantitySelector({
@@ -12,7 +11,7 @@ function QuantitySelector({
   const [allQuantities, setAllQuantites] = useState([]);
 
   useEffect(() => {
-    if (Object.keys(selectedStyle).length > 0) {
+    if (selectedStyle && Object.keys(selectedStyle).length > 0) {
       const skus = Object.entries(selectedStyle.skus);
       for (let i = 0; i < skus.length; i += 1) {
         if (skus[i][1].size === selectedSize) {
@@ -45,15 +44,16 @@ function QuantitySelector({
 
   return (
     <div className="quantitySelector">
-      <label>
+      <label htmlFor="selectId">
         Quantity
         {' '}
         <select
           value={selectedQuantity}
           onChange={handleChange}
+          id="selectId"
         >
           {allQuantities.map((quantity) => (
-            <option value={quantity} key={quantity}>
+            <option id={quantity} value={quantity} key={quantity}>
               {quantity}
             </option>
           ))}
