@@ -10,14 +10,10 @@ function App() {
   return (
     <div>
       {/* <Overview productId={productId} setProductId={setProductId} /> */}
-      <p>xxxxx</p>
-      <p>xxxxx</p>
-      <p>xxxxx</p>
-      <p>xxxxx</p>
       <p>{productId}</p>
       <RelatedAndOutfit productId={productId} setProductId={setProductId} />
       <QAIndex productId={productId} />
-      <RatingAndReview productId={productId} />
+      <RatingAndReview productId={productId} /> */}
     </div>
   );
 }

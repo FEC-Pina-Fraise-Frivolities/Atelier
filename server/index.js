@@ -12,8 +12,8 @@ const logger = require('./middleware/logger');
 // Serves up all static and generated assets in ../client/dist.
 
 app.use(express.static(path.join(__dirname, '../client/dist')));
-app.use(express.json({limit: '50mb'}));
-app.use(express.urlencoded({limit: '50mb', extended: true}));
+app.use(express.json({ limit: '50mb' }));
+app.use(express.urlencoded({ limit: '50mb', extended: true }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
@@ -23,7 +23,6 @@ app.use(cors());
 
 // Add a middleware to log HTTP requests
 app.use(logger);
-
 
 // Set up our routes
 
@@ -35,12 +34,6 @@ app.get('/products/:productId/related', controller.product.getRelated);
 // cart
 app.get('/cart', controller.cart.getCart);
 app.post('/cart', controller.cart.addToCart);
-// app.post('/cart', (req, res) => {
-//   console.log(req.body);
-//   res.status(201).json({
-//     sku_id: req.body.sku_id,
-//   });
-// });
 // reviews
 /** ******* */
 app.get('/reviews', controller.reviews.getReviews);
@@ -55,7 +48,7 @@ app.post('/qa/questions', controller.questions.addQuestion);
 app.post('/qa/questions/:question_id/answers', controller.questions.addAnswer);
 app.put('/qa/questions/:question_id/helpful', controller.questions.markHelpfulQuestion);
 app.put('/qa/answers/:answer_id/helpful', controller.questions.markHelpfulAnswer);
-app.put('/qa/answers/:answer_id/report', controller.questions.reportAnswer)
+app.put('/qa/answers/:answer_id/report', controller.questions.reportAnswer);
 //
 
 /* ---------------- Server listens ---------------- */

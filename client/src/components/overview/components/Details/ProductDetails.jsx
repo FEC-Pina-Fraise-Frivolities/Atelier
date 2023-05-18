@@ -52,8 +52,6 @@ function ProductDetails(
         />
       </div>
       <AddToCart
-        productData={productData}
-        selectedStyle={selectedStyle}
         selectedSize={selectedSize}
         selectedQuantity={selectedQuantity}
         skusNull={skusNull}
