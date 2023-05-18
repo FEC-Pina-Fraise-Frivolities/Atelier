@@ -2,10 +2,10 @@ import { React, useContext } from 'react';
 import IndividualTile from './IndividualTile';
 import { FilterContext } from '../index';
 
-function ReviewList({
-  reviews, buttonToggle, modalHandler, moreReviewHandler, sortReviewHandler,
-}) {
-  const { filterReview } = useContext(FilterContext);
+function ReviewList({ reviews }) {
+  const {
+    filterReview, buttonToggle, modalHandler, moreReviewHandler, sortReviewHandler,
+  } = useContext(FilterContext);
   const filteredReviews = reviews.filter((review) => {
     if (filterReview.length === 0) {
       return true;
