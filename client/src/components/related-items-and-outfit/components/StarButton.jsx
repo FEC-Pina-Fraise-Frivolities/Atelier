@@ -17,7 +17,7 @@ function StarButton({ productId, nextId }) {
       >
         &#9733;
       </button>
-      {compare && <ComparisonView productId={productId} nextId={nextId} />}
+      {compare && <ComparisonView productId={productId} nextId={nextId} setCompare={setCompare} />}
     </div>
   );
 }

@@ -1,8 +1,6 @@
 import React from 'react';
 
 function AddToCart({
-  productData,
-  selectedStyle,
   selectedSize,
   selectedQuantity,
   skusNull,
@@ -36,7 +34,7 @@ function AddToCart({
   };
 
   if (skusNull) {
-    return '';
+    return null;
   }
 
   return (

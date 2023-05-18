@@ -33,7 +33,7 @@ function ExpandedView({ open, selectedPhoto, onClose }) {
     const { clientWidth, clientHeight } = element;
     element.style.setProperty('transform-origin', `${(offsetX / clientWidth) * 100}% ${(offsetY / clientHeight) * 100}%`);
     element.style.setProperty('cursor', 'zoom-out');
-    element.style.setProperty('transform', 'scale(2.5) translate(0  , 0)');
+    element.style.setProperty('transform', 'scale(2.5)');
   };
 
   const zoomOut = (event, element) => {

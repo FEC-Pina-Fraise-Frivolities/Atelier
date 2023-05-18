@@ -35,6 +35,7 @@ function CardDetail({
   ratings, name, originalPrice, salePrice, category,
   photoArr, setProductId, id, setStoreArr, storeArr,
 }) {
+
   const [show, setShow] = useState(false);
   const [imgIndex, setImgIndex] = useState(0);
   const obj = {};
@@ -129,10 +130,10 @@ function CardDetail({
       </p>
       )}
 
-      {!ratings.isNaN && (
+      {!isNaN(rating) && (
       <span className="ratings">
         <p>
-          ratings:
+          rating:
           {' '}
           {rating}
         </p>

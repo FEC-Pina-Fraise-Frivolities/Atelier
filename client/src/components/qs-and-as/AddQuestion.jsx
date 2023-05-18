@@ -23,7 +23,10 @@ function AddQuestion({ productId, show }) {
   return (
     <div className="qaModal">
       <form className="qaModalContent" onSubmit={handleSubmit}>
-        <h2>Ask your question about PRODUCT NAME</h2>
+        <h2>
+          Ask your question about&nbsp;
+          {document.querySelector('.productName').innerText}
+        </h2>
 
         <label> Your Question </label>
         <textarea type="text" maxLength="1000" value={question} onChange={(e) => setQuestion(e.target.value)} required />
