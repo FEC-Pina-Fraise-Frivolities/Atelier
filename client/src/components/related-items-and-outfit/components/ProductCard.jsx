@@ -1,31 +1,33 @@
 import { React, useState, useEffect } from 'react';
+import axios from 'axios';
 import CardDetail from './CardDetail';
 
 function ProductCard({
   id, setProductId, setStoreArr, storeArr,
 }) {
-  const [ratings, setRatings] = useState(NaN);
+  const [ratings, setRatings] = useState(0);
   const [category, setCategory] = useState('');
   const [name, setName] = useState('');
   const [originalPrice, setOiginalPrice] = useState(0);
   const [salePrice, setSalePrice] = useState(null);
   const [photos, setPhotos] = useState([]);
   useEffect(() => {
-    fetch(`/reviews/meta?product_id=${id}`)
-      .then((res) => res.json())
+    axios.get(`/reviews/meta?product_id=${id}`)
+      .then((res) => res.data)
       .then((result) => {
         // find the rate
+
         let count = 0;
         let total = 0;
         for (const num in result.ratings) {
           total += parseInt(result.ratings[num]) * parseInt(num);
           count += parseInt(result.ratings[num]);
         }
-        setRatings((total / count).toFixed(2));
+        setRatings((total / count).toFixed(1));
       })
       .then(
-        fetch(`/products/${id}/styles`)
-          .then((res) => res.json())
+        axios.get(`/products/${id}/styles`)
+          .then((res) => res.data)
           .then((result) => {
             setOiginalPrice(result.results[0].original_price);
             setSalePrice(result.results[0].sale_price);
@@ -40,8 +42,8 @@ function ProductCard({
           .catch((err) => console.log('get styles failed', err)),
       )
       .then(
-        fetch(`/products/${id}`)
-          .then((res) => res.json())
+        axios.get(`/products/${id}`)
+          .then((res) => res.data)
           .then((result) => {
             setCategory(result.category);
             setName(result.name);
