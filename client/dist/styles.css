@@ -70,20 +70,21 @@
  ---------------------------------------------------------------------------------------------------------*/
 
  #productOverview {
-  display:flex;
+  display: flex;
   flex-direction: column;
-  position:relative;
-  top: 0px;
-  left: 0px;
-  margin: 24pt;
+  width: 80%;
  }
 
- #productOverview .top {
-  width: 25%;
+ #productOverview #top {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
  }
 
- #productOverview .bottom {
-  width: 25%;
+ #productOverview #bottom {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
  }
 
  #productOverview .basics {
@@ -119,8 +120,6 @@
 
  #productOverview .productDetails {
   position: relative;
-  right: 50px;
-  top: 300px;
   max-width: 500px;
   display: flex;
   flex-direction: column;
@@ -285,6 +284,7 @@
   margin-right: 12px;
   margin-bottom: 4pt;
   border: 2px solid cornflowerblue;
+  z-index: 2000;
 }
 
 #productOverview .galleryView .thumbnails {
@@ -297,6 +297,7 @@
   width: 100px;
   height: 490px;
   overflow: hidden;
+  z-index: 2000;
  }
 
  #productOverview .galleryView .thumbnails::-webkit-scrollbar {
@@ -308,6 +309,7 @@
   height: 100%;
   object-fit: cover;
   cursor: pointer;
+  z-index: 2000;
  }
 
  #productOverview .galleryView img.thumb:hover {
@@ -331,6 +333,7 @@
   font-size: small;
   font-weight: lighter;
   border: 2px skyblue solid;
+  z-index:9000;
  }
 
  #productOverview .galleryView .loadPrevThumbs {
@@ -417,11 +420,12 @@
   height:200px;
   max-width: 100%;
   object-fit: cover;
-  position: absolute;
+  position: relative;
   top: 0;
   right: 0;
   left: 0;
   margin: auto;
+  z-index: -2000;
 }
 
 .relatedmodule .compareTableHelper {
