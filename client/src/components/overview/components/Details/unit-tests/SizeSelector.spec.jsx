@@ -45,11 +45,12 @@ describe('SizeSelector component testing', () => {
         setSelectedSize={result.current.setSelectedSize}
       />,
     );
-    // const sizeSelector = queryByRole('option');
-    // expect(sizeSelector).toBeFalsy();
+    const sizeSelector = queryByRole('option');
+    expect(sizeSelector).toBeFalsy();
   });
   it('Should select a size', () => {
-    render(
+    const setSelectedSize = jest.fn();
+    const { container } = render(
       <SizeSelector
         selectedStyle={result.current.selectedStyle}
         selectedSize={result.current.selectedSize}
@@ -58,13 +59,14 @@ describe('SizeSelector component testing', () => {
         skuRef={result.current.skuRef}
         setProductSkus={result.current.setProductSkus}
         setSkusNull={result.current.setSkusNull}
-        setSelectedSize={result.current.setSelectedSize}
+        setSelectedSize={setSelectedSize}
       />,
     );
     userEvent.selectOptions(
-      screen.getByRole('combobox'),
-      // screen.getByRole('option', { name: 'XS' }),
+      container.querySelector('.sizeSelector option[name="M"]'),
     );
-    // expect(screen.getByRole('option', 'XS').selected).toBe(true);
+    // expect(setSelectedSize).toHaveBeenCalledTimes(1);
+    console.log(container.querySelector('option[name="M"]'));
+    expect(container.querySelector('option[name="M"]').selected).toBe(true);
   });
 });
