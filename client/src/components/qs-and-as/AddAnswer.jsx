@@ -1,6 +1,6 @@
 import { React, useState } from 'react';
 import axios from 'axios';
-import PhotoUpload from './Jay-PhotoUpload-URL';
+import PhotoUpload from './PhotoUpload';
 
 function AddAnswer({ show, q }) {
   const [answer, setAnswer] = useState('');
@@ -28,12 +28,12 @@ function AddAnswer({ show, q }) {
       <form className="qaModalContent" onSubmit={handleSubmit}>
         <h2>Submit your answer</h2>
         <h4>
-          PROUCT NAME:
-          {q.question_body}
+          {document.querySelector('.productName').innerText}
         </h4>
+        <h5>{q.question_body}</h5>
 
         <label> Your answer </label>
-        <textarea type="text" maxLength="1000" value={answer} onChange={(e) => setAnswer(e.target.value)} required />
+        <textarea type="text" maxLength="1000" value={answer} onChange={(e) => setAnswer(e.target.value)} placeholder="answer here" required />
         <span className="characterCount">
           {answer.length}
           /1000
@@ -44,7 +44,7 @@ function AddAnswer({ show, q }) {
         <small>For privacy reasons, do not use your full name or email address</small>
 
         <label className="qaEmailAdd">Your email</label>
-        <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+        <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Example: username@email.com" />
         <small>For authentication reasons, you will not be emailed</small>
 
         <PhotoUpload setPhotos={setPhotos} photos={photos} />
