@@ -12,7 +12,7 @@ function Overview({ productId }) {
   const [selectedPhoto, setSelectedPhoto] = useState('');
 
   useEffect(() => {
-    const productEndpoint = `http://localhost:3000/products/${productId}`;
+    const productEndpoint = `products/${productId}`;
     fetch(productEndpoint)
       .then((res) => res.json())
       .then((result) => {
