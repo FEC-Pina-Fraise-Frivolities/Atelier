@@ -91,6 +91,7 @@ function ComparisonView({ productId, nextId, setCompare }) {
       {ifRender && (
         <div className="compareTable">
           <table className="compareTableHelper">
+            <th>Compare</th>
             <tbody>
               <tr>
                 <td>{nameArr[0]}</td>
