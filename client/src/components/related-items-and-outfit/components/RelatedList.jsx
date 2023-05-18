@@ -66,9 +66,9 @@ function RelatedList({
   }, [productId]);
   return (
     <div className="listAndArrow">
-      <p className="sub-title" id="relatedTitle">
+      <h2 className="sub-title" id="relatedTitle">
         Related Items
-      </p>
+      </h2>
 
       { relateIndex > 0 && (
       <div className="listButton">

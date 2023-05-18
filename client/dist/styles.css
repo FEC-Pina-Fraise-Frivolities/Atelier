@@ -407,7 +407,7 @@
   list-style: none;
   position: absolute;
   left:0px;
-  top: 10px;
+  top: 30px;
 
  }
 
@@ -452,15 +452,16 @@
 .relatedmodule .productName{
   color: white;
   font-size: larger;
-  background-color: rgb(77, 89, 111);
+  background-color: rgb(178, 202, 255);
 }
 
 .relatedmodule .listAndArrow {
-  display: flex;
+  /* display: flex; */
   position: relative;
   width: 1200px;
   height: 400px;
   right: 30px;
+  margin: 10px;
 
 
 }
@@ -565,12 +566,14 @@
 
 
 .relatedmodule .category{
+  margin: 3px;
   color: #9e9e9e;
   position: absolute;
   top: 200px;
 }
 
 .relatedmodule .name{
+  margin: 3px;
   position: absolute;
   top: 220px;
 }
@@ -580,18 +583,25 @@ cursor: pointer
 }
 
 .relatedmodule .price{
+  margin: 3px;
   position: absolute;
-  top: 240px;
+  top: 250px;
+}
+.relatedmodule .originprice{
+  font-size: smaller;
 }
 
 .relatedmodule .ratings{
-
+  margin: 3px;
   position: absolute;
   top: 290px;
 }
 
 .relatedmodule .sub-title {
-  color: #9e9e9e;
+  color: #111;
+  font-family: 'Helvetica Neue', sans-serif;
+  position: relative;
+  left:30px;
 }
 
 .relatedmodule .addCard {

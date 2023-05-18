@@ -35,7 +35,6 @@ function CardDetail({
   ratings, name, originalPrice, salePrice, category,
   photoArr, setProductId, id, setStoreArr, storeArr,
 }) {
-
   const [show, setShow] = useState(false);
   const [imgIndex, setImgIndex] = useState(0);
   const obj = {};
@@ -108,7 +107,7 @@ function CardDetail({
 
       {ifSale && (
       <span className="price">
-        <p>
+        <p className="originprice">
           <s>
             $
             {' '}

@@ -71,9 +71,9 @@ function OutfitList({
   };
   return (
     <div className="listAndArrow">
-      <p className="sub-title">
+      <h2 className="sub-title">
         Your Outfit
-      </p>
+      </h2>
       {outfitIndex > 0 && (
       <div className="listButton">
         {' '}
