@@ -8,4 +8,7 @@ module.exports = {
   },
 
   testEnvironment: 'jsdom',
+  coveragePathIgnorePatterns: [
+    'SampleData.jsx',
+  ],
 };
