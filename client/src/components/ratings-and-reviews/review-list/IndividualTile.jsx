@@ -36,7 +36,12 @@ function IndividualTile({ review }) {
           I recommend this product
         </div>
       ) : null}
-      <div className="response">{review.response ? review.response : ''}</div>
+      {review.response ? (
+        <div className="response">
+          <b>Response:</b>
+          <p>{review.response}</p>
+        </div>
+      ) : null}
       <div className="helpful">
         Helpful?
         {' '}

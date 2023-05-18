@@ -759,9 +759,16 @@ border: 1px solid mediumseagreen;
 border-radius: 5px;
 }
 
-.rating-and-review .review .helpful button:hover {
+.rating-and-review .review .helpful button:hover:enabled {
 background-color: #2AE860;
 color: whitesmoke;
+}
+
+/* response */
+.rating-and-review .review .response {
+  background-color: #dee2e6;
+  padding: 8px;
+  margin: 16px 0px 0px;
 }
 
 /* image */
