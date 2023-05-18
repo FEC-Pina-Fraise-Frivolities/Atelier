@@ -1067,7 +1067,8 @@ color: whitesmoke;
 
 .qa .qListView {
   overflow-y: scroll;
-  height: 500px;
+  height:min-content;
+  max-height: 700px;
  }
 
  .qa .qEntry {
@@ -1079,8 +1080,6 @@ color: whitesmoke;
   flex-direction: row;
   justify-content: flex-start;
   align-items: baseline;
-
-
  }
 
  .qa .qaTitle {
@@ -1098,10 +1097,16 @@ color: whitesmoke;
 }
 
 .qa .qaText {
-  color: #282828;
   font-family: 'Helvetica Neue', sans-serif;
-  font-size: 15px;
-  width: 60%;
+  width: 70%;
+}
+
+.qa .qFoot {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+  font-weight: 300;
+  font-size: smaller;
 }
 
 .qa .qaPoint {
@@ -1159,13 +1164,19 @@ color: whitesmoke;
   flex-direction: row;
   justify-content: flex-start;
   margin-left: 20px;
+  font-weight: 300;
   font-size: smaller;
   gap: 5px;
+}
+
+.qa .qaAddAnswer:hover {
+  color: rgb(51, 51, 205)
 }
 
 .qa .qaMoreAnswer {
   font-weight: bold;
   color: #888;
+  margin-left: 20px;
 }
 
 .qa .qaModal {
@@ -1205,4 +1216,13 @@ color: whitesmoke;
 
  .qa #qaPreview li {
   display: inline-block;
+}
+
+.qa .qaReport:hover {
+color: rgb(242, 118, 118)
+}
+
+.qa .qaYes:hover {
+  color:#00681d;
+  text-decoration: underline;
 }

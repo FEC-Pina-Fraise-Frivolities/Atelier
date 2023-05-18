@@ -14,11 +14,10 @@ function PhotoUpload({ setPhotos, photos }) {
         const $item = $('<li></li>');
         $item.append(image, `<span>${file.name}</span>`);
         $preview.append($item);
-        let photoURL = URL.createObjectURL(file)
-        console.log('This is URLObj:', photoURL)
+        const photoURL = URL.createObjectURL(file);
+        console.log('This is URLObj:', photoURL);
 
-        setPhotos(photos.concat(photoURL))
-
+        setPhotos(photos.concat(photoURL));
 
         if ($preview.find('li').length === 5) {
           $('input[type=file]').toggle();

@@ -26,4 +26,4 @@ const QASearch = (props) => {
 
 };
 
-export default QASearch
+export default QASearch;
