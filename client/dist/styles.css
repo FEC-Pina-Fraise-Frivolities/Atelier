@@ -251,11 +251,15 @@
  #productOverview .galleryView {
   height: 540px;
   display: flex;
-  flex-direction: row-reverse;
-  align-items: flex-start;
-  justify-content: flex-end;
+  flex-direction: row;
   border: 2px solid royalblue;
   flex-basis: 30%;
+  margin-bottom: 12pt;
+}
+
+ #productOverview .galleryView .mainPhotoContainer {
+  height: 540px;
+  width: 540px
  }
 
  #productOverview .galleryView img.mainPhoto {
@@ -290,17 +294,15 @@
 }
 
 #productOverview .galleryView .thumbnails {
-  width: 100%;
   position: relative;
   left: 5px;
-  top: 30px;
-  display: flex;
-  flex-direction: column;
-  width: 100px;
+  top: 15px;
+  display: grid;
+  width: 80px;
   height: 490px;
-  overflow: hidden;
   z-index: 2000;
- }
+  align-content: start;
+}
 
  #productOverview .galleryView .thumbnails::-webkit-scrollbar {
   display: none;
@@ -340,55 +342,48 @@
 
  #productOverview .galleryView .loadPrevThumbs {
   position: relative;
-  align-self: flex-start;
-  right: 35px;
-  bottom: 0px;
   z-index: 2;
   width: 20px;
   height: 20px;
   background-color: powderblue;
   clip-path: polygon(100% 100%, 50% 50%, 0 100%, 50% 0);
-  cursor: pointer
- }
+  cursor: pointer;
+  left: 20px;
+}
 
- #productOverview .galleryView .loadMoreThumbs {
+#productOverview .galleryView .loadMoreThumbs {
   position: relative;
-  align-self: flex-end;
-  left: 25px;
-  bottom: 30px;
+  left: 20px;
   width: 20px;
   height: 20px;
   background-color: powderblue;
   clip-path: polygon(100% 0, 50% 50%, 0 0, 50% 100%);
-  cursor: pointer
- }
+  cursor: pointer;
+  align-self: end;
+}
 
  #productOverview .galleryView .nextPhoto {
-  position: absolute;
-  align-self: top;
+  position: relative;
   z-index: 2;
-  left: 430px;
-  bottom: 250px;
+  top: 250px;
+  left: 500px;
   width: 30px;
   height: 28px;
   background-color: powderblue;
   clip-path: polygon(0 0, 50% 50%, 0 100%, 100% 50%);
-  cursor: pointer
- }
+  cursor: pointer;
+}
 
- #productOverview .galleryView .prevPhoto {
+#productOverview .galleryView .prevPhoto {
   position: absolute;
-  align-self: center;
   z-index: 2;
-  left: 75px;
-  bottom: 250px;
+  top: 250px;
   width: 30px;
   height: 28px;
   background-color: powderblue;
   clip-path: polygon(100% 0, 50% 50%, 100% 100%, 0 50%);
-  cursor: pointer
- }
-
+  cursor: pointer;
+}
  /* ------- Overall layout -------------- */
 
  #productOverview #side-bar {
