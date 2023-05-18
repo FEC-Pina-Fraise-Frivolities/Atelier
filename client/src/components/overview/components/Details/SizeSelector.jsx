@@ -50,6 +50,7 @@ function SizeSelector({
             value={sku[1].size}
             id={sku[0]}
             key={sku[0]}
+            name={sku[1].size}
           >
             {sku[1].size}
           </option>

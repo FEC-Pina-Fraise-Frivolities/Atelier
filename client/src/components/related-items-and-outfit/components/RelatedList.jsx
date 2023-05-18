@@ -51,7 +51,7 @@ function RelatedList({
   const [relateIndex, setRelateIndex] = useState(0);
   useEffect(() => {
     setRelateIndex(0);
-    axios(`/products/${productId}/related`)
+    axios.get(`/products/${productId}/related`)
       .then((res) => res.data)
       .then((result) => {
         const arr = [];
@@ -66,10 +66,23 @@ function RelatedList({
   }, [productId]);
   return (
     <div className="listAndArrow">
-      { relateIndex > 0 && <div className="listButton">
-      <LeftArrow index={relateIndex} setIndex={setRelateIndex} />
-      </div>}
+      <p className="sub-title" id="relatedTitle">
+        Related Items
+      </p>
+
+      { relateIndex > 0 && (
+      <div className="listButton">
+        <LeftArrow index={relateIndex} setIndex={setRelateIndex} />
+      </div>
+      )}
       <ul className="list">
+        {relateArr.length === 0 && (
+        <li className="card">
+          <span className="addCard">
+            <strong>No Related Items</strong>
+          </span>
+        </li>
+        )}
         <RelatedListHelper
           productId={productId}
           setProductId={setProductId}
@@ -80,9 +93,11 @@ function RelatedList({
         />
       </ul>
       { relateIndex + 4 < relateArr.length
-      &&<div className="listButton">
-          <RightArrow index={relateIndex} setIndex={setRelateIndex} />
-      </div>}
+      && (
+      <div className="listButton">
+        <RightArrow index={relateIndex} setIndex={setRelateIndex} />
+      </div>
+      )}
     </div>
   );
 }
