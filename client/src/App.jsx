@@ -13,7 +13,7 @@ function App() {
       <p>{productId}</p>
       <RelatedAndOutfit productId={productId} setProductId={setProductId} />
       <QAIndex productId={productId} />
-      <RatingAndReview productId={productId} /> */}
+      <RatingAndReview productId={productId} />
     </div>
   );
 }
