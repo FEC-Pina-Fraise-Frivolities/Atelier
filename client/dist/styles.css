@@ -133,6 +133,8 @@
   font-weight: bold;
   justify-content: flex-start;
   margin-bottom: 30px;
+  width: 200px;
+  box-shadow: 5px 5px 10px 1px #004E82;
  }
 
  #productOverview .styleSelector .productStyles{
@@ -246,6 +248,11 @@
   display: flex;
   flex-direction: row-reverse;
   max-width: 500px;
+ }
+
+ #productOverview .productFeatures {
+  margin-top:12px;
+  box-shadow: 5px 5px 10px 1px #004E82;
  }
 
  #productOverview .galleryView {
@@ -389,7 +396,8 @@
 
  #productOverview #side-bar {
   margin-left: 46px;
- }
+  display: grid;
+}
 
 
 
