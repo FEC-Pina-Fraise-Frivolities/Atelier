@@ -16,7 +16,7 @@ function Body({ body, photos }) {
   }
 
   function showImageHandler(e) {
-    const id = e.target.id;
+    const { id } = e.target;
     $(`#${id}-modal`).css('display', 'flex');
   }
 
@@ -41,7 +41,7 @@ function Body({ body, photos }) {
           <div className="images">
             {photos.map((photo) => (
               <div className="image" key={photo.id}>
-                <img id={photo.id} src={photo.url} alt="Not Found" key={photo.id} style={{ height: '100px', width: '100px' }} onClick={showImageHandler}/>
+                <img id={photo.id} src={photo.url} alt="Not Found" key={photo.id} style={{ height: '100px', width: '100px' }} onClick={showImageHandler} />
                 <div className="image-modal" id={`${photo.id}-modal`}>
                   <img src={photo.url} alt="Not Found" />
                   <button type="button" onClick={closeImageHandler} value={photo.id}>X</button>

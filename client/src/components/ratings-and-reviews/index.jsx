@@ -1,4 +1,5 @@
-import { React,
+import {
+  React,
   useState,
   useEffect,
   createContext,
@@ -87,7 +88,7 @@ function RatingAndReview({ productId }) {
   }
 
   return (
-    <FilterContext.Provider value={{filterReview, setFilterReview}}>
+    <FilterContext.Provider value={{ filterReview, setFilterReview, buttonToggle, modalHandler, moreReviewHandler, sortReviewHandler }}>
       <div className="rating-and-review">
         <h2 id="subtitle">Ratings and Reviews</h2>
         {reviews.length && Object.keys(reviewMeta).length

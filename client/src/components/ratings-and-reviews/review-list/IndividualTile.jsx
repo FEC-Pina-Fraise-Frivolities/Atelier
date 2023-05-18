@@ -6,7 +6,6 @@ import Body from './Body';
 function IndividualTile({ review }) {
   const [helpfulness, setHelpfulness] = useState(review.helpfulness);
   function helpfulHandler(e) {
-    console.log('click triggered');
     axios.put('/reviews/helpful', { review_id: review.review_id })
       .then(() => {
         setHelpfulness(helpfulness + 1);

@@ -37,7 +37,7 @@ function Overview({ productId }) {
 
   return (
     <div id="productOverview">
-      <div id="top">
+      <div id="gallery-bar">
         <GalleryView
           selectedStyle={selectedStyle}
           selectedPhoto={selectedPhoto}
@@ -45,13 +45,13 @@ function Overview({ productId }) {
           selectedThumb={selectedThumb}
           setSelectedThumb={setSelectedThumb}
         />
+        <Description productData={productData} />
+      </div>
+      <div id="side-bar">
         <Basics
           productData={productData}
           selectedStyle={selectedStyle}
         />
-      </div>
-      <div id="bottom">
-        <Description productData={productData} />
         <ProductDetails
           productData={productData}
           productStyles={productStyles}
