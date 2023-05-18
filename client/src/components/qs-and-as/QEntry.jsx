@@ -1,19 +1,26 @@
-import { React, useState } from 'react';
+import { React, useState, useEffect } from 'react';
 import axios from 'axios';
 import AEntry from './AEntry';
 import AddAnswer from './AddAnswer';
 
 function QEntry({ question }) {
-  const sortedAnswers = Object.values(question.answers)
-    .sort((a, b) => b.helpfulness - a.helpfulness);
-
-  const [answers, setAnswers] = useState(sortedAnswers);
+  const [answers, setAnswers] = useState([]);
   const [aSlice, setASlice] = useState(2);
   const [showAddAnswer, setShowAddAnswer] = useState(false);
 
+  const sortAnswers = () => {
+    const sortedAnswers = Object.values(question.answers)
+      .sort((a, b) => b.helpfulness - a.helpfulness);
+    setAnswers(sortedAnswers);
+  };
+
   const helpfulQuestion = () => {
     axios.put('/qa/questions/:question_id/helpful', { question_id: question.question_id })
-  }
+  };
+
+  useEffect(() => {
+    sortAnswers();
+  }, [question]);
 
   return (
     <div className="qEntry">
@@ -33,10 +40,16 @@ function QEntry({ question }) {
         {showAddAnswer ? <AddAnswer show={setShowAddAnswer} q={question} /> : null}
       </div>
       <div className="aContainer">
-        {answers.slice(0, aSlice).map((a, i) => <AEntry key={i} answer={a} />)}
+        {answers.slice(0, aSlice).map((a) => <AEntry key={a.id} answer={a} />)}
       </div>
-      {aSlice < answers.length ? <div className="qaMoreAnswer qaPoint qFoot" onClick={() => { setASlice(aSlice + 2) }}>Show More Answers &#40;{answers.length - aSlice}&#41;</div> : null}
-      {aSlice > 2 ? <div className="qaMoreAnswer qaPoint qFoot" onClick={() => { setASlice(2) }}>&and;Collapse Answers&and;</div> : null}
+      {aSlice < answers.length ? (
+        <div className="qaMoreAnswer qaPoint qFoot" onClick={() => { setASlice(aSlice + 2); }}>
+          Show More Answers &#40;
+          {answers.length - aSlice}
+          &#41;
+        </div>
+      ) : null}
+      {aSlice > 2 ? <div className="qaMoreAnswer qaPoint qFoot" onClick={() => { setASlice(2); }}>&and;Collapse Answers&and;</div> : null}
     </div>
   );
 }

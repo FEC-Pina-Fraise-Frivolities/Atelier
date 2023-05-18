@@ -45,34 +45,11 @@ function GalleryView(
 
   return (
     <div className="galleryView">
-      <LoadPrev
-        factor={factor}
-        prevThumbs={prevThumbs}
-      />
-      <MainPhotoArrows
-        selectedStyle={selectedStyle}
-        selectedPhoto={selectedPhoto}
-        setSelectedPhoto={setSelectedPhoto}
-        setSelectedThumb={setSelectedThumb}
-        nextThumbs={nextThumbs}
-        prevThumbs={prevThumbs}
-        factor={factor}
-        displayedThumbs={displayedThumbs}
-      />
-      <ExpandedView
-        open={expanded}
-        selectedPhoto={selectedPhoto}
-        onClose={() => setExpanded(false)}
-      />
-      <img
-        className="mainPhoto"
-        src={selectedPhoto}
-        alt={selectedStyle.name}
-        onClick={() => setExpanded(true)}
-      />
-
       <div className="thumbnails">
-
+        <LoadPrev
+          factor={factor}
+          prevThumbs={prevThumbs}
+        />
         {displayedThumbs.map((img) => (
           <Thumbnail
             img={img}
@@ -83,13 +60,36 @@ function GalleryView(
             setSelectedPhoto={setSelectedPhoto}
           />
         ))}
-
+        <LoadNext
+          factor={factor}
+          selectedStyle={selectedStyle}
+          nextThumbs={nextThumbs}
+        />
       </div>
-      <LoadNext
-        factor={factor}
-        selectedStyle={selectedStyle}
-        nextThumbs={nextThumbs}
-      />
+      <div className="mainPhotoContainer">
+        <MainPhotoArrows
+          selectedStyle={selectedStyle}
+          selectedPhoto={selectedPhoto}
+          setSelectedPhoto={setSelectedPhoto}
+          setSelectedThumb={setSelectedThumb}
+          nextThumbs={nextThumbs}
+          prevThumbs={prevThumbs}
+          factor={factor}
+          displayedThumbs={displayedThumbs}
+        />
+        <ExpandedView
+          open={expanded}
+          selectedPhoto={selectedPhoto}
+          onClose={() => setExpanded(false)}
+        />
+        <img
+          className="mainPhoto"
+          src={selectedPhoto}
+          alt={selectedStyle.name}
+          onClick={() => setExpanded(true)}
+        />
+      </div>
+
     </div>
 
   );

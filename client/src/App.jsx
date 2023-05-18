@@ -5,8 +5,10 @@ import RatingAndReview from './components/ratings-and-reviews/index';
 import RelatedAndOutfit from './components/related-items-and-outfit/index';
 
 function App() {
-  const [productId, setProductId] = useState(40478);
-
+  const [productId, setProductId] = useState(40348);
+  document.addEventListener('keydown', (event) => {
+    console.log(`Key: ${event.key} with keycode ${event.keyCode} has been pressed`);
+  });
   return (
     <div>
       <Overview productId={productId} setProductId={setProductId} />
