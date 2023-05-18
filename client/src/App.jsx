@@ -9,8 +9,7 @@ function App() {
 
   return (
     <div>
-      {/* <Overview productId={productId} setProductId={setProductId} /> */}
-      <p>{productId}</p>
+      <Overview productId={productId} setProductId={setProductId} />
       <RelatedAndOutfit productId={productId} setProductId={setProductId} />
       <QAIndex productId={productId} />
       <RatingAndReview productId={productId} />
