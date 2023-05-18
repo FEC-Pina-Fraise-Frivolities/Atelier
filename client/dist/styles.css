@@ -18,11 +18,9 @@
 
  html,
  body {
-  display: flex;
-  flex-direction:column;
-   height: 100%;
-   background-color:white;
-   color:black;
+  height: 100%;
+  background-color:white;
+  color:black;
  }
 
  body {
@@ -70,9 +68,12 @@
  ---------------------------------------------------------------------------------------------------------*/
 
  #productOverview {
-  display: flex;
-  flex-direction: column;
-  width: 80%;
+  display:flex;
+  flex-direction: row;
+  position:relative;
+  top: 0px;
+  left: 0px;
+  margin: 24pt;
  }
 
  #productOverview #top {
@@ -92,7 +93,9 @@
   font-size: larger;
   width: 300px;
   padding: 12pt;
-  margin: 12pt;
+  margin: 12px;
+  margin-left: 0px;
+  margin-top: 0px;
   border: royalblue 3px solid;
  }
 
@@ -119,7 +122,6 @@
  }
 
  #productOverview .productDetails {
-  position: relative;
   max-width: 500px;
   display: flex;
   flex-direction: column;
@@ -247,13 +249,13 @@
  }
 
  #productOverview .galleryView {
-  width: 500px;
   height: 540px;
   display: flex;
   flex-direction: row-reverse;
   align-items: flex-start;
   justify-content: flex-end;
   border: 2px solid royalblue;
+  flex-basis: 30%;
  }
 
  #productOverview .galleryView img.mainPhoto {
@@ -386,6 +388,15 @@
   clip-path: polygon(100% 0, 50% 50%, 100% 100%, 0 50%);
   cursor: pointer
  }
+
+ /* ------- Overall layout -------------- */
+
+ #productOverview #side-bar {
+  margin-left: 46px;
+ }
+
+
+
 /* --------------------------------------------------------------------------------------------------------
  --------------------------------------Related and Outfit--------------------------------------------------
  ---------------------------------------------------------------------------------------------------------*/
@@ -650,7 +661,7 @@ width: 65%;
 }
 
 .rating-and-review #scrollable-list {
-  height: 620px;
+  height: 576px;
   width: 95%;
   margin: auto;
   margin-top: 15px;
@@ -782,6 +793,17 @@ color: whitesmoke;
   height: 75%;
 }
 
+.rating-and-review .review .body .image-modal > button {
+  cursor: pointer;
+}
+
+.rating-and-review .review .body .image > img {
+  cursor: zoom-in;
+}
+
+.rating-and-review .review .body .image > img:hover {
+  border: 2px solid purple
+}
 /* ------------------ Summary ---------------------- */
 .rating-and-review .rating {
   margin-top: 0px;
@@ -1071,7 +1093,8 @@ color: whitesmoke;
 
 .qa .qListView {
   overflow-y: scroll;
-  height: 500px;
+  height:min-content;
+  max-height: 700px;
  }
 
  .qa .qEntry {
@@ -1083,8 +1106,6 @@ color: whitesmoke;
   flex-direction: row;
   justify-content: flex-start;
   align-items: baseline;
-
-
  }
 
  .qa .qaTitle {
@@ -1102,10 +1123,16 @@ color: whitesmoke;
 }
 
 .qa .qaText {
-  color: #282828;
   font-family: 'Helvetica Neue', sans-serif;
-  font-size: 15px;
-  width: 60%;
+  width: 70%;
+}
+
+.qa .qFoot {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+  font-weight: 300;
+  font-size: smaller;
 }
 
 .qa .qaPoint {
@@ -1163,13 +1190,19 @@ color: whitesmoke;
   flex-direction: row;
   justify-content: flex-start;
   margin-left: 20px;
+  font-weight: 300;
   font-size: smaller;
   gap: 5px;
+}
+
+.qa .qaAddAnswer:hover {
+  color: rgb(51, 51, 205)
 }
 
 .qa .qaMoreAnswer {
   font-weight: bold;
   color: #888;
+  margin-left: 20px;
 }
 
 .qa .qaModal {
@@ -1209,4 +1242,13 @@ color: whitesmoke;
 
  .qa #qaPreview li {
   display: inline-block;
+}
+
+.qa .qaReport:hover {
+color: rgb(242, 118, 118)
+}
+
+.qa .qaYes:hover {
+  color:#00681d;
+  text-decoration: underline;
 }
