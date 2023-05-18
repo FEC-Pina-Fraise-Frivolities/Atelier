@@ -69,7 +69,7 @@
 
  #productOverview {
   display:flex;
-  flex-direction: column;
+  flex-direction: row;
   position:relative;
   top: 0px;
   left: 0px;
@@ -89,7 +89,9 @@
   font-size: larger;
   width: 300px;
   padding: 12pt;
-  margin: 12pt;
+  margin: 12px;
+  margin-left: 0px;
+  margin-top: 0px;
   border: royalblue 3px solid;
  }
 
@@ -116,9 +118,6 @@
  }
 
  #productOverview .productDetails {
-  position: relative;
-  right: 50px;
-  top: 300px;
   max-width: 500px;
   display: flex;
   flex-direction: column;
@@ -246,13 +245,13 @@
  }
 
  #productOverview .galleryView {
-  width: 500px;
   height: 540px;
   display: flex;
   flex-direction: row-reverse;
   align-items: flex-start;
   justify-content: flex-end;
   border: 2px solid royalblue;
+  flex-basis: 30%;
  }
 
  #productOverview .galleryView img.mainPhoto {
@@ -381,6 +380,15 @@
   clip-path: polygon(100% 0, 50% 50%, 100% 100%, 0 50%);
   cursor: pointer
  }
+
+ /* ------- Overall layout -------------- */
+
+ #productOverview #side-bar {
+  margin-left: 46px;
+ }
+
+
+
 /* --------------------------------------------------------------------------------------------------------
  --------------------------------------Related and Outfit--------------------------------------------------
  ---------------------------------------------------------------------------------------------------------*/
