@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import placeholderImage from '../../assets/index';
 import {
-  Basics, Description, GalleryView, ProductDetails,
+  Basics, Description,
+  Features,
+  GalleryView, ProductDetails,
 } from './index';
 
 function Overview({ productId }) {
@@ -10,13 +12,15 @@ function Overview({ productId }) {
   const [selectedStyle, setSelectedStyle] = useState({});
   const [selectedThumb, setSelectedThumb] = useState('');
   const [selectedPhoto, setSelectedPhoto] = useState('');
+  const [features, setFeatures] = useState([]);
 
   useEffect(() => {
-    const productEndpoint = `http://localhost:3000/products/${productId}`;
+    const productEndpoint = `products/${productId}`;
     fetch(productEndpoint)
       .then((res) => res.json())
       .then((result) => {
         setProductData(result);
+        setFeatures(result.features);
       })
       .catch((err) => {
         console.log('get product data failed', err);
@@ -37,7 +41,7 @@ function Overview({ productId }) {
 
   return (
     <div id="productOverview">
-      <div id="top">
+      <div id="gallery-bar">
         <GalleryView
           selectedStyle={selectedStyle}
           selectedPhoto={selectedPhoto}
@@ -45,13 +49,13 @@ function Overview({ productId }) {
           selectedThumb={selectedThumb}
           setSelectedThumb={setSelectedThumb}
         />
+        <Description productData={productData} selectedStyle={selectedStyle} />
+      </div>
+      <div id="side-bar">
         <Basics
           productData={productData}
           selectedStyle={selectedStyle}
         />
-      </div>
-      <div id="bottom">
-        <Description productData={productData} />
         <ProductDetails
           productData={productData}
           productStyles={productStyles}
@@ -61,6 +65,7 @@ function Overview({ productId }) {
           setSelectedPhoto={setSelectedPhoto}
           setSelectedThumb={setSelectedThumb}
         />
+        <Features features={features} />
       </div>
     </div>
   );
