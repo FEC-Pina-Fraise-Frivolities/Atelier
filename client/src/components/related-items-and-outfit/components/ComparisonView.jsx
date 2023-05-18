@@ -37,7 +37,7 @@ function CompareHelper({ obj }) {
   return (
     featureArr.map((arr) => (
       <tbody key={arr[0]}>
-        <tr>
+        <tr className="featureLine">
           <td>{arr[1]}</td>
           <td>{arr[0]}</td>
           <td>{arr[2]}</td>
@@ -91,9 +91,9 @@ function ComparisonView({ productId, nextId, setCompare }) {
       {ifRender && (
         <div className="compareTable">
           <table className="compareTableHelper">
-            <th>Compare</th>
+            <th className="tableTitle">Compare</th>
             <tbody>
-              <tr>
+              <tr className="productName">
                 <td>{nameArr[0]}</td>
                 <td>{' '}</td>
                 <td>{nameArr[1]}</td>

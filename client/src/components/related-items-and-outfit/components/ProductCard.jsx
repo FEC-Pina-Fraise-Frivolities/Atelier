@@ -5,7 +5,7 @@ import CardDetail from './CardDetail';
 function ProductCard({
   id, setProductId, setStoreArr, storeArr,
 }) {
-  const [ratings, setRatings] = useState(NaN);
+  const [ratings, setRatings] = useState(0);
   const [category, setCategory] = useState('');
   const [name, setName] = useState('');
   const [originalPrice, setOiginalPrice] = useState(0);
@@ -16,13 +16,14 @@ function ProductCard({
       .then((res) => res.data)
       .then((result) => {
         // find the rate
+
         let count = 0;
         let total = 0;
         for (const num in result.ratings) {
           total += parseInt(result.ratings[num]) * parseInt(num);
           count += parseInt(result.ratings[num]);
         }
-        setRatings((total / count).toFixed(2));
+        setRatings((total / count).toFixed(1));
       })
       .then(
         axios.get(`/products/${id}/styles`)

@@ -69,12 +69,20 @@ function RelatedList({
       <p className="sub-title" id="relatedTitle">
         Related Items
       </p>
+
       { relateIndex > 0 && (
       <div className="listButton">
         <LeftArrow index={relateIndex} setIndex={setRelateIndex} />
       </div>
       )}
       <ul className="list">
+        {relateArr.length === 0 && (
+        <li className="card">
+          <span className="addCard">
+            <strong>No Related Items</strong>
+          </span>
+        </li>
+        )}
         <RelatedListHelper
           productId={productId}
           setProductId={setProductId}
