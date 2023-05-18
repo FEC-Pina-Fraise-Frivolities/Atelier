@@ -96,7 +96,7 @@
   margin: 12px;
   margin-left: 0px;
   margin-top: 0px;
-  border: royalblue 3px solid;
+  box-shadow: 5px 5px 10px 1px #004E82;
  }
 
  #productOverview .basics .productCategory {
@@ -116,9 +116,9 @@
 
  #productOverview .productDescription {
   position: relative;
-  width: 400px;
+  width: 540px;
   height: 150px;
-  border: 3px solid royalblue;
+  box-shadow: 5px 5px 10px 1px #004E82;
  }
 
  #productOverview .productDetails {
@@ -255,6 +255,7 @@
   border: 2px solid royalblue;
   flex-basis: 30%;
   margin-bottom: 12pt;
+  box-shadow: 5px 5px 10px 1px #004E82;
 }
 
  #productOverview .galleryView .mainPhotoContainer {

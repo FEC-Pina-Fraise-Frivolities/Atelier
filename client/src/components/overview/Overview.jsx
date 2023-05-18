@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import placeholderImage from '../../assets/index';
 import {
-  Basics, Description, GalleryView, ProductDetails,
+  Basics, Description,
+  Features,
+  GalleryView, ProductDetails,
 } from './index';
 
 function Overview({ productId }) {
@@ -10,6 +12,7 @@ function Overview({ productId }) {
   const [selectedStyle, setSelectedStyle] = useState({});
   const [selectedThumb, setSelectedThumb] = useState('');
   const [selectedPhoto, setSelectedPhoto] = useState('');
+  const [features, setFeatures] = useState([]);
 
   useEffect(() => {
     const productEndpoint = `products/${productId}`;
@@ -17,6 +20,7 @@ function Overview({ productId }) {
       .then((res) => res.json())
       .then((result) => {
         setProductData(result);
+        setFeatures(result.features);
       })
       .catch((err) => {
         console.log('get product data failed', err);
@@ -45,7 +49,7 @@ function Overview({ productId }) {
           selectedThumb={selectedThumb}
           setSelectedThumb={setSelectedThumb}
         />
-        <Description productData={productData} />
+        <Description productData={productData} selectedStyle={selectedStyle} />
       </div>
       <div id="side-bar">
         <Basics
@@ -61,6 +65,7 @@ function Overview({ productId }) {
           setSelectedPhoto={setSelectedPhoto}
           setSelectedThumb={setSelectedThumb}
         />
+        <Features features={features} />
       </div>
     </div>
   );
