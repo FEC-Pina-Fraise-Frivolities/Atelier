@@ -7,7 +7,7 @@ const MODAL_STYLES = {
   top: '50%',
   left: '50%',
   transform: 'translate(-50%, -50%)',
-  backgroundColor: 'rgba(72, 61, 139, .7)',
+  backgroundColor: 'rgba(0, 78, 130, .7)',
   padding: '50px',
   zIndex: 1000,
   width: '100%',
@@ -58,6 +58,9 @@ function ExpandedView({ open, selectedPhoto, onClose }) {
           if (e.target.id !== 'modalPhoto') {
             onClose();
           } return null;
+        }}
+        onKeyDown={(e) => {
+          console.log('e: ', e.key);
         }}
       >
         <img
