@@ -67,7 +67,7 @@ function RelatedList({
   return (
     <div className="listAndArrow">
       <h2 className="sub-title" id="relatedTitle">
-        Related Items
+        RELATED ITEMS
       </h2>
 
       { relateIndex > 0 && (

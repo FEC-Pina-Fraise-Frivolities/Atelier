@@ -90,7 +90,7 @@ function RatingAndReview({ productId }) {
   return (
     <FilterContext.Provider value={{ filterReview, setFilterReview, buttonToggle, modalHandler, moreReviewHandler, sortReviewHandler }}>
       <div className="rating-and-review">
-        <h2 id="subtitle">Ratings and Reviews</h2>
+        <h2 id="subtitle">RATINGS & REVIEWS</h2>
         {reviews.length && Object.keys(reviewMeta).length
           ? (
             <>
