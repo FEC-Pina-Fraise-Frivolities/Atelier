@@ -25,6 +25,12 @@ function GalleryView(
   const [factor, setFactor] = useState(0);
   const [expanded, setExpanded] = useState(false);
 
+  document.addEventListener('keydown', (event) => {
+    if (event.keyCode === 27) {
+      setExpanded(false);
+    }
+  });
+
   const nextThumbs = () => {
     if ((factor + 1) * 7 < selectedStyle.photos.length) {
       setFactor((currFactor) => currFactor + 1);
