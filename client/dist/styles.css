@@ -96,7 +96,7 @@
   margin: 12px;
   margin-left: 0px;
   margin-top: 0px;
-  box-shadow: 5px 5px 10px 1px black;
+  box-shadow: 5px 5px 10px 1px #888888;
  }
 
  #productOverview .basics .productCategory {
@@ -118,7 +118,7 @@
   position: relative;
   width: 540px;
   height: 150px;
-  box-shadow: 5px 5px 10px 1px black;
+  box-shadow: 5px 5px 10px 1px #888888;
  }
 
  #productOverview .productDetails {
@@ -133,7 +133,7 @@
   justify-content: flex-start;
   margin-bottom: 30px;
   width: 200px;
-  box-shadow: 5px 5px 10px 1px black;
+  box-shadow: 5px 5px 10px 1px #888888;
  }
 
  #productOverview .styleSelector .productStyles{
@@ -251,17 +251,17 @@
 
  #productOverview .productFeatures {
   margin-top:12px;
-  box-shadow: 5px 5px 10px 1px black;
+  box-shadow: 5px 5px 10px 1px #888888;
  }
 
  #productOverview .galleryView {
   height: 540px;
   display: flex;
   flex-direction: row;
-  border: 2px solid black;
+  border: 2px solid #888888;
   flex-basis: 30%;
   margin-bottom: 12pt;
-  box-shadow: 5px 5px 10px 1px black;
+  box-shadow: 5px 5px 10px 1px #888888;
 }
 
  #productOverview .galleryView .mainPhotoContainer {
@@ -297,7 +297,7 @@
   margin-right: 12px;
   margin-bottom: 4pt;
   border: 2px solid cornflowerblue;
-  z-index: 2000;
+  z-index: 10;
 }
 
 #productOverview .galleryView .thumbnails {
@@ -307,7 +307,7 @@
   display: grid;
   width: 80px;
   height: 490px;
-  z-index: 2000;
+  z-index: 10;
   align-content: start;
 }
 
@@ -352,7 +352,7 @@
   z-index: 2;
   width: 20px;
   height: 20px;
-  background-color: black;
+  background-color: #888888;
   clip-path: polygon(100% 100%, 50% 50%, 0 100%, 50% 0);
   cursor: pointer;
   left: 20px;
@@ -363,7 +363,7 @@
   left: 20px;
   width: 20px;
   height: 20px;
-  background-color: black;
+  background-color: #888888;
   clip-path: polygon(100% 0, 50% 50%, 0 0, 50% 100%);
   cursor: pointer;
   align-self: end;
@@ -376,7 +376,7 @@
   left: 500px;
   width: 30px;
   height: 28px;
-  background-color: black;
+  background-color: #888888;
   clip-path: polygon(0 0, 50% 50%, 0 100%, 100% 50%);
   cursor: pointer;
 }
@@ -387,7 +387,7 @@
   top: 250px;
   width: 30px;
   height: 28px;
-  background-color: black;
+  background-color: #888888;
   clip-path: polygon(100% 0, 50% 50%, 100% 100%, 0 50%);
   cursor: pointer;
 }

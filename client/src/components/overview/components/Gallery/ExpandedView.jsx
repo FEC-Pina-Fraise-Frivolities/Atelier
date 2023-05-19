@@ -7,7 +7,7 @@ const MODAL_STYLES = {
   top: '50%',
   left: '50%',
   transform: 'translate(-50%, -50%)',
-  backgroundColor: 'rgba(0, 78, 130, .7)',
+  backgroundColor: 'rgba(136, 136, 136, .7)',
   padding: '50px',
   zIndex: 1000,
   width: '100%',
@@ -20,7 +20,7 @@ const OVERLAY_STYLES = {
   left: 0,
   right: 0,
   bottom: 0,
-  backgroundColor: 'rgba(0, 0, 0, .7)',
+  backgroundColor: 'rgba(136, 136, 136, .7)',
   zIndex: 1000,
 };
 
