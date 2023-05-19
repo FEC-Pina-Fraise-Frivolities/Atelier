@@ -76,12 +76,16 @@
   margin: 24pt;
  }
 
- #productOverview .top {
-  width: 25%;
+ #productOverview #top {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
  }
 
- #productOverview .bottom {
-  width: 25%;
+ #productOverview #bottom {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
  }
 
  #productOverview .basics {
@@ -92,7 +96,7 @@
   margin: 12px;
   margin-left: 0px;
   margin-top: 0px;
-  border: royalblue 3px solid;
+  box-shadow: 5px 5px 10px 1px #004E82;
  }
 
  #productOverview .basics .productCategory {
@@ -112,9 +116,9 @@
 
  #productOverview .productDescription {
   position: relative;
-  width: 400px;
+  width: 540px;
   height: 150px;
-  border: 3px solid royalblue;
+  box-shadow: 5px 5px 10px 1px #004E82;
  }
 
  #productOverview .productDetails {
@@ -126,9 +130,10 @@
 
  #productOverview .styleSelector .selectedStyleName {
   font-size: large;
-  font-weight: bold;
   justify-content: flex-start;
   margin-bottom: 30px;
+  width: 200px;
+  box-shadow: 5px 5px 10px 1px #004E82;
  }
 
  #productOverview .styleSelector .productStyles{
@@ -244,14 +249,24 @@
   max-width: 500px;
  }
 
+ #productOverview .productFeatures {
+  margin-top:12px;
+  box-shadow: 5px 5px 10px 1px #004E82;
+ }
+
  #productOverview .galleryView {
   height: 540px;
   display: flex;
-  flex-direction: row-reverse;
-  align-items: flex-start;
-  justify-content: flex-end;
+  flex-direction: row;
   border: 2px solid royalblue;
   flex-basis: 30%;
+  margin-bottom: 12pt;
+  box-shadow: 5px 5px 10px 1px #004E82;
+}
+
+ #productOverview .galleryView .mainPhotoContainer {
+  height: 540px;
+  width: 540px
  }
 
  #productOverview .galleryView img.mainPhoto {
@@ -282,19 +297,19 @@
   margin-right: 12px;
   margin-bottom: 4pt;
   border: 2px solid cornflowerblue;
+  z-index: 2000;
 }
 
 #productOverview .galleryView .thumbnails {
-  width: 100%;
   position: relative;
   left: 5px;
-  top: 30px;
-  display: flex;
-  flex-direction: column;
-  width: 100px;
+  top: 15px;
+  display: grid;
+  width: 80px;
   height: 490px;
-  overflow: hidden;
- }
+  z-index: 2000;
+  align-content: start;
+}
 
  #productOverview .galleryView .thumbnails::-webkit-scrollbar {
   display: none;
@@ -305,6 +320,7 @@
   height: 100%;
   object-fit: cover;
   cursor: pointer;
+  z-index: 2000;
  }
 
  #productOverview .galleryView img.thumb:hover {
@@ -328,67 +344,59 @@
   font-size: small;
   font-weight: lighter;
   border: 2px skyblue solid;
+  z-index:9000;
  }
 
  #productOverview .galleryView .loadPrevThumbs {
   position: relative;
-  align-self: flex-start;
-  right: 35px;
-  bottom: 0px;
   z-index: 2;
   width: 20px;
   height: 20px;
   background-color: powderblue;
   clip-path: polygon(100% 100%, 50% 50%, 0 100%, 50% 0);
-  cursor: pointer
- }
+  cursor: pointer;
+  left: 20px;
+}
 
- #productOverview .galleryView .loadMoreThumbs {
+#productOverview .galleryView .loadMoreThumbs {
   position: relative;
-  align-self: flex-end;
-  left: 25px;
-  bottom: 30px;
+  left: 20px;
   width: 20px;
   height: 20px;
   background-color: powderblue;
   clip-path: polygon(100% 0, 50% 50%, 0 0, 50% 100%);
-  cursor: pointer
- }
+  cursor: pointer;
+  align-self: end;
+}
 
  #productOverview .galleryView .nextPhoto {
-  position: absolute;
-  align-self: top;
+  position: relative;
   z-index: 2;
-  left: 430px;
-  bottom: 250px;
+  top: 250px;
+  left: 500px;
   width: 30px;
   height: 28px;
   background-color: powderblue;
   clip-path: polygon(0 0, 50% 50%, 0 100%, 100% 50%);
-  cursor: pointer
- }
+  cursor: pointer;
+}
 
- #productOverview .galleryView .prevPhoto {
+#productOverview .galleryView .prevPhoto {
   position: absolute;
-  align-self: center;
   z-index: 2;
-  left: 75px;
-  bottom: 250px;
+  top: 250px;
   width: 30px;
   height: 28px;
   background-color: powderblue;
   clip-path: polygon(100% 0, 50% 50%, 100% 100%, 0 50%);
-  cursor: pointer
- }
-
+  cursor: pointer;
+}
  /* ------- Overall layout -------------- */
 
  #productOverview #side-bar {
   margin-left: 46px;
- }
-
-
-
+  display: grid;
+}
 /* --------------------------------------------------------------------------------------------------------
  --------------------------------------Related and Outfit--------------------------------------------------
  ---------------------------------------------------------------------------------------------------------*/
@@ -415,7 +423,7 @@
   list-style: none;
   position: absolute;
   left:0px;
-  top: 10px;
+  top: 30px;
 
  }
 
@@ -460,7 +468,7 @@
 .relatedmodule .productName{
   color: white;
   font-size: larger;
-  background-color: rgb(77, 89, 111);
+  background-color: rgb(178, 202, 255);
 }
 
 .relatedmodule .listAndArrow {
@@ -469,6 +477,7 @@
   width: 1200px;
   height: 400px;
   right: 30px;
+  margin: 10px;
 
 
 }
@@ -591,6 +600,9 @@ cursor: pointer
   position: absolute;
   top: 240px;
 }
+.relatedmodule .originprice{
+  font-size: smaller;
+}
 
 .relatedmodule .ratings{
 
@@ -599,7 +611,8 @@ cursor: pointer
 }
 
 .relatedmodule .sub-title {
-  color: #9e9e9e;
+  color: #111;
+  font-family: 'Helvetica Neue', sans-serif;
 }
 
 .relatedmodule .addCard {

@@ -2,29 +2,22 @@ import React from 'react';
 import $ from 'jquery';
 
 function PhotoUpload({ setPhotos, photos }) {
-  function previewFiles(e) {
+  function previewFiles() {
     const $preview = $('#qaPreview');
     const $files = $('input[type=file]').prop('files');
 
     function readAndPreview(file) {
-      const reader = new FileReader();
-      reader.addEventListener('load', () => {
-        const image = new Image(100, 100);
-        image.src = reader.result;
-        const $item = $('<li></li>');
-        $item.append(image, `<span>${file.name}</span>`);
-        $preview.append($item);
-        const photoURL = URL.createObjectURL(file);
-        console.log('This is URLObj:', photoURL);
+      const url = URL.createObjectURL(file);
+      const image = new Image(100, 100);
+      image.src = url;
+      const $item = $('<li></li>');
+      $item.append(image, `<span>${file.name}</span>`);
+      $preview.append($item);
+      setPhotos(photos.concat(url));
 
-        setPhotos(photos.concat(photoURL));
-
-        if ($preview.find('li').length === 5) {
-          $('input[type=file]').toggle();
-        }
-      }, false);
-
-      reader.readAsDataURL(file);
+      if ($preview.find('li').length === 5) {
+        $('input[type=file]').toggle();
+      }
     }
     if ($files) {
       Array.prototype.forEach.call($files, readAndPreview);
@@ -37,8 +30,8 @@ function PhotoUpload({ setPhotos, photos }) {
         Upload photos
         <small> (5 max)</small>
       </p>
-      <input name="photos" type="file" accept=".png, .jpg, .jpeg" multiple onChange={previewFiles}></input>
-      <ul id="qaPreview"></ul>
+      <input name="photos" type="file" accept=".png, .jpg, .jpeg" multiple onChange={previewFiles} />
+      <ul id="qaPreview" />
     </div>
   );
 }

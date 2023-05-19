@@ -12,7 +12,7 @@ function AddToCart({
       return;
     }
     const skuId = skuRef.current;
-    const endpoint = 'http://localhost:3000/cart';
+    const endpoint = '/cart';
     const options = {
       method: 'POST',
       headers: {

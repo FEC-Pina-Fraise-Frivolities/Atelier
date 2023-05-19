@@ -7,6 +7,7 @@ export { default as ProductDetails } from './components/Details/ProductDetails';
 export { default as QuantitySelector } from './components/Details/QuantitySelector';
 export { default as SizeSelector } from './components/Details/SizeSelector';
 export { default as StyleSelector } from './components/Details/StyleSelector';
+export { default as Features } from './components/Features';
 export { default as GalleryView } from './components/Gallery/GalleryView';
 export { default as Checkbox } from './components/utils/Checkbox';
 // root export file

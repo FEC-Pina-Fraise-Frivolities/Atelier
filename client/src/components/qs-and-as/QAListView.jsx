@@ -21,7 +21,7 @@ function QAListView({ productId }) {
 
   useEffect(() => {
     getAllQuestions();
-  }, []);
+  }, [productId]);
 
   return (
     <div>
@@ -29,7 +29,7 @@ function QAListView({ productId }) {
         <QASearch setQuestions={setQuestions} questions={questionsRaw} reset={getAllQuestions} />
       </div>
       <div className="qListView">
-        {questions.slice(0, qSlice).map((q, i) => <QEntry key={i} question={q} />)}
+        {questions.slice(0, qSlice).map((q) => <QEntry key={q.question_id} question={q} />)}
         {qSlice < questions.length ? <button className="qaMoreQ" type="button" onClick={() => { setQSlice(qSlice + 2); }}>MORE ANSWERED QUESTIONS</button> : null}
         <button className="qaMoreQ" type="button" onClick={() => { setAddQuestion(true); }}>{questions.length === 0 ? 'Be the first to ask!' : 'ADD A QUESTION'}</button>
         <div>

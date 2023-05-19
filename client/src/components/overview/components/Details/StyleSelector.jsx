@@ -14,7 +14,7 @@ function StyleSelector(
 ) {
   return (
     <div className="styleSelector">
-      <div className="selectedStyleName">{selectedStyle.name}</div>
+      <div className="selectedStyleName"><em>{selectedStyle.name}</em></div>
       <div className="productStyles">
         {productStyles.map((style) => (
           <StylePhoto

@@ -37,7 +37,7 @@ function AEntry({ answer }) {
         <div className="qaText">{answer.body}</div>
       </div>
       <div className="aPictureContainer">
-        {answer.photos.map((pic) => <img className="aPicture" alt="" src={pic} key={pic} width="70" height="50" onClick={() => pictureModal(pic)} />)}
+        {answer.photos.map((pic, i) => <img className="aPicture" alt="" src={pic} key={i} width="70" height="50" onClick={() => pictureModal(pic)} />)}
       </div>
       {showPicture ? (
         <div className="qaModal">

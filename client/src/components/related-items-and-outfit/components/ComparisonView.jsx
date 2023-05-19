@@ -94,9 +94,9 @@ function ComparisonView({ productId, nextId, setCompare }) {
             <th className="tableTitle">Compare</th>
             <tbody>
               <tr className="productName">
-                <td>{nameArr[0]}</td>
+                <td><strong>{nameArr[0]}</strong></td>
                 <td>{' '}</td>
-                <td>{nameArr[1]}</td>
+                <td><strong>{nameArr[1]}</strong></td>
               </tr>
             </tbody>
             <CompareHelper obj={featureObj} />
