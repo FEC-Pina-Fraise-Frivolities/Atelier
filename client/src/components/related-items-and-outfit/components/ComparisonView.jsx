@@ -18,7 +18,7 @@ function CompareHelper({ obj }) {
       }
       featureArr[i].push(singal);
     } else {
-      featureArr[i].push('not mentioned');
+      featureArr[i].push(' ');
     }
     if (obj[feature].comparedId !== undefined) {
       let singal = obj[feature].comparedId;
@@ -30,7 +30,7 @@ function CompareHelper({ obj }) {
       }
       featureArr[i].push(singal);
     } else {
-      featureArr[i].push('not mentioned');
+      featureArr[i].push(' ');
     }
   }
 
