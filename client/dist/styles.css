@@ -397,9 +397,6 @@
   margin-left: 46px;
   display: grid;
 }
-
-
-
 /* --------------------------------------------------------------------------------------------------------
  --------------------------------------Related and Outfit--------------------------------------------------
  ---------------------------------------------------------------------------------------------------------*/
@@ -426,7 +423,7 @@
   list-style: none;
   position: absolute;
   left:0px;
-  top: 10px;
+  top: 30px;
 
  }
 
@@ -434,12 +431,11 @@
   height:200px;
   max-width: 100%;
   object-fit: cover;
-  position: relative;
+  position: absolute;
   top: 0;
   right: 0;
   left: 0;
   margin: auto;
-  z-index: -2000;
 }
 
 .relatedmodule .compareTableHelper {
@@ -472,7 +468,7 @@
 .relatedmodule .productName{
   color: white;
   font-size: larger;
-  background-color: rgb(77, 89, 111);
+  background-color: rgb(178, 202, 255);
 }
 
 .relatedmodule .listAndArrow {
@@ -481,6 +477,7 @@
   width: 1200px;
   height: 400px;
   right: 30px;
+  margin: 10px;
 
 
 }
@@ -603,6 +600,9 @@ cursor: pointer
   position: absolute;
   top: 240px;
 }
+.relatedmodule .originprice{
+  font-size: smaller;
+}
 
 .relatedmodule .ratings{
 
@@ -611,7 +611,8 @@ cursor: pointer
 }
 
 .relatedmodule .sub-title {
-  color: #9e9e9e;
+  color: #111;
+  font-family: 'Helvetica Neue', sans-serif;
 }
 
 .relatedmodule .addCard {
