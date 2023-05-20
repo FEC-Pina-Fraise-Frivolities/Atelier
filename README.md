@@ -1,35 +1,116 @@
 # Atelier
 
-## Inital Set up
+## Getting Started
 
-### _Download our repo into your local computer_ ###
+---
 
-- **git clone [remote-repo-URL]**: Makes a copy of the specified repository, but on your local computer. Also creates a working directory that has files arranged exactly like the most recent snapshot in the download repository. Also records the URL of the remote repository for subsequent network data transfers, and gives it the special remote-repo-name “origin”.
+This section provides instructions on how to set up Atelier locally.
+To get a local copy up and running follow these simple steps below.
 
-### _Set up your local computer and create branches_ ###
+### Prerequisites
 
-- **git remote add [remote-repo-name] [remote-repo-URL]**: Records a new location for network data transfers.
+Install npm and node.js in your local
+* The command below will install both npm and node.js
+  ```sh
+  npm install -g npm
+  ```
 
-- **git remote -v**: Lists all locations for network data transfers.
+### Installation
 
-- **git branch [new-branch-name]**: The following command will create a branch off of your current branch.
+_Below contains the instruction on how to download this repo and initalize in your local._
 
-- **git checkout [destination-branch]**: This command lets you switch from one branch to another by changing which branch your [HEAD] pointer references.
+1. Get your github token. [see details instruction on github](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token#creating-a-fine-grained-personal-access-token)
+2. Clone the repo
+   ```sh
+   git clone https://github.com/FEC-Pina-Fraise-Frivolities/Atelier.git
+   ```
+3. Install dependencies
+   ```sh
+   npm install
+   ```
+4. Create `.env` file in the root directory
+5. Enter your github token in `.env`
+   ```js
+   AUTH = 'enter your github token'
+   PORT = 3000
+   ```
 
-- **git branch -v**: You can easily figure out which branch you are on with this command:
+## Usage
 
-### _Push your change into our repo_ ###
-- **git push [remote-name] [remote-branch]**: You may wish to update the contents of a remote repo by adding some commits that you made locally.
+---
 
-### _Merging and resolving conflicts_ ###
-Switch back to the master branch and pull the latest master branch from github
-- **git checkout [base-branch-name]**: Switch back to the master branch
-- **git pull origin**: Pull the latest master branch
+The project Atelier creates a template for developers who are interested in developing a simple e-commerce site. You can easily switch ```endpoint``` in `server/controller` folder so that the website will fetch data in your desired API. See below for an example
 
-Rebase your branch (option 1)
-- **git checkout [branch-name]**: Switch back to the working branch
-- **git rebase [base-branch-name]**: Rebase your working branch with the latest master branch
+```javascript
+const axios = require('axios');
 
-Merge your branch (option 2)
-- **git checkout [branch-name]**: Switch back to the working branch
-- **git merge [base-branch-name]**: Merge your working branch with the latest master branch
+module.exports = {
+  getProducts(req, res) {
+    const endpoint = 'your API endpoint';
+    const option = {
+      method: 'GET',
+      url: endpoint,
+      headers: {
+        Authorization: process.env.AUTH,
+      },
+    };
+    axios(option)
+      .then((result) => {
+        res.send(result.data);
+      })
+      .catch((err) => console.log('server: get products failed', err));
+  },
+
+  getProduct(req, res) {
+    const { productId } = req.params;
+    const endpoint = 'your API endpoint';
+    const option = {
+      method: 'GET',
+      url: endpoint,
+      headers: {
+        Authorization: process.env.AUTH,
+      },
+    };
+    axios(option)
+      .then((result) => {
+        res.send(result.data);
+      })
+      .catch((err) => console.log('server: get product detail failed', err))
+      .finally(console.log('req params: ', req.params));
+  },
+
+  getProductStyle(req, res) {
+    const { productId } = req.params;
+    const endpoint = 'your API endpoint';
+    const option = {
+      method: 'GET',
+      url: endpoint,
+      headers: {
+        Authorization: process.env.AUTH,
+      },
+    };
+    axios(option)
+      .then((result) => {
+        res.send(result.data);
+      })
+      .catch((err) => console.log('server: get product style failed', err));
+  },
+
+  getRelated(req, res) {
+    const { productId } = req.params;
+    const endpoint = 'your API endpoint';
+    const option = {
+      method: 'GET',
+      url: endpoint,
+      headers: {
+        Authorization: process.env.AUTH,
+      },
+    };
+    axios(option)
+      .then((result) => {
+        res.send(result.data);
+      })
+      .catch((err) => console.log('server: get related list failed', err));
+  },
+};
+```
