@@ -42,7 +42,7 @@
 
 Hello, and welcome to your next e-commerce destination! This is a project developed by the Pina Fraise Frivolities Team to implement an e-commerce front-end that will give Amazon a run for it's money! The key features of this project include:
 
-#### Product Overview
+### Product Overview
 [![Product Name Screen Shot][product-overview-screenshot]](https://github.com/FEC-Pina-Fraise-Frivolities/Atelier/)
 
 This component lists all of the information about your hot product. It features:
@@ -52,7 +52,7 @@ This component lists all of the information about your hot product. It features:
 * Product category, name, and price that dynamically re-render on style selection
 * Product description and features
 
-#### Related Items and Outfit
+### Related Items and Outfit
 [![Related Items Screen Shot][related-items-screenshot]](https://github.com/FEC-Pina-Fraise-Frivolities/Atelier/)
 
 This component lists the related items and the outfit items. It features:
@@ -62,15 +62,21 @@ This component lists the related items and the outfit items. It features:
 * Show the comparison table of current product and the product on the card
 * Edit the items in the outfit list
 
-#### Questions and Answers
+### Questions and Answers
 [![Questions and Answers Screen Shot][qs-and-as-screenshot]](https://github.com/FEC-Pina-Fraise-Frivolities/Atelier/)
 
-#### Ratings and Reviews
+### Ratings and Reviews
 [![Ratings and Reviews Screen Shot][ratings-and-reviews-screenshot]](https://github.com/FEC-Pina-Fraise-Frivolities/Atelier/)
+
+This component lists the ratings and reviews for the selected product. It features:
+
+* A overall rating section with averaged rating and breakdown
+* A review list containing individual reviews with a button to load more reviews
+* A pop-up review form for the user to add reviews
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-### Built With
+## Built With
 
 * [![React][React.js]][React-url]
 * [![JQuery][JQuery.com]][JQuery-url]
