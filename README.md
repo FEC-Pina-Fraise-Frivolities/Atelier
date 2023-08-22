@@ -65,6 +65,12 @@ This component lists the related items and the outfit items. It features:
 ### Questions and Answers
 [![Questions and Answers Screen Shot][qs-and-as-screenshot]](https://github.com/FEC-Pina-Fraise-Frivolities/Atelier/)
 
+The Q&A module conditionally displays questions and answers for products selected by previous modules. It features:
+
+* A debounced search bar that displays results on input
+* Modal forms with validation for submitting questions and answers with image uploads
+* Network optimized functions that displays more Q&As without additional backend API calls.
+
 ### Ratings and Reviews
 [![Ratings and Reviews Screen Shot][ratings-and-reviews-screenshot]](https://github.com/FEC-Pina-Fraise-Frivolities/Atelier/)
 
